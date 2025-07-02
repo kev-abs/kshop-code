@@ -1,0 +1,363 @@
+/* ============================================
+   ESTILOS BASE
+============================================ */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 10px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* ============================================
+   NAVBAR Y ENCABEZADO
+============================================ */
+.header {
+  background-color: #a8c0c1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  border-bottom: 2px solid #000;
+}
+
+.header .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+nav li {
+  background-color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* ============================================
+    CARRUSEL
+============================================ */
+.carousel {
+  color: #000 !important;
+}
+/* ============================================
+   FORMULARIO DE BÚSQUEDA
+============================================ */
+.form-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.form-busqueda input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form-busqueda button {
+  background-color: #000;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-busqueda button svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+/* ============================================
+   LOGIN / INICIAR SESIÓN
+============================================ */
+.login-container,
+.iniciar-sesion {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: #000;
+}
+
+.login-container h2,
+.iniciar-sesion h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   PANEL ADMIN / CLIENTE / VENDEDOR
+============================================ */
+.paneladmin,
+.panelcliente,
+.panelvendedor {
+  display: none;
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  color: #000;
+}
+
+.paneladmin button,
+.panelcliente button,
+.panelvendedor button {
+  margin: 10px 5px;
+}
+
+.admin-header {
+  background-color: #000;
+  color: #7b7ed1;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #7b7ed1;
+}
+
+.admin-section {
+  margin-bottom: 30px;
+  border-left: 6px solid #7b7ed1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.section-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 8px;
+}
+
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-content button {
+  flex: 1 1 180px;
+  padding: 12px;
+  font-weight: bold;
+}
+
+.logout-btn,
+.logout {
+  background-color: #c0392b;
+  margin-top: 20px;
+}
+
+.logout-btn:hover,
+.logout:hover {
+  background-color: #922b21;
+}
+
+/* ============================================
+   PÁGINA DE PRODUCTOS
+============================================ */
+.productos {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.producto-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.producto-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.producto-info h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.producto-info p {
+  margin: 5px 0;
+  color: #444;
+}
+
+/* ============================================
+   CARRITO DE COMPRAS
+============================================ */
+.carrito {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.carrito h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.carrito-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.carrito-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carrito-item h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.carrito-item p {
+  margin: 5px 0;
+  color: #444;
+}
+
+.carrito-total {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.carrito-total h2 {
+  color: #000;
+}
+
+.botones-carrito {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Botón Eliminar */
+.eliminar {
+  background-color: #c0392b;
+  padding: 8px 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.eliminar:hover {
+  background-color: #922b21;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .paneladmin,
+  .panelcliente,
+  .panelvendedor,
+  .admin-container,
+  .carrito {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .section-content {
+    flex-direction: column;
+  }
+
+  .section-content button,
+  .botones-carrito button {
+    width: 100%;
+  }
+
+  .form-busqueda {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.footer {
+  background-color: #a8c0c1 !important;
+}
