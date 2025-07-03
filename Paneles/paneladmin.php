@@ -30,7 +30,7 @@ header("Expires: 0");
 <!-- Refuerzo con JavaScript por si el navegador cachea la página -->
 <script>
   // Si no hay sesión activa (verificado desde PHP, pero por refuerzo en JS)
-  <?php if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador"]): ?>
+  <?php if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador"): ?>
     alert("Sesión expirada. Redirigiendo...");
     window.location.href = "../Barra de navegacion/Iniciarsesion.php";
   <?php endif; ?>
