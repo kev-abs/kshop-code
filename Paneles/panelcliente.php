@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "cliente") {
+    header("Location: ../Barra de navegacion/Iniciarsesion.php");
+    exit();
+}
+
+// Evita que el navegador muestre contenido cacheado
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
