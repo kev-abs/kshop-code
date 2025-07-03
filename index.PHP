@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Sistema de Gestión</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-<link rel="stylesheet" href="/Estilos/stilos.css">
+<link rel="stylesheet" href="./Estilos/stilos.css">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
         <li><a href="./Barra de navegacion/Productos.php">Productos</a></li>
         <li><a href="./Barra de navegacion/servicios.php">Servicios</a></li>
         <li><a href="./Barra de navegacion/contactos.php">Contáctanos</a></li>
-        <li><a href="Barra de navegacion/Iniciarsesion.php" class="iniciar-sesion">Iniciar sesion</a></li>
+        <li><a href="./Barra de navegacion/Iniciarsesion.php" class="iniciar-sesion">Iniciar sesion</a></li>
       </ul>
     </nav>
 
