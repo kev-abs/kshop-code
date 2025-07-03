@@ -114,7 +114,7 @@
     }
   </style>
 </head>
-<body onload="verificarAcceso('cliente'); mostrarCarrito();">
+<body>
 
   <!-- Encabezado -->
   <header class="header">
