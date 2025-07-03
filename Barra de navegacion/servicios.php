@@ -28,50 +28,51 @@
 
   <!-- Servicios -->
   <section class="servicios">
-    <h1>Servicios disponibles en Bogotá</h1>
+    <h1 class="text-center">Servicios disponibles en Bogotá</h1>
     <div class="servicios-grid">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <h3>Envíos Rápidos en Bogotá</h3>
-            <p>Realizamos entregas el mismo día dentro de Bogotá para pedidos hechos antes del mediodía.</p>
-          </div>
-        </div>
-
-        <div class="cold-md-3">
-          <div class="servicio">
-            <h3>Asesoría Personalizada</h3>
-            <p>Contamos con asesores disponibles en la ciudad para ayudarte a elegir el mejor producto.</p>
-          </div>
-        </div>
-        
-        <div class="cold-md-3">
-          <div class="servicio">
-            <h3>Hoy no fio mañana shi</h3>
-            <p>Las devoluciones se recogen directamente en tu domicilio en Bogotá, sin costo adicional.</p>
-          </div>
-        </div>
-
-        <div class="cold-md-3">
-          <div class="servicio">
-            <h3>Soporte Técnico Local</h3>
-            <p>Servicio técnico con cobertura total en Bogotá, incluyendo visitas domiciliarias si es necesario.</p>
-          </div>
-        </div>
-
-        <div class="cold-md-3">
-          <div class="servicio">
-            <h3>Capacitación y Formación</h3>
-            <p>Ofrecemos talleres y capacitaciones gratuitas presenciales en nuestra sede de Bogotá sobre el uso de productos tecnológicos.</p>
-          </div>
-        
-
-          <div class="servicio">
-            <h3>Programación de Pedidos</h3>
-            <p>Puedes programar tus pedidos para fechas y horarios específicos dentro de la capital.</p>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-3">
+            <div class="card">
+              <h3>Envíos Rápidos en Bogotá</h3>
+              <p>Realizamos entregas el mismo día dentro de Bogotá para pedidos hechos antes del mediodía.</p>
+            </div>
           </div>
 
+          <div class="col-md-3">
+            <div class="card">
+              <h3>Asesoría Personalizada</h3>
+              <p>Contamos con asesores disponibles en la ciudad para ayudarte a elegir el mejor producto.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3">
+            <div class="card">
+              <h3>Devoluciones Gratuitas</h3>
+              <p>Las devoluciones se recogen directamente en tu domicilio en Bogotá, sin costo adicional.</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card">
+              <h3>Soporte Técnico Local</h3>
+              <p>Servicio técnico con cobertura total en Bogotá, incluyendo visitas domiciliarias si es necesario.</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card">
+              <h3>Capacitación y Formación</h3>
+              <p>Ofrecemos talleres y capacitaciones gratuitas presenciales en nuestra sede de Bogotá sobre el uso de productos tecnológicos.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3">
+            <div class="card">
+              <h3>Programación de Pedidos</h3>
+              <p>Puedes programar tus pedidos para fechas y horarios específicos dentro de la capital.</p>
+            </div>
+          </div>  
         </div>
       </div>
     </div>
