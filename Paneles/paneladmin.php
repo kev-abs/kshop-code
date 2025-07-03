@@ -1,12 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION["rol"]) || $_SESSION["rol"] != "administrador") {
-    header("Location: ../Barra de navegacion/Iniciarsesion.php");
-    exit;
-}
-?>
-<?php
-session_start();
 
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
@@ -18,7 +11,6 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 header("Expires: 0");
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,9 +18,9 @@ header("Expires: 0");
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panel del Administrador - K-SHOP</title>
   <link rel="stylesheet" href="../Estilos/stilos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
-<!-- Encabezado -->
   <div class="header">
     <div class="logo">K-SHOP</div>
     <form action="/buscar" method="GET">
@@ -36,17 +28,15 @@ header("Expires: 0");
     </form>
     <nav class="navbar">
       <ul>
-        <li><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
+        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
       </ul>
     </nav>
   </div>
-  <div class="admin-header">
-    Panel del Administrador - K-SHOP
-  </div>
+
+  <div class="admin-header">Panel del Administrador - K-SHOP</div>
 
   <div class="admin-container">
 
-    <!-- Sección: Gestión de Clientes -->
     <div class="admin-section">
       <div class="section-header">Gestión de Clientes</div>
       <div class="section-content">
@@ -56,7 +46,6 @@ header("Expires: 0");
       </div>
     </div>
 
-    <!-- Sección: Gestión de Productos -->
     <div class="admin-section">
       <div class="section-header">Gestión de Productos</div>
       <div class="section-content">
@@ -67,7 +56,6 @@ header("Expires: 0");
       </div>
     </div>
 
-    <!-- Sección: Gestión de Inventario -->
     <div class="admin-section">
       <div class="section-header">Inventario</div>
       <div class="section-content">
@@ -76,7 +64,6 @@ header("Expires: 0");
       </div>
     </div>
 
-    <!-- Sección: Ventas -->
     <div class="admin-section">
       <div class="section-header">Ventas</div>
       <div class="section-content">
@@ -85,12 +72,11 @@ header("Expires: 0");
       </div>
     </div>
 
-    <!-- Botón Cerrar Sesión -->
-    <a href="../php/cerrarsesion.php" class="btn btn-danger">
-  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-</a>
-
-
+    <a href="../php/cerrar_sesion.php" class="btn btn-danger mt-4">
+      <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+    </a>
   </div>
-  <script src="../Funciones/funciones.js"></script><script src="../Funciones/funciones.js" defer></script></body>
+
+  <script src="../Funciones/funciones.js" defer></script>
+</body>
 </html>
