@@ -41,7 +41,7 @@
 
           <div class="col-md-3">
             <div class="card">
-              <h3>Asesoría Personalizada</h3>
+              <h3>Asesoría Personalizadaaaaaaaaaaaa</h3>
               <p>Contamos con asesores disponibles en la ciudad para ayudarte a elegir el mejor producto.</p>
             </div>
           </div>
