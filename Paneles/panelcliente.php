@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "cliente") {
+    header("Location: ../Barra de navegacion/Iniciarsesion.php");
+    exit();
+}
+
+// Evita que el navegador muestre contenido cacheado
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +34,7 @@
         <li><a href="../index.html">Comprar productos</a></li>
         <li><a href="Productos.html">Ver carrito</a></li>
         <li><a href="servicios.html">Pagar</a></li>
-        <li><a href="../index.PHP" class="logout bg-light" onclick="cerrarSesion()">Cerrar Sesion</a></li>
+        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
       </ul>
     </nav>
   </div>
