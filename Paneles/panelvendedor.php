@@ -23,8 +23,21 @@ header("Expires: 0");
 <body>
 
   <!-- Encabezado -->
+    <!-- Encabezado -->
   <div class="header">
     <div class="logo">K-SHOP</div>
+    <form action="/buscar" method="GET" class="buscar-formulario">
+      <input type="text" name="q" placeholder="Buscar..." />
+    </form>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.php">Comprar productos</a></li>
+        <li><a href="Productos.php">Ver carrito</a></li>
+        <li><a href="servicios.php">Pagar</a></li>
+        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
 
     <!-- Buscador -->
     <form action="/buscar" method="GET">
@@ -34,7 +47,7 @@ header("Expires: 0");
     <!-- Navegación -->
     <nav class="navbar">
       <ul>
-        <li><a href="../index.html">Cerrar sesión</a></li>
+        <li><a href="../php">Cerrar sesión</a></li>
       </ul>
     </nav>
   </div>
@@ -61,8 +74,10 @@ header("Expires: 0");
   </div>
 
   <!-- Cerrar sesión -->
-  <button class="boton-vendedor logout" onclick="cerrarSesion()">Cerrar sesión</button>
-</div>
+  <a href="../php/cerrar_sesion.php" class="btn btn-danger">
+  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+</a>
+
 <script src="../Funciones/funciones.js" defer></script>
 </body>
 </html>
