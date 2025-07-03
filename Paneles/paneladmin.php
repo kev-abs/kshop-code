@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-// Validación de rol
+// Evitar que el navegador guarde en caché esta página
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+// Verificar si la sesión está activa y si el rol es "administrador"
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
-
-// Evita caché en navegador
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Pragma: no-cache");
-header("Expires: 0");
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,20 +21,16 @@ header("Expires: 0");
   <title>Panel del Administrador - K-SHOP</title>
   <link rel="stylesheet" href="../Estilos/stilos.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <meta http-equiv="Cache-Control" content="no-store" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+  <script>
+    // Evitar que el usuario vea la página anterior con el botón "Atrás"
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        window.location.href = "../Barra de navegacion/Iniciarsesion.php";
+      }
+    });
+  </script>
 </head>
 <body>
-
-<!-- Refuerzo con JavaScript por si el navegador cachea la página -->
-<script>
-  // Si no hay sesión activa (verificado desde PHP, pero por refuerzo en JS)
-  <?php if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador"): ?>
-    alert("Sesión expirada. Redirigiendo...");
-    window.location.href = "../Barra de navegacion/Iniciarsesion.php";
-  <?php endif; ?>
-</script>
 
 <!-- Encabezado -->
 <div class="header">
@@ -44,58 +40,62 @@ header("Expires: 0");
   </form>
   <nav class="navbar">
     <ul>
-      <li><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
+      <li>
+        <a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
+      </li>
     </ul>
   </nav>
 </div>
 
-<div class="admin-header">Panel del Administrador - K-SHOP</div>
+<!-- Panel del Administrador -->
+<div class="admin-header text-center my-4">
+  <h2>Panel del Administrador - K-SHOP</h2>
+</div>
 
-<div class="admin-container">
+<div class="admin-container container">
 
-  <!-- Sección: Gestión de Clientes -->
-  <div class="admin-section">
-    <div class="section-header">Gestión de Clientes</div>
+  <!-- Gestión de Clientes -->
+  <div class="admin-section mb-4">
+    <div class="section-header h4">Gestión de Clientes</div>
     <div class="section-content">
-      <button onclick="location.href='../php/listar_clientes.php'">Consultar Clientes</button>
-      <button>Actualizar Clientes</button>
-      <button>Eliminar Clientes</button>
+      <a href="../php/listar_clientes.php" class="btn btn-primary">Consultar Clientes</a>
+      <a href="../php/crear_cliente.php" class="btn btn-success">Agregar Cliente</a>
     </div>
   </div>
 
-  <!-- Sección: Gestión de Productos -->
-  <div class="admin-section">
-    <div class="section-header">Gestión de Productos</div>
+  <!-- Gestión de Productos -->
+  <div class="admin-section mb-4">
+    <div class="section-header h4">Gestión de Productos</div>
     <div class="section-content">
-      <button>Consultar Productos</button>
-      <button>Agregar Producto</button>
-      <button>Actualizar Producto</button>
-      <button>Eliminar Producto</button>
+      <button class="btn btn-primary">Consultar Productos</button>
+      <button class="btn btn-success">Agregar Producto</button>
     </div>
   </div>
 
-  <!-- Sección: Gestión de Inventario -->
-  <div class="admin-section">
-    <div class="section-header">Inventario</div>
+  <!-- Gestión de Inventario -->
+  <div class="admin-section mb-4">
+    <div class="section-header h4">Inventario</div>
     <div class="section-content">
-      <button>Consultar Inventario</button>
-      <button>Actualizar Existencias</button>
+      <button class="btn btn-info">Consultar Inventario</button>
+      <button class="btn btn-warning">Actualizar Existencias</button>
     </div>
   </div>
 
-  <!-- Sección: Ventas -->
-  <div class="admin-section">
-    <div class="section-header">Ventas</div>
+  <!-- Ventas -->
+  <div class="admin-section mb-4">
+    <div class="section-header h4">Ventas</div>
     <div class="section-content">
-      <button>Consultar Ventas</button>
-      <button>Generar Reportes</button>
+      <button class="btn btn-secondary">Consultar Ventas</button>
+      <button class="btn btn-dark">Generar Reportes</button>
     </div>
   </div>
 
   <!-- Botón Cerrar Sesión -->
-  <a href="../php/cerrarsesion.php" class="btn btn-danger mt-3">
-    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-  </a>
+  <div class="text-center mt-4">
+    <a href="../php/cerrarsesion.php" class="btn btn-danger">
+      <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+    </a>
+  </div>
 
 </div>
 
