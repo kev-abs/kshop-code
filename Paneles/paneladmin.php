@@ -19,7 +19,6 @@ header("Pragma: no-cache");
 header("Expires: 0");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
