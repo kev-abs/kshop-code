@@ -31,13 +31,16 @@ header("Expires: 0");
     </form>
     <nav class="navbar">
       <ul>
-        <li><a href="../index.html">Comprar productos</a></li>
-        <li><a href="Productos.html">Ver carrito</a></li>
-        <li><a href="servicios.html">Pagar</a></li>
+        <li><a href="../index.php">Comprar productos</a></li>
+        <li><a href="Productos.php">Ver carrito</a></li>
+        <li><a href="servicios.php">Pagar</a></li>
         <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
       </ul>
     </nav>
   </div>
+<li>
+  <a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
+</li>
 
   <!-- Panel del Cliente -->
   <div class="panelcliente">
