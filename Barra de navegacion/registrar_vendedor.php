@@ -8,7 +8,7 @@
 </head>
 <body class="container mt-5">
   <h2 class="mb-4">Registrar Nuevo Vendedor</h2>
-  <form action="guardar_vendedor.php" method="POST">
+  <form action="../php/guardar_vendedor.php" method="POST">
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input type="text" name="nombre" class="form-control" required>
@@ -22,7 +22,7 @@
       <input type="password" name="contrasena" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-success">Registrar</button>
-    <a href="paneladmin.php" class="btn btn-secondary">Cancelar</a>
+    <a href="../Paneles/paneladmin.php" class="btn btn-secondary">Cancelar</a>
   </form>
 </body>
 </html>
