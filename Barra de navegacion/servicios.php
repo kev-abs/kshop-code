@@ -60,8 +60,8 @@
             </div>
           </div>
 
-          <div class="row justify-content-center text-center"> 
-            <div class="col-md-3 d-felx justify-content-center mb-4 offset-md-0">
+          <div class="row justify-content-center text-center"> <!-- Nueva fila para centrar los dos últimos módulos -->
+            <div class="col-md-3 d-felx justify-content-center mb-4 offset-md-0"><!-- Offset de 3 columnas (centra los 2 módulos de 3 columnas cada uno) -->
               <div class="card">
                 <h3>Capacitación y Formación</h3>
                 <p>Ofrecemos talleres y capacitaciones gratuitas presenciales en nuestra sede de Bogotá sobre el uso de productos tecnológicos.</p>
