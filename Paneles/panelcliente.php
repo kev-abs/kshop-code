@@ -32,22 +32,34 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "cliente") {
 </head>
 <body>
 
-  <!-- Encabezado -->
-  <div class="header d-flex justify-content-between align-items-center p-3 bg-dark text-white">
-    <div class="logo">K-SHOP</div>
-    <form action="/buscar" method="GET" class="d-flex">
-      <input type="text" name="q" placeholder="Buscar..." class="form-control me-2"/>
-      <button class="btn btn-outline-light">Buscar</button>
-    </form>
-    <nav class="navbar">
-      <ul class="nav">
-        <li class="nav-item"><a href="../index.php" class="nav-link text-white">Inicio</a></li>
-        <li class="nav-item"><a href="../Barra de navegacion/productos.php" class="nav-link text-white">Productos</a></li>
-        <li class="nav-item"><a href="../Barra de navegacion/carrito.php" class="nav-link text-white">Carrito</a></li>
-        <li class="nav-item"><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
-      </ul>
-    </nav>
-  </div>
+  <!-- Encabezado  -->
+<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #198754 ; color: #000;">
+  <div class="logo fw-bold fs-3">K-SHOP</div>
+
+  <!-- Buscador -->
+  <form action="/buscar" method="GET" class="d-flex" style="max-width: 300px;">
+    <input type="text" name="q" placeholder="Buscar..." class="form-control me-2" />
+  </form>
+
+  <!-- Navegación -->
+  <nav>
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="../index.php" class="nav-link text-dark fw-bold">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a href="../Barra de navegacion/productos.php" class="nav-link text-dark fw-bold">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a href="../Barra de navegacion/carrito.php" class="nav-link text-dark fw-bold">Carrito</a>
+      </li>
+      <li class="nav-item">
+        <a href="../php/cerrarsesion.php" class="btn btn-outline-dark fw-bold">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 
   <!-- Panel del Cliente -->
   <div class="container mt-5">
