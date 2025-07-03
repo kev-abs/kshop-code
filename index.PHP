@@ -23,6 +23,7 @@
     <!-- Barra de navegación -->
     <nav class="navbar">
       <ul>
+        <li><a href="./Barra de navegacion/carrito.php" class="boton-blanco">🛒</a></li>
         <li><a href="index.php">Inicio</a></li>
         <li><a href="./Barra de navegacion/Productos.php">Productos</a></li>
         <li><a href="./Barra de navegacion/servicios.php">Servicios</a></li>
