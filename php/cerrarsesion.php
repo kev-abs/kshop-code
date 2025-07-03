@@ -9,6 +9,6 @@ header("Pragma: no-cache");
 header("Expires: 0");
 
 // Redirige al login
-header("Location: ../Formularios/Iniciarsesion.html");
+header("Location: ../Barra de navegacion/Iniciarsesion.php");
 exit();
 ?>
