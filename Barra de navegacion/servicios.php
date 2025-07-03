@@ -48,7 +48,7 @@
         
         <div class="cold-md-3">
           <div class="servicio">
-            <h3>Devoluciones Gratuitas</h3>
+            <h3>Hoy no fio mañana shi</h3>
             <p>Las devoluciones se recogen directamente en tu domicilio en Bogotá, sin costo adicional.</p>
           </div>
         </div>
