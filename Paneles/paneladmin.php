@@ -36,7 +36,7 @@ header("Expires: 0");
     </form>
     <nav class="navbar">
       <ul>
-        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
+        <li><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
       </ul>
     </nav>
   </div>
@@ -86,7 +86,7 @@ header("Expires: 0");
     </div>
 
     <!-- Botón Cerrar Sesión -->
-    <a href="../php/cerrar_sesion.php" class="btn btn-danger">
+    <a href="../php/cerrarsesion.php" class="btn btn-danger">
   <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
 </a>
 
