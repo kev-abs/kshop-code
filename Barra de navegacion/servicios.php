@@ -49,7 +49,7 @@
         <div class="cold-md-3">
           <div class="servicio">
             <h3>Devoluciones Gratuitas</h3>
-            <p>Las devoluciones se recogen directamente en tu domicilio en Bogotá, sin costo adicional.</p>
+            <p>Los caminos de la vida no son como yo pensaba, como los imaginaba, no son como yo creia.</p>
           </div>
         </div>
 
