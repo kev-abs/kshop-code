@@ -128,7 +128,7 @@
         <li><a href="Productos.php">Productos</a></li>
         <li><a href="servicios.php">Servicios</a></li>
         <li><a href="contactos.php">Contacto</a></li>
-        <li><a href="Iniciarsesion.php" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+      
       </ul>
     </nav>
   </header>
