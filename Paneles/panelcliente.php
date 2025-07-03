@@ -34,7 +34,7 @@ header("Expires: 0");
         <li><a href="../index.html">Comprar productos</a></li>
         <li><a href="Productos.html">Ver carrito</a></li>
         <li><a href="servicios.html">Pagar</a></li>
-        <li><a href="../index.PHP" class="logout bg-light" onclick="cerrarSesion()">Cerrar Sesion</a></li>
+        <li><a class="logout bg-light" onclick="cerrarSesion()">Cerrar Sesion</a></li>
       </ul>
     </nav>
   </div>
