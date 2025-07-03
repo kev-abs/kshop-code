@@ -60,14 +60,15 @@
             </div>
           </div>
 
-          <div class="col-md-3 d-felx justify-content-center mb-4">
-            <div class="card">
-              <h3>Capacitación y Formación</h3>
-              <p>Ofrecemos talleres y capacitaciones gratuitas presenciales en nuestra sede de Bogotá sobre el uso de productos tecnológicos.</p>
+          <div class="row justify-content-center text-center"> 
+            <div class="col-md-3 d-felx justify-content-center mb-4 offset-md-0">
+              <div class="card">
+                <h3>Capacitación y Formación</h3>
+                <p>Ofrecemos talleres y capacitaciones gratuitas presenciales en nuestra sede de Bogotá sobre el uso de productos tecnológicos.</p>
+              </div>
             </div>
-          </div>
           
-          <div class="col-md-3 d-felx justify-content-center mb-4">
+          <div class="col-md-3 d-felx justify-content-center mb-4 ">
             <div class="card">
               <h3>Programación de Pedidos</h3>
               <p>Puedes programar tus pedidos para fechas y horarios específicos dentro de la capital.</p>
