@@ -8,6 +8,13 @@ body {
   padding: 0;
 }
 
+.boton-blanco {
+  color: #000;              /* Símbolo negro */
+}
+
+
+
+
 button {
   padding: 10px;
   background-color: #000;
