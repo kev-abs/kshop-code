@@ -9,7 +9,7 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] != "administrador") {
 session_start();
 
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
-    header("Location: ../Formularios/Iniciarsesion.html");
+    header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
 
