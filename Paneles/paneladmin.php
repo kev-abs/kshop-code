@@ -37,7 +37,7 @@ header("Expires: 0");
     </form>
     <nav class="navbar">
       <ul>
-        <li><a href="../index.php">Cerrar sesión
+        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
       </ul>
     </nav>
   </div>
@@ -87,7 +87,10 @@ header("Expires: 0");
     </div>
 
     <!-- Botón Cerrar Sesión -->
-    <button class="logout-btn">Cerrar Sesión</button>
+    <a href="../php/cerrar_sesion.php" class="btn btn-danger">
+  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+</a>
+
 
   </div>
   <script src="../Funciones/funciones.js"></script><script src="../Funciones/funciones.js" defer></script></body>
