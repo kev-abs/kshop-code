@@ -40,7 +40,7 @@
       <img src="./Imagenes/ropa caballero.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block text-muted">
         <h2>Bienvenido a K-Shop</h2>
-        <p>Aquikiki</p>
+        <p>¡Donde puedes encontrar tus gustos sin tanto andar!</p>
       </div>
     </div>
     <div class="carousel-item">
