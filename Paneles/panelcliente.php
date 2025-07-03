@@ -34,12 +34,12 @@ header("Expires: 0");
         <li><a href="../index.php">Comprar productos</a></li>
         <li><a href="Productos.php">Ver carrito</a></li>
         <li><a href="servicios.php">Pagar</a></li>
-        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
+        <li><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
       </ul>
     </nav>
   </div>
 <li>
-  <a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
+  <a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
 </li>
 
   <!-- Panel del Cliente -->
