@@ -17,8 +17,8 @@ header("Expires: 0");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panel del Administrador - K-SHOP</title>
-  <link rel="stylesheet" href="../Estilos/stilos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../Estilos/stilos.css" />
 </head>
 <body>
   <div class="header">
@@ -28,7 +28,7 @@ header("Expires: 0");
     </form>
     <nav class="navbar">
       <ul>
-        <li><a href="../php/cerrar_sesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
+        <li><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
       </ul>
     </nav>
   </div>
@@ -72,7 +72,7 @@ header("Expires: 0");
       </div>
     </div>
 
-    <a href="../php/cerrar_sesion.php" class="btn btn-danger mt-4">
+    <a href="../php/cerrarsesion.php" class="btn btn-danger mt-4">
       <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
     </a>
   </div>
