@@ -64,7 +64,8 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     <div class="section-header h4">Gestión de Clientes</div>
     <div class="section-content">
       <a href="../php/consultar_clientes.php" class="btn btn-primary">Consultar Clientes</a>
-      <a href="../php/crear_cliente.php" class="btn btn-success">Agregar Cliente</a>
+      <a href="../php/listar_clientes.php" class="btn btn-success">Agregar Cliente</a>
+      <a href="../php/actualizar_clientes.php" class="btn btn-info">Actualizar clientes</a>
     </div>
   </div>
 
