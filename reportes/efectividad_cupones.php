@@ -28,9 +28,8 @@ include '../conexion/conexion.php';
 <div class="container mt-5">
   <!-- INICIO - Título -->
   <h2 class="text-center mb-4 text-info">🎟️ Efectividad de Cupones</h2>
-  <!-- FIN -->
 
-  <!-- INICIO - Tabla de cupones -->
+  <!-- Tabla de cupones -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
       <thead class="table-info">
@@ -41,21 +40,11 @@ include '../conexion/conexion.php';
         </tr>
       </thead>
       <tbody>
-        <!-- Datos reales se insertarán después -->
-        <tr>
-          <td colspan="3">Los datos de uso de cupones estarán disponibles próximamente.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- FIN - Tabla -->
 
-  <!-- INICIO - Botón volver -->
+  <!-- Botón volver -->
   <div class="text-center mt-4">
     <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
   </div>
-  <!-- FIN -->
-
 </div>
 
 </body>
