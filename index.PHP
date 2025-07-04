@@ -28,7 +28,7 @@
         <li><a href="./Barra de navegacion/Productos.php">Productos</a></li>
         <li><a href="./Barra de navegacion/servicios.php">Servicios</a></li>
         <li><a href="./Barra de navegacion/contactos.php">Contáctanos</a></li>
-        <li><a href="./Barra de navegacion/Iniciarsesion.php" class="iniciar-sesion">Iniciar sesion</a></li>
+        <li><a href="./Barra de navegacion/Iniciarsesion.php">Iniciar sesion</a></li>
       </ul>
     </nav>
 
