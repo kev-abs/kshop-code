@@ -53,6 +53,7 @@ $resultado = $conexion->query("SELECT * FROM producto");
       <li><a href="Iniciarsesion.php">Iniciar Sesión</a></li>
     </ul>
   </nav>
+
 <body class="container py-5">
   <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>
 
@@ -113,7 +114,9 @@ $resultado = $conexion->query("SELECT * FROM producto");
       <?php endwhile; ?>
     </tbody>
   </table>
-
+  <div class="col-md-4">
+    <div><a href="../Paneles/paneladmin.php">Volver a panel</a></div>
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

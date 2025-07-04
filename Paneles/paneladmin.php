@@ -73,22 +73,12 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     </div>
   </div>
 
-  <!-- Gestión de Productos -->
-<<<<<<< HEAD
-  <div class="admin-section mb-4">
-    <div class="section-header h4">Gestión de Productos</div>
-    <div class="section-content">
-      <button class="btn btn-secondary">Consultar Productos</button>
-      <button class="btn btn-secondary">Agregar Producto</button>
-    </div>
-=======
  <!-- Gestión de Productos -->
 <div class="admin-section mb-4">
   <div class="section-header h4">Gestión de Productos</div>
   <div class="section-content">
     <a href="../Barra de navegacion/Admin_productos.php" class="btn btn-primary">Consultar Productos</a>
     <a href="../Barra de navegacion/Admin_productos.php#formulario" class="btn btn-success">Agregar Producto</a>
->>>>>>> 1bbd05c9be005d34a8f3d6caab9f3987426b826e
   </div>
 </div>
 
@@ -116,37 +106,20 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
       <hr style="border: 1px solid gold;" />
     <div class="section-content d-grid gap-2 d-md-block text-center">
 
-<<<<<<< HEAD
-    <!-- RF34: Estadísticas de ventas -->
+    <!-- Estadísticas de ventas -->
     <a href="../reportes/estadisticas_ventas.php" class="btn btn-info m-1">Estadísticas de Ventas</a>
 
-    <!-- RF35: Exportación de datos -->
+    <!-- Exportación de datos -->
     <a href="../reportes/exportar_datos.php" class="btn btn-info m-1">Exportar Datos</a>
 
-    <!-- RF36: Productos más vendidos -->
+    <!-- Productos más vendidos -->
     <a href="../reportes/productos_mas_vendidos.php" class="btn btn-info m-1">Productos Más Vendidos</a>
 
-    <!-- RF37: Clientes frecuentes -->
+    <!-- Clientes frecuentes -->
     <a href="../reportes/clientes_frecuentes.php" class="btn btn-info m-1">Clientes Frecuentes</a>
 
-    <!-- RF39: Productos con bajo inventario -->
-    <a href="../reportes/bajo_inventario.php" class="btn btn-info m-1">Bajo Inventario</a>
-=======
-    <!-- Estadísticas de ventas -->
-    <a href="../reportes/estadisticas_ventas.php" class="btn btn-primary m-1">Estadísticas de Ventas</a>
-
-    <!-- Exportación de datos -->
-    <a href="../reportes/exportar_datos.php" class="btn btn-secondary m-1">Exportar Datos</a>
-
-    <!-- Productos más vendidos -->
-    <a href="../reportes/productos_mas_vendidos.php" class="btn btn-success m-1">Productos Más Vendidos</a>
-
-    <!-- Clientes frecuentes -->
-    <a href="../reportes/clientes_frecuentes.php" class="btn btn-warning m-1">Clientes Frecuentes</a>
-
     <!-- Productos con bajo inventario -->
-    <a href="../reportes/bajo_inventario.php" class="btn btn-danger m-1">Bajo Inventario</a>
->>>>>>> be6cd0ee71e1a3ebbe7217858e330615d8163441
+    <a href="../reportes/bajo_inventario.php" class="btn btn-info m-1">Bajo Inventario</a>
 
     <!-- Reporte de uso de cupones -->
     <a href="../reportes/efectividad_cupones.php" class="btn btn-info m-1">Uso de Cupones</a>
