@@ -68,13 +68,13 @@
       <div class="col-md-4 resumen-fijo">
         <h5 class="fw-bold">Resumen de la compra (0)</h5>
         <div class="d-flex mb-3">
-          <img src=".#" alt="Producto" class="img-thumbnail me-3" style="width: 100px" />
+          <img src="../Imagenes/camiseta boxy.jpeg" alt="Producto" class="img-thumbnail me-3" style="width: 100px" />
           <div>
-            <p class="mb-0 text-danger fw-bold">
-              0 COP <del class="text-muted">0 COP</del>
+            <p class="mb-0 fw-bold">
+              0 COP 
             </p>
             <p class="mb-1 small">Descripcion</p>
-            <p class="small text-muted mb-0">Talla: #</p>
+            <p class="small text-muted mb-0">Talla: M</p>
           </div>
         </div>
         <hr />
