@@ -1,17 +1,15 @@
 <?php
-// INICIO - Validar sesión como administrador
+//  Validar sesión como administrador
 session_start();
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
-// FIN - Validar sesión
 ?>
 
 <?php
-// INICIO - Conexión a la base de datos
+//  Conexión a la base de datos
 include '../conexion/conexion.php';
-// FIN - Conexión
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +29,7 @@ include '../conexion/conexion.php';
   <h2 class="mb-4 text-center">🔥 Productos Más Vendidos</h2>
 
   <?php
-  // INICIO - Consulta SQL para obtener productos más vendidos
+  // Consulta SQL para obtener productos más vendidos
   $consulta = "
     SELECT P.Nombre, SUM(D.Cantidad) AS Total_Vendido
     FROM Detalle_Pedido D
@@ -41,10 +39,9 @@ include '../conexion/conexion.php';
     LIMIT 10
   ";
   $resultados = $conexion->query($consulta);
-  // FIN - Consulta SQL
   ?>
 
-  <!-- INICIO - Tabla de productos más vendidos -->
+  <!-- Tabla de productos más vendidos -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
       <thead class="table-dark">
@@ -66,18 +63,15 @@ include '../conexion/conexion.php';
         } else {
           echo "<tr><td colspan='2'>No hay datos de ventas registradas.</td></tr>";
         }
-        // FIN - Mostrar resultados
         ?>
       </tbody>
     </table>
   </div>
-  <!-- FIN - Tabla -->
 
-  <!-- INICIO - Botón volver al panel -->
+  <!-- Botón volver al panel -->
   <div class="text-center mt-4">
     <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
   </div>
-  <!-- FIN - Botón volver -->
 
 </div>
 
