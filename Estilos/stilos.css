@@ -368,38 +368,3 @@ nav a {
 .footer {
   background-color: #a8c0c1 !important;
 }
-/* ============================================
-   PANEL ADMIN / AÑADIR PRODUCTOS
-============================================ */
-body {
-  background-color: #f8f9fa;
-}
-
-h1, h4 {
-  color: #212529;
-}
-
-table th {
-  background-color: #343a40;
-  color: white;
-}
-
-.btn {
-  border-radius: 8px;
-}
-
-.modal-title {
-  font-weight: bold;
-}
-
-input, textarea {
-  border-radius: 6px;
-}
-
-footer {
-  margin-top: 60px;
-  padding: 20px 0;
-  background-color: #212529;
-  color: white;
-  text-align: center;
-}

@@ -40,8 +40,19 @@ $resultado = $conexion->query("SELECT * FROM producto");
   <meta charset="UTF-8">
   <title>Admin Productos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="../Estilos/stilos.css">
 </head>
+<body>
+   <nav class="navbar">
+    <ul>
+      <li><a href="carrito.php">🛒</a></li>
+      <li><a href="../index.php">Inicio</a></li>
+      <li><a href="Productos.php">Productos</a></li>
+      <li><a href="servicios.php">Servicios</a></li>
+      <li><a href="contactos.php">Contáctanos</a></li>
+      <li><a href="Iniciarsesion.php">Iniciar Sesión</a></li>
+    </ul>
+  </nav>
 <body class="container py-5">
   <h1 class="mb-4">🛠️ paneladmin - Producto</h1>
 
