@@ -17,6 +17,21 @@ include '../conexion/conexion.php';
   <title>Estadísticas de Ventas - KSHOP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .info-card{
+      border: 2px solid #ffc107;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #fff;
+      color: #000;  
+    }
+
+    .btn-fixed {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      }
+  </style>
 </head>
 <body class="bg-light">
 
