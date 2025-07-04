@@ -41,7 +41,7 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
   <nav class="navbar">
     <ul>
       <li>
-        <a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a>
+        <a href="../php/cerrarsesion.php" class="btn">Cerrar Sesión</a>
       </li>
     </ul>
   </nav>
