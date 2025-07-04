@@ -103,7 +103,16 @@ $productos = [
     <?php endforeach; ?>
   </div>
 </div>
-
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
+    <div class="container">
+      <div class="mb-3">
+        <a href="#" class="text-white me-3">Términos y condiciones</a>
+        <a href="#" class="text-white me-3">Política de privacidad</a>
+        <a href="#" class="text-white me-3">Ayuda</a>
+      </div>
+      <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>
+    </div>
+  </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../Funciones/funciones.js" defer></script>
 </body>
