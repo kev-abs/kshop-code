@@ -19,9 +19,9 @@
     <nav class="navbar">
       <ul>
         <li><a href="../index.php">Inicio</a></li>
-        <li><a href="Productos.php">Productos</a></li>
-        <li><a href="servicios.php">Servicios</a></li>
-        <li><a href="contactos.php">Contacto</a></li>
+        <li><a href="../Barra de navegacion/Productos.php">Productos</a></li>
+        <li><a href="../Barra de navegacion/servicios.php">Servicios</a></li>
+        <li><a href="../Barra de navegacion/contactos.php">Contáctanos</a></li>
       </ul>
     </nav>
   </header>
@@ -89,7 +89,7 @@
 
         <div class="d-flex justify-content-between align-items-center mt-4">
           <a href="metodo de envio.php" class="btn btn-link">&lt; Volver a método de envío</a>
-          <a href="#" id="continuarBtn" class="btn btn-dark btn-lg w-50 disabled" tabindex="-1"
+          <a href="compra_exitosa.php" id="continuarBtn" class="btn btn-dark btn-lg w-50 disabled" tabindex="-1"
             aria-disabled="true">CONTINUAR</a>
         </div>
       </div>

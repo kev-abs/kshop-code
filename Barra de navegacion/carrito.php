@@ -54,10 +54,6 @@
     </div>
 
 
-    <!-- Lista de productos agregados -->
-    <div id="lista-carrito" class="mb-4">
-      <!-- Aquí se mostrarán los productos dinámicamente -->
-    </div>
 
     <!-- Total y botones -->
     <div class="botones-carrito">

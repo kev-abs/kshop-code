@@ -19,9 +19,9 @@
     <nav class="navbar">
       <ul>
         <li><a href="../index.php">Inicio</a></li>
-        <li><a href="Productos.php">Productos</a></li>
-        <li><a href="servicios.php">Servicios</a></li>
-        <li><a href="contactos.php">Contacto</a></li>
+        <li><a href="../Barra de navegacion/Productos.php">Productos</a></li>
+        <li><a href="../Barra de navegacion/servicios.php">Servicios</a></li>
+        <li><a href="../Barra de navegacion/contactos.php">Contáctanos</a></li>
       </ul>
     </nav>
   </header>
