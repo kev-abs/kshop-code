@@ -23,10 +23,10 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-  <!-- INICIO - Título -->
+  <!-- Título -->
    <div class="container-fluid">
     <div class="row">
-      <div class="col-12 bg-info text-white text-center p-3 mb-4">
+      <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	rgb(0, 0, 0);">  
         <h2 class="m-0">Efectividad de Cupones</h2>
     </div>
   </div>
