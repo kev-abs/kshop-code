@@ -7,16 +7,16 @@ $productos = [
     "pagina" => "producto1.php",
     "precio" => 39900
   ],
-    [
+  [
     "titulo" => "Camiseta Boxy Ultra Aestetick",
-    "descripcion" => "Un estilo unico y moderno.",
+    "descripcion" => "Un estilo único y moderno.",
     "imagen" => "../Imagenes/camiseta boxy.jpeg",
     "pagina" => "producto1.php",
     "precio" => 80000
   ],
-   [
+  [
     "titulo" => "Pantalón cargo cannabis",
-    "descripcion" => "Un pantalon con mucha personalidad y estilo",
+    "descripcion" => "Un pantalón con mucha personalidad y estilo.",
     "imagen" => "../Imagenes/pantalon cargo.jpeg",
     "pagina" => "producto1.php",
     "precio" => 100000
@@ -63,6 +63,7 @@ $productos = [
   </form>
   <nav class="navbar">
     <ul>
+      <li><a href="./Barra de navegacion/carrito.php">🛒</a></li>
       <li><a href="../index.php">Inicio</a></li>
       <li><a href="Productos.php">Productos</a></li>
       <li><a href="servicios.php">Servicios</a></li>
@@ -80,10 +81,10 @@ $productos = [
         <div class="col-6 col-md-4">
           <div class="card h-100">
             <img src="<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['titulo'] ?>">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title"><?= $producto['titulo'] ?></h5>
               <p class="card-text">$<?= number_format($producto['precio'], 0, ',', '.') ?></p>
-              <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalProducto<?= $index ?>">Ver más</button>
+              <button class="btn btn-primary mt-auto w-100" data-bs-toggle="modal" data-bs-target="#modalProducto<?= $index ?>">Ver más</button>
             </div>
           </div>
         </div>
@@ -93,7 +94,7 @@ $productos = [
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalProductoLabel<?= $index ?>"><?= $producto['titulo'] ?></h5>
+                <h5 class="modal-title"><?= $producto['titulo'] ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
               </div>
               <div class="modal-body text-start">
@@ -103,12 +104,23 @@ $productos = [
               </div>
               <div class="modal-footer">
                 <a href="<?= $producto['pagina'] ?>" class="btn btn-secondary">Detalles</a>
-                <a href="carrito.php?producto=<?= urlencode($producto['titulo']) ?>&precio=<?= $producto['precio'] ?>" class="btn btn-success">Agregar al carrito</a>
+                <button class="btn btn-success"
+                  onclick='agregarAlCarrito({
+                    id: <?= $index + 1 ?>,
+                    nombre: <?= json_encode($producto["titulo"]) ?>,
+                    descripcion: <?= json_encode($producto["descripcion"]) ?>,
+                    precio: <?= $producto["precio"] ?>,
+                    imagen: <?= json_encode($producto["imagen"]) ?>
+                  })'>Agregar al carrito</button>
               </div>
             </div>
           </div>
         </div>
       <?php endforeach; ?>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="carrito.php" class="btn btn-warning">Ir al carrito</a>
     </div>
   </div>
 </div>
