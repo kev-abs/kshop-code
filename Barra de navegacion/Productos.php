@@ -87,7 +87,7 @@ $productos = [
     <!-- Logo -->
     <div class="d-flex align-items-center">
       <i class="bi bi-shop me-2 fs-4 text-warning"></i>
-      <span class="logo-text text-light">K-SHOP</span>
+      <a href="../index.PHP" class="fs-4 fw-bold">K-SHOP</a>
     </div>
 
     <!-- Buscador -->
@@ -99,12 +99,12 @@ $productos = [
     <nav>
       <ul class="nav">
         <li class="nav-item">
-          <a href="./Barra de navegacion/carrito.php" class="nav-link">
+          <a href="./carrito.php" class="nav-link">
             <i class="bi bi-cart-fill text-warning"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php" class="nav-link">Inicio</a>
+          <a href="../index.php" class="nav-link">Inicio</a>
         </li>
         <li class="nav-item">
           <a href="./Productos.php" class="nav-link">Productos</a>
@@ -116,7 +116,7 @@ $productos = [
           <a href="./contactos.php" class="nav-link">Contáctanos</a>
         </li>
         <li class="nav-item">
-          <a href="./Barra de navegacion/Iniciarsesion.php" class="nav-link text-warning">
+          <a href="./Iniciarsesion.php" class="nav-link text-warning">
             <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
           </a>
         </li>
