@@ -4,38 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Sistema de Gestión</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-<link rel="stylesheet" href="./Estilos/stilos.css">
+
+  <!-- Bootstrap y Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Tu hoja de estilos -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .header-custom {
+      background-color: #000;
+      color:#000;
+    }
+    .header-custom a.nav-link {
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .header-custom a.nav-link:hover {
+      color: #ffc107;
+    }
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Encabezado -->
-  <div class="header">
-    <div class="logo">K-SHOP</div>
+<!-- ENCABEZADO -->
+<header class="header-custom shadow-sm sticky-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center py-3 px-4">
+    
+    <!-- Logo -->
+    <div class="d-flex align-items-center">
+      <i class="bi bi-shop me-2 fs-4 text-warning"></i>
+      <span class="logo-text text-light">K-SHOP</span>
+    </div>
 
-    <!-- Formulario de búsqueda -->
-    <form action="/buscar" method="GET">
-      <input type="text" name="q" placeholder="Buscar..." />
-</form>
-
+    <!-- Buscador -->
+    <form action="/buscar" method="GET" class="d-none d-md-flex w-25">
+      <input type="text" name="q" class="form-control form-control-sm" placeholder="Buscar...">
     </form>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar">
-      <ul>
-        <li><a href="./Barra de navegacion/carrito.php">🛒</a></li>
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="./Barra de navegacion/Productos.php">Productos</a></li>
-        <li><a href="./Barra de navegacion/servicios.php">Servicios</a></li>
-        <li><a href="./Barra de navegacion/contactos.php">Contáctanos</a></li>
-        <li><a href="./Barra de navegacion/Iniciarsesion.php">Iniciar sesion</a></li>
+    <!-- Navegación -->
+    <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="./Barra de navegacion/carrito.php" class="nav-link">
+            <i class="bi bi-cart-fill text-warning"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php" class="nav-link">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a href="./Barra de navegacion/Productos.php" class="nav-link">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a href="./Barra de navegacion/servicios.php" class="nav-link">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a href="./Barra de navegacion/contactos.php" class="nav-link">Contáctanos</a>
+        </li>
+        <li class="nav-item">
+          <a href="./Barra de navegacion/Iniciarsesion.php" class="nav-link text-warning">
+            <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
+          </a>
+        </li>
       </ul>
     </nav>
-
   </div>
+</header>
 
-  <!--CARRUSEL-->
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" ID="carousel">
+<!-- CARRUSEL -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner fst-italic">
     <div class="carousel-item active">
       <img src="./Imagenes/ropa caballero.jpeg" class="d-block w-100" alt="...">
@@ -60,18 +104,21 @@
     </div>
   </div>
 </div>
-<!--FOOTER-->
+
+<!-- FOOTER -->
 <footer class="bg-dark text-white text-center py-4 mt-auto">
-    <div class="container">
-      <div class="mb-3">
-        <a href="#" class="text-white me-3">Términos y condiciones</a>
-        <a href="#" class="text-white me-3">Política de privacidad</a>
-        <a href="#" class="text-white me-3">¿Necesitas ayuda?</a>
-      </div>
-      <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>
+  <div class="container">
+    <div class="mb-3">
+      <a href="#" class="text-white me-3">Términos y condiciones</a>
+      <a href="#" class="text-white me-3">Política de privacidad</a>
+      <a href="#" class="text-white me-3">¿Necesitas ayuda?</a>
     </div>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-  <script src="../Funciones/funciones.js" defer></script>
+    <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./Funciones/funciones.js" defer></script>
 </body>
 </html>
