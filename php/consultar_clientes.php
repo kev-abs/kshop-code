@@ -12,7 +12,7 @@ include '../conexion/conexion.php';
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Consultar Clientes - K-SHOP</title>
+  <title>Clientes - K-SHOP</title>
   <link rel="stylesheet" href="../Estilos/stilos.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -32,7 +32,9 @@ include '../conexion/conexion.php';
           <th>ID</th>
           <th>Nombre</th>
           <th>Correo</th>
+          <th>Estado</th>
           <th>Fecha de Registro</th>
+          <th>Editar Estado</th>
         </tr>
       </thead>
       <tbody>
@@ -41,7 +43,11 @@ include '../conexion/conexion.php';
           <td><?= $fila['ID_Cliente'] ?></td>
           <td><?= $fila['Nombre'] ?></td>
           <td><?= $fila['Correo'] ?></td>
+          <td><?= $fila['Estado'] ?></td>
           <td><?= $fila['Fecha_Registro'] ?></td>
+          <td>
+            <a href="editar_clientes.php?id=<?= $fila['ID_Cliente'] ?>" class="btn btn-warning btn-sm">Editar Estado</a>
+          </td>
         </tr>
         <?php endwhile; ?>
       </tbody>
