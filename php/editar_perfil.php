@@ -46,10 +46,10 @@ if (!$cliente) {
   <nav>
     <ul class="nav">
       <li class="nav-item">
-        <a href="../Paneles/panelcliente.php" class="nav-link text-white">Panel</a>
+        <a href="../Paneles/panelcliente.php" class="nav-link text-dark">Panel</a>
       </li>
       <li class="nav-item">
-        <a href="../php/cerrarsesion.php" class="btn btn-outline-light">Cerrar Sesión</a>
+        <a href="../php/cerrarsesion.php" class="btn ">Cerrar Sesión</a>
       </li>
     </ul>
   </nav>
