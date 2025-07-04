@@ -34,16 +34,15 @@
       <div class="col-md-8">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Método de envío</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Método de pago</li>
+            <li class="breadcrumb-item">Método de envío</li>
+            <li class="breadcrumb-item">Método de pago</li>
             <li class="breadcrumb-item">Resumen</li>
           </ol>
         </nav>
 
         <h2 class="fw-bold">Envío estándar a domicilio</h2>
 
-        <!-- Reemplaza el bloque <form> por este -->
-        <form action="pago.php" method="POST">
+        <form action="metodo_pago.php" method="POST">
           <h5 class="mt-4">Datos Personales</h5>
           <div class="row g-3">
             <div class="col-md-6">
@@ -104,14 +103,7 @@
 
           <div class="d-flex justify-content-between align-items-center mt-4">
             <a href="metodo de envio.php" class="btn btn-link">&lt; Volver a método de envío</a>
-            <a
-            href="metodo_pago.php"
-            id="continuarBtn"
-            class="btn btn-dark btn-lg w-50"
-            tabindex="-1"
-            
-            >CONTINUAR</a
-          >
+           <button type="submit" class="btn btn-dark btn-lg w-50">CONTINUAR</button>
           </div>
         </form>
 

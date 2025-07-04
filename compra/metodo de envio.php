@@ -33,7 +33,7 @@
         <div class="col-md-8">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item active">Método de envío</li>
+              <li class="breadcrumb-item">Método de envío</li>
               <li class="breadcrumb-item">Método de pago</li>
               <li class="breadcrumb-item">Resumen</li>
             </ol>

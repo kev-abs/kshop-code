@@ -33,7 +33,7 @@
         <div class="col-md-8">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item active">Método de envío</li>
+              <li class="breadcrumb-item">Método de envío</li>
               <li class="breadcrumb-item">Método de pago</li>
               <li class="breadcrumb-item">Resumen</li>
             </ol>
@@ -74,14 +74,43 @@
             </label>
           </div>
 
+          
+
+                <div id="formularioTarjeta" class="mt-4 d-none">
+                  <h5 class="fw-bold">Datos de la tarjeta</h5>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="nombreTarjeta">Nombre del titular</label>
+                      <input type="text" id="nombreTarjeta" class="form-control" placeholder="Como aparece en la tarjeta" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="numeroTarjeta">Número de tarjeta</label>
+                      <input type="text" id="numeroTarjeta" class="form-control" maxlength="16" placeholder="1234 5678 9012 3456" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="expiracionTarjeta">Fecha de expiración</label>
+                      <input type="month" id="expiracionTarjeta" class="form-control" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="cvvTarjeta">CVV</label>
+                      <input type="text" id="cvvTarjeta" class="form-control" maxlength="4" placeholder="123" required />
+                    </div>
+                  </div>
+                </div>
+
+
+
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <a href="metodo de envio.php" class="btn btn-link">&lt; Volver a método de envío</a>
           <a
-            href="envio_formulario.php"
+            href="#"
             id="continuarBtn"
-            class="btn btn-dark btn-lg w-100 disabled"
+            class="btn btn-dark btn-lg w-50 disabled"
             tabindex="-1"
             aria-disabled="true"
             >CONTINUAR</a
           >
+          </div>
         </div>
 
         <!-- Columna derecha: Resumen de compra -->
@@ -130,15 +159,24 @@
     </footer>
 
     <script>
-      document.querySelectorAll(".envio-opcion").forEach((radio) => {
-        radio.addEventListener("change", function () {
-          const continuarBtn = document.getElementById("continuarBtn");
-          continuarBtn.classList.remove("disabled");
-          continuarBtn.removeAttribute("aria-disabled");
-          continuarBtn.setAttribute("tabindex", "0");
-        });
-      });
-    </script>
+  document.querySelectorAll(".envio-opcion").forEach((radio) => {
+    radio.addEventListener("change", function () {
+      const continuarBtn = document.getElementById("continuarBtn");
+      const formularioTarjeta = document.getElementById("formularioTarjeta");
+
+      continuarBtn.classList.remove("disabled");
+      continuarBtn.removeAttribute("aria-disabled");
+      continuarBtn.setAttribute("tabindex", "0");
+
+      if (this.value === "tarjeta") {
+        formularioTarjeta.classList.remove("d-none");
+      } else {
+        formularioTarjeta.classList.add("d-none");
+      }
+    });
+  });
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../Funciones/funciones.js" defer></script>
