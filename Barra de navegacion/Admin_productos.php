@@ -45,76 +45,66 @@ $resultado = $conexion->query("SELECT * FROM producto");
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Tu hoja de estilos -->
   <style>
     body {
-      background-color: #f8f9fa;
+      background-color: #fff;
+      color: #000;
     }
-    .header-custom {
-      background-color: #000;
-      color:#000;
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #dee2e6;
     }
-    .header-custom a.nav-link {
-      color: #fff;
-      transition: color 0.3s;
+    .nav-link {
+      color: #000;
+      margin-left: 1rem;
     }
-    .header-custom a.nav-link:hover {
-      color: #ffc107;
+    .nav-link:hover {
+      color: #0d6efd;
     }
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.4rem;
+    .btn-outline-dark:hover {
+      background-color: #0d6efd;
+      color: white;
+    }
+    .btn-outline-danger:hover {
+      background-color: #dc3545;
+      color: white;
     }
   </style>
 </head>
 <body>
 
 <!-- ENCABEZADO -->
-<header class="header-custom shadow-sm sticky-top">
-  <div class="container-fluid d-flex justify-content-between align-items-center py-3 px-4">
-    
+<header class="sticky-top py-3 shadow-sm">
+  <div class="container d-flex justify-content-between align-items-center">
+
     <!-- Logo -->
     <div class="d-flex align-items-center">
-      <i class="bi bi-shop me-2 fs-4 text-warning"></i>
-      <span class="logo-text text-light">K-SHOP</span>
+      <img src="../Imagenes/logo.png" alt="Logo" width="40" class="me-2">
+      <a href="../index.php" class="fs-4 fw-bold text-dark text-decoration-none">K-SHOP</a>
     </div>
 
     <!-- Buscador -->
-    <form action="/buscar" method="GET" class="d-none d-md-flex w-25">
-      <input type="text" name="q" class="form-control form-control-sm" placeholder="Buscar...">
+    <form action="/buscar" method="GET" class="d-none d-md-flex w-50 justify-content-center">
+      <input type="text" name="q" class="form-control" placeholder="Buscar...">
     </form>
 
     <!-- Navegación -->
-    <nav>
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="./carrito.php" class="nav-link">
-            <i class="bi bi-cart-fill text-warning"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../index.php" class="nav-link">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a href="./Productos.php" class="nav-link">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a href="./servicios.php" class="nav-link">Servicios</a>
-        </li>
-        <li class="nav-item">
-          <a href="./contactos.php" class="nav-link">Contáctanos</a>
-        </li>
-        <li class="nav-item">
-          <a href="./Iniciarsesion.php" class="nav-link text-warning">
-            <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
-          </a>
-        </li>
-      </ul>
+    <nav class="d-flex align-items-center">
+      <a href="./carrito.php" class="btn btn-outline-dark border-0 me-2">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+      <a href="../index.php" class="nav-link">Inicio</a>
+      <a href="./Productos.php" class="nav-link">Productos</a>
+      <a href="./servicios.php" class="nav-link">Servicios</a>
+      <a href="./contactos.php" class="nav-link">Contáctanos</a>
+      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 ms-2">
+        <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
+      </a>
     </nav>
   </div>
 </header>
 
-<body class="container py-5">
+<div class="container py-5">
   <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>
 
   <!-- Formulario para agregar -->
@@ -177,6 +167,8 @@ $resultado = $conexion->query("SELECT * FROM producto");
   <div class="col-md-4">
     <div><a href="../Paneles/paneladmin.php">Volver a panel</a></div>
   </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
