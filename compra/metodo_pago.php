@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>K-SHOP - Método de Envío</title>
+    <title>K-SHOP - Método de Pago</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,7 +39,7 @@
             </ol>
           </nav>
 
-          <h2 class="fw-bold mb-4">Elige un método de envío</h2>
+          <h2 class="fw-bold mb-4">Elige un método de pago</h2>
 
           <div class="list-group mb-4">
             <label
@@ -49,13 +49,13 @@
                 <input
                   type="radio"
                   name="envio"
-                  value="tienda"
+                  value="tarjeta"
                   class="form-check-input me-2 envio-opcion"
                 />
-                <strong>Express</strong><br />
-                <small class="text-muted">Fecha estimada</small>
+                <strong>Tarjeta</strong><br />
+                <small class="text-muted">Credito/Debito</small>
               </div>
-              <span class="fw-bold">$22,000 COP</span>
+              
             </label>
 
             <label
@@ -65,13 +65,12 @@
                 <input
                   type="radio"
                   name="envio"
-                  value="estandar"
+                  value="efectivo"
                   class="form-check-input me-2 envio-opcion"
                 />
-                <strong>Estándar</strong><br />
-                <small class="text-muted">Fecha estimada</small>
+                <strong>Efectivo</strong><br />
+                <small class="text-muted">Contraentrega</small>
               </div>
-              <span class="fw-bold">$10,000 COP</span>
             </label>
           </div>
 

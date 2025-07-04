@@ -39,6 +39,7 @@
     <div class="carrito-total">
       <h2>Total: <span id="total-carrito">$0</span></h2>
       <div class="botones-carrito">
+        <a href="../compra/metodo de envio.php" class="btn btn-secondary">compra</a>
         <button onclick="finalizarCompra()">Comprar</button>
         <button onclick="localStorage.removeItem('carrito'); mostrarCarrito()">Vaciar Carrito</button>
       </div>

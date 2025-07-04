@@ -60,7 +60,7 @@
             </div>
             <div class="col-md-6">
               <label>Telefono</label>
-              <input type="email" class="form-control" required>
+              <input type="tel" name="telefono" placeholder="Teléfono" class="form-control" required>
             </div>
             <div class="col-md-6">
               <label>Tipo de documento</label>
@@ -89,56 +89,13 @@
             <div class="col-md-6">
               <select class="form-select" required>
                 <option value="">Seleccione departamento</option>
-                <option value="Amazonas">Amazonas</option>
-                <option value="Antioquia">Antioquia</option>
-                <option value="Arauca">Arauca</option>
-                <option value="Atlántico">Atlántico</option>
-                <option value="Bolívar">Bolívar</option>
-                <option value="Boyacá">Boyacá</option>
-                <option value="Caldas">Caldas</option>
-                <option value="Caquetá">Caquetá</option>
-                <option value="Casanare">Casanare</option>
-                <option value="Cauca">Cauca</option>
-                <option value="Cesar">Cesar</option>
-                <option value="Chocó">Chocó</option>
-                <option value="Córdoba">Córdoba</option>
-                <option value="Cundinamarca">Cundinamarca</option>
-                <option value="Guainía">Guainía</option>
-                <option value="Guaviare">Guaviare</option>
-                <option value="Huila">Huila</option>
-                <option value="La Guajira">La Guajira</option>
-                <option value="Magdalena">Magdalena</option>
-                <option value="Meta">Meta</option>
-                <option value="Nariño">Nariño</option>
-                <option value="Norte de Santander">Norte de Santander</option>
-                <option value="Putumayo">Putumayo</option>
-                <option value="Quindío">Quindío</option>
-                <option value="Risaralda">Risaralda</option>
-                <option value="San Andrés y Providencia">San Andrés y Providencia</option>
-                <option value="Santander">Santander</option>
-                <option value="Sucre">Sucre</option>
-                <option value="Tolima">Tolima</option>
-                <option value="Valle del Cauca">Valle del Cauca</option>
-                <option value="Vaupés">Vaupés</option>
-                <option value="Vichada">Vichada</option>
+                <option value="Bogotá D.C.">Bogotá D.C.</option>
               </select>
             </div>
             <div class="col-md-6">
               <label>Municipio</label>
               <select class="form-select" name="municipio" required>
                 <option value="">Seleccione municipio</option>
-
-                <option>Medellín</option>
-                <option>Bello</option>
-                <option>Itagüí</option>
-                <option>Envigado</option>
-                <option>Apartadó</option>
-                <option>Turbo</option>
-
-                <option>Barranquilla</option>
-                <option>Soledad</option>
-                <option>Malambo</option>
-                <option>Puerto Colombia</option>
                 <option>Bogotá</option>
                 </optgroup>
               </select>
@@ -147,7 +104,14 @@
 
           <div class="d-flex justify-content-between align-items-center mt-4">
             <a href="metodo de envio.php" class="btn btn-link">&lt; Volver a método de envío</a>
-            <button type="submit" class="btn btn-dark px-5">CONTINUAR</button>
+            <a
+            href="metodo_pago.php"
+            id="continuarBtn"
+            class="btn btn-dark btn-lg w-50"
+            tabindex="-1"
+            
+            >CONTINUAR</a
+          >
           </div>
         </form>
 
@@ -156,9 +120,9 @@
       <!-- Columna derecha: Resumen -->
       <div class="col-md-4">
         <div class="resumen-fijo">
-          <h5 class="fw-bold">Resumen de la compra (1)</h5>
+          <h5 class="fw-bold">Resumen de la compra (0)</h5>
           <div class="d-flex mb-3">
-            <img src="https://via.placeholder.com/100x100" alt="Producto" class="img-thumbnail me-3"
+            <img src="#" alt="Producto" class="img-thumbnail me-3"
               style="width: 100px;">
             <div>
               <p class="mb-0 text-danger fw-bold">0 COP <del class="text-muted">0 COP</del></p>
