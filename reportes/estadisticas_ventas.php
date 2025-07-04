@@ -23,7 +23,7 @@ include '../conexion/conexion.php';
 <!-- Encabezado del módulo -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 bg-info text-white text-center p-3 mb-4">
+    <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	rgb(0, 0, 0);">
       <h2 class="m-0">Estadísticas de Ventas</h2>
     </div>
   </div>
@@ -45,7 +45,7 @@ include '../conexion/conexion.php';
   <!-- Tarjetas resumen -->
   <div class="row text-center">
     <div class="col-md-4 mb-3">
-      <div class="card bg-black text-white">
+      <div class="card card bg-white border p-3 text-black">
         <div class="card-body">
           <h5 class="card-title">Total de Ventas</h5>
           <p class="card-text fs-3"><?php echo $datosVentas['total_ventas'] ?? 0; ?></p>
@@ -53,7 +53,7 @@ include '../conexion/conexion.php';
       </div>
     </div>
     <div class="col-md-4 mb-3">
-      <div class="card bg-black text-white">
+      <div class="card card bg-white border p-3 text-black">
         <div class="card-body">
           <h5 class="card-title">Ingresos Totales</h5>
           <p class="card-text fs-3">$<?php echo number_format($datosVentas['ingresos_totales'] ?? 0, 0, ',', '.'); ?></p>
@@ -61,7 +61,7 @@ include '../conexion/conexion.php';
       </div>
     </div>
     <div class="col-md-4 mb-3">
-      <div class="card bg-black text-white">
+      <div class="card card bg-white border p-3 text-black">
         <div class="card-body">
           <h5 class="card-title">Productos Vendidos</h5>
           <p class="card-text fs-3"><?php echo $datosProductos['productos_vendidos'] ?? 0; ?></p>
