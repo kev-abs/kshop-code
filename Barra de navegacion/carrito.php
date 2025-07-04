@@ -33,6 +33,27 @@
   <main class="carrito">
     <h1>Carrito de Compras</h1>
 
+
+    <!-- Tarjeta de producto simulada -->
+    <div class="d-flex justify-content-center">
+      <div class="card mb-4" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="#" class="img-fluid rounded-start" alt="Producto"
+              style="background-color: #f0f0f0; height: 100%; width: 100%;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-danger fw-bold">0 COP <del class="text-muted">0 COP</del></h5>
+              <p class="card-text">Descripción</p>
+              <p class="card-text"><small class="text-muted">Talla: #</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Lista de productos agregados -->
     <div id="lista-carrito" class="mb-4">
       <!-- Aquí se mostrarán los productos dinámicamente -->
@@ -43,6 +64,8 @@
       <!-- Botón COMPRAR -->
       <form action="../compra/metodo de envio.php" method="GET" style="display: inline;">
         <button type="submit" class="btn btn-primary">Comprar</button>
+      </form>
+      <form action="#">
         <button type="submit" class="btn btn-secondary">Vaciar Carrito</button>
       </form>
     </div>
