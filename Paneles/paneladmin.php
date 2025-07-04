@@ -55,9 +55,13 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
 <div class="admin-container container">
 
 <!-- Gestión de vendedores -->
-<div class="section-content">
-  <a href="../Barra de navegacion/registrar_vendedor.php" class="btn btn-warning">Registrar Vendedor</a>
-</div>
+ <div class="admin-section mb-4">
+    <div class="section-header h4">Gestión de Empleados</div>
+    <div class="section-content">
+      <a href="../Barra de navegacion/registrar_vendedor.php" class="btn btn-warning">Registrar Vendedor</a>
+    </div>
+  </div>
+
 
   <!-- Gestión de Clientes -->
   <div class="admin-section mb-4">
