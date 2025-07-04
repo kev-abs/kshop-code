@@ -39,12 +39,12 @@
       <div class="card mb-4" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="#" class="img-fluid rounded-start" alt="Producto"
+            <img src="../Imagenes/camiseta boxy.jpeg" class="img-fluid rounded-start" alt="Producto"
               style="background-color: #f0f0f0; height: 100%; width: 100%;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title text-danger fw-bold">0 COP <del class="text-muted">0 COP</del></h5>
+              <h5 class="card-title fw-bold">0 COP</h5>
               <p class="card-text">Descripción</p>
               <p class="card-text"><small class="text-muted">Talla: #</small></p>
             </div>
