@@ -54,7 +54,7 @@ $resultado = $conexion->query("SELECT * FROM producto");
     </ul>
   </nav>
 <body class="container py-5">
-  <h1 class="mb-4">🛠️ paneladmin - Producto</h1>
+  <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>
 
   <!-- Formulario para agregar -->
   <form method="POST" class="mb-5">

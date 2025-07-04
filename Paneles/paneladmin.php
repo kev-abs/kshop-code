@@ -74,13 +74,24 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
   </div>
 
   <!-- Gestión de Productos -->
+<<<<<<< HEAD
   <div class="admin-section mb-4">
     <div class="section-header h4">Gestión de Productos</div>
     <div class="section-content">
       <button class="btn btn-secondary">Consultar Productos</button>
       <button class="btn btn-secondary">Agregar Producto</button>
     </div>
+=======
+ <!-- Gestión de Productos -->
+<div class="admin-section mb-4">
+  <div class="section-header h4">Gestión de Productos</div>
+  <div class="section-content">
+    <a href="../Barra de navegacion/Admin_productos.php" class="btn btn-primary">Consultar Productos</a>
+    <a href="../Barra de navegacion/Admin_productos.php#formulario" class="btn btn-success">Agregar Producto</a>
+>>>>>>> 1bbd05c9be005d34a8f3d6caab9f3987426b826e
   </div>
+</div>
+
 
   <!-- Gestión de Inventario -->
   <div class="admin-section mb-4">
