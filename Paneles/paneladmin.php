@@ -77,8 +77,8 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
 <div class="admin-section mb-4">
   <div class="section-header h4">Gestión de Productos</div>
   <div class="section-content">
-    <a href="../Barra de navegacion/Admin_productos.php" class="btn btn-primary">Consultar Productos</a>
-    <a href="../Barra de navegacion/Admin_productos.php#formulario" class="btn btn-success">Agregar Producto</a>
+    <a href="../Barra de navegacion/Admin_productos.php" class="btn btn-secondary">Consultar Productos</a>
+    <a href="../Barra de navegacion/Admin_productos.php#formulario" class="btn btn-secondary">Agregar Producto</a>
   </div>
 </div>
 
