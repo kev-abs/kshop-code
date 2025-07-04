@@ -23,24 +23,29 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-<div class="container mt-5">
-  <!-- Título principal -->
-  <h2 class="text-center mb-4">📤 Exportar Datos</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 bg-info text-white text-center p-3 mb-4">
+             <h2 class="m-0">Exportar Datos</h2>
+            </div>
+        </div>
+    </div>
 
   <!-- Botones de exportación -->
-  <div class="row justify-content-center mb-5">
-    <div class="col-md-4 text-center">
-      <a href="#" class="btn btn-outline-primary btn-lg w-100 mb-3">Exportar Ventas</a>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-4 d-grid mb-2">
+      <a href="#" class="btn btn-dark btn-lg">Exportar Ventas</a>
     </div>
-    <div class="col-md-4 text-center">
-      <a href="#" class="btn btn-outline-success btn-lg w-100 mb-3">Exportar Inventario</a>
+    <div class="col-md-4 d-grid mb-2">
+      <a href="#" class="btn btn-dark btn-lg">Exportar Inventario</a>
     </div>
   </div>
 
-  <!-- Botón de volver -->
-  <div class="text-center">
+  <!-- INICIO - Botón de volver -->
+  <div class="text-center mt-5">
     <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
   </div>
+
 </div>
 
 </body>
