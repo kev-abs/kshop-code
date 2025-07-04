@@ -32,7 +32,7 @@ $fecha_registro = $_SESSION["fecha_registro"] ?? "Sin fecha";
 <body>
 
 <!-- Encabezado -->
-<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #198754; color: white;">
+<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #a8c0c1; color: white;">
   <div class="logo fw-bold fs-3">K-SHOP</div>
 
   <nav>
