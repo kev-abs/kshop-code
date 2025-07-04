@@ -23,9 +23,13 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-<div class="container mt-5">
-  <!-- Título de la página -->
-  <h2 class="mb-4 text-center">🔥 Productos Más Vendidos</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	rgb(0, 0, 0);">
+      <h2 class="m-0">Productos Más Vendidos</h2>
+    </div>
+  </div>
+</div>
 
   <?php
   // Consulta SQL para obtener productos más vendidos
@@ -39,7 +43,7 @@ include '../conexion/conexion.php';
   ";
   $resultados = $conexion->query($consulta);
   ?>
-
+ <div class="container ">
   <!-- Tabla de productos más vendidos -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">

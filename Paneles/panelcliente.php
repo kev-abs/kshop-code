@@ -63,7 +63,7 @@ $productos = [
 <body>
 
 <!-- Encabezado personalizado para el cliente -->
-<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #198754; color: white;">
+<div class="header d-flex justify-content-between align-items-center p-3" style="background-color:rgb(168, 192, 193); color: white;">
   <div class="logo fw-bold fs-3">K-SHOP</div>
   <form action="/buscar" method="GET" class="d-flex" style="max-width: 300px;">
     <input type="text" name="q" placeholder="Buscar productos..." class="form-control me-2" />

@@ -1,17 +1,15 @@
 <?php
-// INICIO - Validar sesión como administrador
+// Validar sesión como administrador
 session_start();
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
-// FIN - Validar sesión
 ?>
 
 <?php
-// INICIO - Conexión a la base de datos
+// Conexión a la base de datos
 include '../conexion/conexion.php';
-// FIN - Conexión
 ?>
 
 <!DOCTYPE html>
@@ -25,25 +23,31 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-<div class="container mt-5">
-  <!--  Título -->
-  <h2 class="text-center mb-4 text-danger">📉 Productos con Bajo Inventario</h2>
+   <!-- Título -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	rgb(0, 0, 0);">
+        <h2 class="m-0">Productos con Bajo Inventario</h2>
+      </div>
+    </div>
+  </div>
 
+  <div class="container">
   <!--  Tabla -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
-      <thead class="table-danger">
+      <thead class="table-dark">
         <tr>
           <th>ID Producto</th>
           <th>Nombre</th>
           <th>Stock Actual</th>
         </tr>
       </thead>
-      <tbody>
+    </table>
 
   <!-- Botón volver -->
-  <div class="text-center mt-4">
-    <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
+  <div class="text-center mt-5 mb-3">
+    <a href="../paneles/paneladmin.php" class="btn btn-secondary">&larr; Volver</a>
   </div>
 
 </div>
