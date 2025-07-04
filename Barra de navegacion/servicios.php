@@ -39,7 +39,7 @@
   <div class="container-fluid d-flex justify-content-between align-items-center py-3 px-4">
     <div class="d-flex align-items-center">
       <i class="bi bi-shop me-2 fs-4 text-warning"></i>
-      <span class="logo-text text-light">K-SHOP</span>
+      <a href="../index.PHP" class="fs-4 fw-bold">K-SHOP</a>
     </div>
 
     <form action="/buscar" method="GET" class="d-none d-md-flex w-25">
