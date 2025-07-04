@@ -72,6 +72,7 @@ $resultado = $conexion->query("SELECT * FROM producto");
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Admin-productos</title>
@@ -151,6 +152,13 @@ $resultado = $conexion->query("SELECT * FROM producto");
 </header>
 
 =======
+>>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
+=======
+  <meta charset="UTF-8">
+  <title>Admin Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../Estilos/stilos.css">
+</head>
 >>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
 <body class="container py-5">
   <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>

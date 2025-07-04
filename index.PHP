@@ -99,12 +99,16 @@
         <li><a href="./Barra de navegacion/servicios.php">Servicios</a></li>
         <li><a href="./Barra de navegacion/contactos.php">Contáctanos</a></li>
         <li><a href="./Barra de navegacion/Iniciarsesion.php">Iniciar sesión</a></li>
+<<<<<<< HEAD
+>>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
+=======
 >>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
       </ul>
     </nav>
   </div>
 </header>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <!-- CARRUSEL -->
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -115,6 +119,8 @@
         <h2>Bienvenido a K-Shop</h2>
         <p>¡Donde puedes encontrar tus gustos sin tanto andar!</p>
 =======
+=======
+>>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
   <!-- CARRUSEL -->
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" id="carousel">
     <div class="carousel-inner fst-italic">
@@ -124,6 +130,9 @@
           <h2>Bienvenido a K-Shop</h2>
           <p>¡Donde puedes encontrar tus gustos sin tanto andar!</p>
         </div>
+<<<<<<< HEAD
+>>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
+=======
 >>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
       </div>
       <div class="carousel-item">
@@ -143,6 +152,7 @@
     </div>
   </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </div>
 
 <!-- FOOTER -->
@@ -161,6 +171,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./Funciones/funciones.js" defer></script>
 =======
+=======
+>>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
 
   <!-- FOOTER -->
   <footer class="bg-dark text-white text-center py-4 mt-auto">
