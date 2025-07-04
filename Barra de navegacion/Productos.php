@@ -1,6 +1,48 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "tiendakshop");
-$resultado = $conexion->query("SELECT * FROM producto");
+$productos = [
+  [
+    "titulo" => "Camiseta manga corta dama",
+    "descripcion" => "Fresca y cómoda para el día a día.",
+    "imagen" => "../Imagenes/camiseta aqua manga corta mujer.avif",
+    "pagina" => "producto1.php",
+    "precio" => 39900
+  ],
+  [
+    "titulo" => "Camiseta Boxy Ultra Aestetick",
+    "descripcion" => "Un estilo único y moderno.",
+    "imagen" => "../Imagenes/camiseta boxy.jpeg",
+    "pagina" => "producto1.php",
+    "precio" => 80000
+  ],
+  [
+    "titulo" => "Pantalón cargo cannabis",
+    "descripcion" => "Un pantalón con mucha personalidad y estilo.",
+    "imagen" => "../Imagenes/pantalon cargo.jpeg",
+    "pagina" => "producto1.php",
+    "precio" => 100000
+  ],
+  [
+    "titulo" => "Camiseta manga corta caballero",
+    "descripcion" => "Ideal para climas cálidos y casuales.",
+    "imagen" => "../Imagenes/camiseta negra manga corta hombre.jpg",
+    "pagina" => "producto2.php",
+    "precio" => 42900
+  ],
+  [
+    "titulo" => "Buzo dama",
+    "descripcion" => "Perfecto para el clima frío.",
+    "imagen" => "../Imagenes/camiseta blanca manga larga mujer.jpg",
+    "pagina" => "producto3.php",
+    "precio" => 59900
+  ],
+  [
+    "titulo" => "Buzo caballero",
+    "descripcion" => "Diseño moderno y cálido.",
+    "imagen" => "../Imagenes/camiseta negra manga larga hombre.webp",
+    "pagina" => "producto4.php",
+    "precio" => 62900
+  ]
+];
 ?>
 
 <!DOCTYPE html>
@@ -57,12 +99,12 @@ $resultado = $conexion->query("SELECT * FROM producto");
     <nav>
       <ul class="nav">
         <li class="nav-item">
-          <a href="./carrito.php" class="nav-link">
+          <a href="./Barra de navegacion/carrito.php" class="nav-link">
             <i class="bi bi-cart-fill text-warning"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="../index.php" class="nav-link">Inicio</a>
+          <a href="index.php" class="nav-link">Inicio</a>
         </li>
         <li class="nav-item">
           <a href="./Productos.php" class="nav-link">Productos</a>
@@ -74,7 +116,7 @@ $resultado = $conexion->query("SELECT * FROM producto");
           <a href="./contactos.php" class="nav-link">Contáctanos</a>
         </li>
         <li class="nav-item">
-          <a href="./Iniciarsesion.php" class="nav-link text-warning">
+          <a href="./Barra de navegacion/Iniciarsesion.php" class="nav-link text-warning">
             <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
           </a>
         </li>
@@ -87,13 +129,13 @@ $resultado = $conexion->query("SELECT * FROM producto");
   <h1>Nuestros Productos</h1>
   <div class="container">
     <div class="row g-4">
-      <?php $index = 0; while ($producto = $resultado->fetch_assoc()): ?>
+      <?php foreach ($productos as $index => $producto): ?>
         <div class="col-6 col-md-4">
           <div class="card h-100">
-            <img src="../Imagenes/<?= htmlspecialchars($producto['Imagen']) ?>" class="card-img-top" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+            <img src="<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['titulo'] ?>">
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title"><?= htmlspecialchars($producto['Nombre']) ?></h5>
-              <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
+              <h5 class="card-title"><?= $producto['titulo'] ?></h5>
+              <p class="card-text">$<?= number_format($producto['precio'], 0, ',', '.') ?></p>
               <button class="btn btn-primary mt-auto w-100" data-bs-toggle="modal" data-bs-target="#modalProducto<?= $index ?>">Ver más</button>
             </div>
           </div>
@@ -104,29 +146,29 @@ $resultado = $conexion->query("SELECT * FROM producto");
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title"><?= htmlspecialchars($producto['Nombre']) ?></h5>
+                <h5 class="modal-title"><?= $producto['titulo'] ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
               </div>
               <div class="modal-body text-start">
-                <img src="../Imagenes/<?= htmlspecialchars($producto['Imagen']) ?>" class="img-fluid mb-3" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
-                <p><strong>Descripción:</strong> <?= htmlspecialchars($producto['Descripcion']) ?></p>
-                <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
+                <img src="<?= $producto['imagen'] ?>" class="img-fluid mb-3" alt="<?= $producto['titulo'] ?>">
+                <p><strong>Descripción:</strong> <?= $producto['descripcion'] ?></p>
+                <p><strong>Precio:</strong> $<?= number_format($producto['precio'], 0, ',', '.') ?></p>
               </div>
               <div class="modal-footer">
-                <a href="producto1.php" class="btn btn-secondary">Detalles</a>
+                <a href="<?= $producto['pagina'] ?>" class="btn btn-secondary">Detalles</a>
                 <button class="btn btn-success"
                   onclick='agregarAlCarrito({
-                    id: <?= $producto["ID_Producto"] ?>,
-                    nombre: <?= json_encode($producto["Nombre"]) ?>,
-                    descripcion: <?= json_encode($producto["Descripcion"]) ?>,
-                    precio: <?= $producto["Precio"] ?>,
-                    imagen: <?= json_encode("../Imagenes/" . $producto["Imagen"]) ?>
+                    id: <?= $index + 1 ?>,
+                    nombre: <?= json_encode($producto["titulo"]) ?>,
+                    descripcion: <?= json_encode($producto["descripcion"]) ?>,
+                    precio: <?= $producto["precio"] ?>,
+                    imagen: <?= json_encode($producto["imagen"]) ?>
                   })'>Agregar al carrito</button>
               </div>
             </div>
           </div>
         </div>
-      <?php $index++; endwhile; ?>
+      <?php endforeach; ?>
     </div>
 
     <div class="text-center mt-5">
