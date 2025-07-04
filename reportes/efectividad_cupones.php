@@ -36,7 +36,7 @@ include '../conexion/conexion.php';
   <!-- Tabla de cupones -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
-      <thead class="table-info">
+      <thead class="table-dark">
         <tr>
           <th>Código del Cupón</th>
           <th>Descuento (%)</th>
