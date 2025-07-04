@@ -96,35 +96,32 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     </div>
   </div>
 
-  <!-- INICIO - Módulo de Reportes y Estadísticas [RF33 - RF40] -->
+  <!-- Módulo de Reportes y Estadísticas -->
     <div class="admin-section mb-4">
       <div class="section-header h4">Reportes y Estadísticas</div>
       <hr style="border: 1px solid gold;" />
     <div class="section-content d-grid gap-2 d-md-block text-center">
 
-    <!-- RF34: Estadísticas de ventas -->
+    <!-- Estadísticas de ventas -->
     <a href="../reportes/estadisticas_ventas.php" class="btn btn-primary m-1">Estadísticas de Ventas</a>
 
-    <!-- RF35: Exportación de datos -->
+    <!-- Exportación de datos -->
     <a href="../reportes/exportar_datos.php" class="btn btn-secondary m-1">Exportar Datos</a>
 
-    <!-- RF36: Productos más vendidos -->
+    <!-- Productos más vendidos -->
     <a href="../reportes/productos_mas_vendidos.php" class="btn btn-success m-1">Productos Más Vendidos</a>
 
-    <!-- RF37: Clientes frecuentes -->
+    <!-- Clientes frecuentes -->
     <a href="../reportes/clientes_frecuentes.php" class="btn btn-warning m-1">Clientes Frecuentes</a>
 
-    <!-- RF39: Productos con bajo inventario -->
+    <!-- Productos con bajo inventario -->
     <a href="../reportes/bajo_inventario.php" class="btn btn-danger m-1">Bajo Inventario</a>
 
-    <!-- RF40: Reporte de uso de cupones -->
+    <!-- Reporte de uso de cupones -->
     <a href="../reportes/efectividad_cupones.php" class="btn btn-info m-1">Uso de Cupones</a>
 
   </div>
 </div>
-<!-- FIN - Módulo de Reportes y Estadísticas -->
-
-
 </div>
 
 <script src="../Funciones/funciones.js" defer></script>
