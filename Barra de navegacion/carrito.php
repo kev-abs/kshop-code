@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Carrito de compras</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="../Estilos/stilos.css" />
 </head>
+
 <body>
 
   <!-- Encabezado -->
@@ -21,7 +24,7 @@
         <li><a href="Productos.php">Productos</a></li>
         <li><a href="servicios.php">Servicios</a></li>
         <li><a href="contactos.php">Contacto</a></li>
-      
+
       </ul>
     </nav>
   </header>
@@ -36,18 +39,17 @@
     </div>
 
     <!-- Total y botones -->
-    <div class="carrito-total">
-      <h2>Total: <span id="total-carrito">$0</span></h2>
-      <div class="botones-carrito">
-        <a href="../compra/metodo de envio.php" class="btn btn-secondary">compra</a>
-        <button onclick="finalizarCompra()">Comprar</button>
-        <button onclick="localStorage.removeItem('carrito'); mostrarCarrito()">Vaciar Carrito</button>
-      </div>
+    <div class="botones-carrito">
+      <!-- Botón COMPRAR -->
+      <form action="../compra/metodo de envio.php" method="GET" style="display: inline;">
+        <button type="submit" class="btn btn-primary">Comprar</button>
+        <button type="submit" class="btn btn-secondary">Vaciar Carrito</button>
+      </form>
     </div>
   </main>
 
   <!--FOOTER-->
-<footer class="bg-dark text-white text-center py-4 mt-auto">
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
     <div class="container">
       <div class="mb-3">
         <a href="#" class="text-white me-3">Términos y condiciones</a>
@@ -60,5 +62,5 @@
 
   <script src="../Funciones/funciones.js" defer></script>
 </body>
-</html>
 
+</html>

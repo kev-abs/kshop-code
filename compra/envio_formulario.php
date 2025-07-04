@@ -103,7 +103,7 @@
 
           <div class="d-flex justify-content-between align-items-center mt-4">
             <a href="metodo de envio.php" class="btn btn-link">&lt; Volver a método de envío</a>
-           <button type="submit" class="btn btn-dark btn-lg w-50">CONTINUAR</button>
+            <button type="submit" class="btn btn-dark btn-lg w-50">CONTINUAR</button>
           </div>
         </form>
 
@@ -114,8 +114,7 @@
         <div class="resumen-fijo">
           <h5 class="fw-bold">Resumen de la compra (0)</h5>
           <div class="d-flex mb-3">
-            <img src="#" alt="Producto" class="img-thumbnail me-3"
-              style="width: 100px;">
+            <img src="#" alt="Producto" class="img-thumbnail me-3" style="width: 100px;">
             <div>
               <p class="mb-0 text-danger fw-bold">0 COP <del class="text-muted">0 COP</del></p>
               <p class="mb-1 small">Descripcion</p>
