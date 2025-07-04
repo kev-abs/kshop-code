@@ -23,7 +23,7 @@
       <a href="./registro.php">¿No tienes cuenta? Regístrate</a>
     </div>
     <div class="link" style="margin-top: 10px;">
-      <a href="./recuperarcontraseña.php">Olvidé mi contraseña</a>
+      <a href="./restablecer_contraseña.php">Olvidé mi contraseña</a>
     </div>
     <div class="link" style="margin-top: 15px;">
       <a href="../index.php">← Volver al inicio</a>
