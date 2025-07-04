@@ -47,7 +47,6 @@
   <main class="container py-5">
     <h2 class="text-center mb-4">Carrito de Compras</h2>
 
-<<<<<<< HEAD
     <div class="card mb-4 shadow-sm">
       <div class="row g-0">
         <div class="col-md-4 bg-light d-flex align-items-center justify-content-center">
@@ -59,7 +58,6 @@
             <p class="card-text text-danger fw-bold">0 COP <del class="text-muted">0 COP</del></p>
             <p class="card-text">Descripción del producto.</p>
             <p class="card-text"><small class="text-muted">Talla: #</small></p>
-=======
 
     <!-- Tarjeta de producto simulada -->
     <div class="d-flex justify-content-center">
@@ -75,7 +73,6 @@
               <p class="card-text">Descripción</p>
               <p class="card-text"><small class="text-muted">Talla: #</small></p>
             </div>
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
           </div>
         </div>
       </div>
