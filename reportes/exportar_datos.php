@@ -23,21 +23,21 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 bg-info text-white text-center p-3 mb-4">
-             <h2 class="m-0">Exportar Datos</h2>
-            </div>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	rgb(0, 0, 0);">
+      <h2 class="m-0">Exportar Datos</h2>
     </div>
+  </div>
+</div>
 
   <!-- Botones de exportación -->
   <div class="row justify-content-center mb-4">
     <div class="col-md-4 d-grid mb-2">
-      <a href="#" class="btn btn-dark btn-lg">Exportar Ventas</a>
+      <a href="#" class="btn btn-white border-black btn-lg">Exportar Ventas</a>
     </div>
     <div class="col-md-4 d-grid mb-2">
-      <a href="#" class="btn btn-dark btn-lg">Exportar Inventario</a>
+      <a href="#" class="btn btn-white border-black btn-lg">Exportar Inventario</a>
     </div>
   </div>
 
