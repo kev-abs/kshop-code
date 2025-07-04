@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Sistema de Gestión</title>
-<<<<<<< HEAD
-
   <!-- Bootstrap y Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -74,7 +72,6 @@
             <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
           </a>
         </li>
-=======
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="./Estilos/stilos.css">
 </head>
@@ -99,17 +96,11 @@
         <li><a href="./Barra de navegacion/servicios.php">Servicios</a></li>
         <li><a href="./Barra de navegacion/contactos.php">Contáctanos</a></li>
         <li><a href="./Barra de navegacion/Iniciarsesion.php">Iniciar sesión</a></li>
-<<<<<<< HEAD
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
-=======
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
       </ul>
     </nav>
   </div>
 </header>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <!-- CARRUSEL -->
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner fst-italic">
@@ -118,9 +109,7 @@
       <div class="carousel-caption d-none d-md-block text-muted">
         <h2>Bienvenido a K-Shop</h2>
         <p>¡Donde puedes encontrar tus gustos sin tanto andar!</p>
-=======
-=======
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
+
   <!-- CARRUSEL -->
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" id="carousel">
     <div class="carousel-inner fst-italic">
@@ -130,10 +119,7 @@
           <h2>Bienvenido a K-Shop</h2>
           <p>¡Donde puedes encontrar tus gustos sin tanto andar!</p>
         </div>
-<<<<<<< HEAD
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
-=======
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
+
       </div>
       <div class="carousel-item">
         <img src="./Imagenes/ropa dama.jpg" class="d-block w-100" alt="...">
@@ -151,8 +137,7 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 </div>
 
 <!-- FOOTER -->
@@ -170,9 +155,7 @@
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./Funciones/funciones.js" defer></script>
-=======
-=======
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
+
 
   <!-- FOOTER -->
   <footer class="bg-dark text-white text-center py-4 mt-auto">
@@ -188,6 +171,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   <script src="../Funciones/funciones.js" defer></script>
->>>>>>> 3ddb9f2e8ed250501425025a78badd8932b6cb28
 </body>
 </html>
