@@ -38,16 +38,16 @@ $fecha_registro = $_SESSION["fecha_registro"] ?? "Sin fecha";
   <nav>
     <ul class="nav">
       <li class="nav-item">
-        <a href="../Paneles/panelcliente.php" class="nav-link text-white fw-semibold">Panel</a>
+        <a href="../Paneles/panelcliente.php" class="nav-link text-dark fw-semibold">Panel</a>
       </li>
       <li class="nav-item">
-        <a href="pedidos.php" class="nav-link text-white">Mis pedidos</a>
+        <a href="pedidos.php" class="nav-link text-dark fw-semibold">Mis pedidos</a>
       </li>
       <li class="nav-item">
-        <a href="lista_deseos.php" class="nav-link text-white">Lista de deseos</a>
+        <a href="lista_deseos.php" class="nav-link text-dark fw-semibold">Lista de deseos</a>
       </li>
       <li class="nav-item">
-        <a href="../php/cerrarsesion.php" class="btn btn-outline-light">Cerrar Sesión</a>
+        <a href="../php/cerrarsesion.php" class="btn">Cerrar Sesión</a>
       </li>
     </ul>
   </nav>
