@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("sssi", $nombre, $correo, $estado, $id);
 
         if ($stmt->execute()) {
-            echo "Cliente actualizado correctamente. <a href='../Paneles/paneladmin.php'>Volver</a>";
+            echo "Cliente actualizado correctamente. <a href='../php/consultar_clientes.php'>Volver</a>";
         } else {
             echo "Error al actualizar: " . $stmt->error;
         }
