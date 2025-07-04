@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("sssssss", $nombre, $apellido, $telefono, $documento, $correo, $contrasena, $fecha);
 
         if ($stmt->execute()) {
-            echo "<script>alert('Cliente registrado exitosamente.'); window.location.href='../Paneles/paneladmin';</script>";
+            echo "<script>alert('Cliente registrado exitosamente.'); window.location.href='../Paneles/paneladmin.php';</script>";
         } else {
             echo "Error al registrar: " . $stmt->error;
         }
