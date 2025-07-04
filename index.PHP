@@ -35,7 +35,7 @@
     <!-- Logo -->
     <div class="d-flex align-items-center">
       <i class="bi bi-shop fs-3 text-warning me-2"></i>
-      <span class="fs-4 fw-bold">K-SHOP</span>
+      <a href="./index.PHP" class="fs-4 fw-bold">K-SHOP</a>
     </div>
 
     <!-- Buscador -->
@@ -46,7 +46,6 @@
     <!-- Navegación -->
     <ul class="nav">
       <li class="nav-item"><a href="./Barra de navegacion/carrito.php" class="nav-link text-white"><i class="bi bi-cart-fill text-warning"></i></a></li>
-      <li class="nav-item"><a href="index.php" class="nav-link text-white">Inicio</a></li>
       <li class="nav-item"><a href="./Barra de navegacion/Productos.php" class="nav-link text-white">Productos</a></li>
       <li class="nav-item"><a href="./Barra de navegacion/servicios.php" class="nav-link text-white">Servicios</a></li>
       <li class="nav-item"><a href="./Barra de navegacion/contactos.php" class="nav-link text-white">Contáctanos</a></li>
