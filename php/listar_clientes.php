@@ -16,7 +16,7 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
 <body class="container mt-5">
   <h2 class="mb-4">Registrar Nuevo Cliente</h2>
 
-  <form action="registrar_cliente.php" method="POST">
+  <form action="registrar_clientes.php" method="POST">
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input type="text" class="form-control" name="nombre" required>
