@@ -2,11 +2,6 @@
 session_start();
 include '../conexion/conexion.php';
 
-if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
-    header("Location: ../Barra de navegacion/Iniciarsesion.php");
-    exit();
-}
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre     = $_POST["nombre"];
     $apellido   = $_POST["apellido"];
@@ -23,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        echo "<script>alert('El correo ya está registrado.'); window.location.href='./listar_clientes.php';</script>";
+        echo "<script>alert('El correo ya está registrado.'); window.location.href='./registrar_cliente_form.php';</script>";
     } else {
         // Insertar cliente
         $stmt = $conexion->prepare("INSERT INTO Cliente (Nombre, Apellido, Telefono, Documento, Correo, Contrasena, Fecha_Registro) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -40,4 +35,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $conexion->close();
 }
 ?>
-
