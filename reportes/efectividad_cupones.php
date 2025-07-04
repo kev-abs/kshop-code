@@ -1,17 +1,15 @@
 <?php
-// INICIO - Validar sesión como administrador
+//  Validar sesión como administrador
 session_start();
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
-// FIN - Validar sesión
 ?>
 
 <?php
-// INICIO - Conexión a la base de datos
+//  Conexión a la base de datos
 include '../conexion/conexion.php';
-// FIN - Conexión
 ?>
 
 <!DOCTYPE html>
@@ -25,10 +23,16 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-<div class="container mt-5">
   <!-- INICIO - Título -->
-  <h2 class="text-center mb-4 text-info">🎟️ Efectividad de Cupones</h2>
+   <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 bg-info text-white text-center p-3 mb-4">
+        <h2 class="m-0">Efectividad de Cupones</h2>
+    </div>
+  </div>
+</div>
 
+<div class="container mt-5">
   <!-- Tabla de cupones -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
@@ -39,11 +43,11 @@ include '../conexion/conexion.php';
           <th>Total Usos</th>
         </tr>
       </thead>
-      <tbody>
+    </table>
 
-  <!-- Botón volver -->
-  <div class="text-center mt-4">
-    <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
+   <!-- Botón volver -->
+  <div class="text-center mt-5 mt-4">
+    <a href="../paneles/paneladmin.php" class="btn btn-secondary">&larr; Volver</a>
   </div>
 </div>
 
