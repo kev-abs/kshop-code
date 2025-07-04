@@ -1,18 +1,56 @@
 <?php
 session_start();
-
-// Evitar que el navegador guarde en caché esta página
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-
-// Verificar si la sesión está activa y si el rol es "cliente"
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "cliente") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
+
+$productos = [
+  [
+    "titulo" => "Camiseta manga corta dama",
+    "descripcion" => "Fresca y cómoda para el día a día.",
+    "imagen" => "../Imagenes/camiseta aqua manga corta mujer.avif",
+    "pagina" => "producto1.php",
+    "precio" => 39900
+  ],
+  [
+    "titulo" => "Camiseta Boxy Ultra Aestetick",
+    "descripcion" => "Un estilo único y moderno.",
+    "imagen" => "../Imagenes/camiseta boxy.jpeg",
+    "pagina" => "producto1.php",
+    "precio" => 80000
+  ],
+  [
+    "titulo" => "Pantalón cargo cannabis",
+    "descripcion" => "Un pantalón con mucha personalidad y estilo.",
+    "imagen" => "../Imagenes/pantalon cargo.jpeg",
+    "pagina" => "producto1.php",
+    "precio" => 100000
+  ],
+  [
+    "titulo" => "Camiseta manga corta caballero",
+    "descripcion" => "Ideal para climas cálidos y casuales.",
+    "imagen" => "../Imagenes/camiseta negra manga corta hombre.jpg",
+    "pagina" => "producto2.php",
+    "precio" => 42900
+  ],
+  [
+    "titulo" => "Buzo dama",
+    "descripcion" => "Perfecto para el clima frío.",
+    "imagen" => "../Imagenes/camiseta blanca manga larga mujer.jpg",
+    "pagina" => "producto3.php",
+    "precio" => 59900
+  ],
+  [
+    "titulo" => "Buzo caballero",
+    "descripcion" => "Diseño moderno y cálido.",
+    "imagen" => "../Imagenes/camiseta negra manga larga hombre.webp",
+    "pagina" => "producto4.php",
+    "precio" => 62900
+  ]
+];
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,69 +59,52 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "cliente") {
   <title>Panel del Cliente - K-SHOP</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../Estilos/stilos.css" />
-  <script>
-    // Evitar que el usuario vea la página anterior con el botón "Atrás"
-    window.addEventListener('pageshow', function (event) {
-      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-        window.location.href = "../Barra de navegacion/Iniciarsesion.php";
-      }
-    });
-  </script>
 </head>
 <body>
 
-  <!-- Encabezado  -->
-<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #198754 ; color: #000;">
+<!-- Encabezado personalizado para el cliente -->
+<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #198754; color: white;">
   <div class="logo fw-bold fs-3">K-SHOP</div>
-
-  <!-- Buscador -->
   <form action="/buscar" method="GET" class="d-flex" style="max-width: 300px;">
-    <input type="text" name="q" placeholder="Buscar..." class="form-control me-2" />
+    <input type="text" name="q" placeholder="Buscar productos..." class="form-control me-2" />
   </form>
-
-  <!-- Navegación -->
   <nav>
     <ul class="nav">
-      <li class="nav-item">
-        <a href="../index.php" class="nav-link text-dark fw-bold">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a href="../Barra de navegacion/productos.php" class="nav-link text-dark fw-bold">Productos</a>
-      </li>
-      <li class="nav-item">
-        <a href="../Barra de navegacion/carrito.php" class="nav-link text-dark fw-bold">Carrito</a>
-      </li>
-      <li class="nav-item">
-        <a href="../php/cerrarsesion.php" class="btn btn-outline-dark fw-bold">Cerrar Sesión</a>
-      </li>
+      <li class="nav-item"><a href="../php/perfil_cliente.php" class="nav-link text-dark fw-bold">Perfil</a></li>
+      <li class="nav-item"><a href="pedidos.php" class="nav-link text-dark fw-bold">Mis pedidos</a></li>
+      <li class="nav-item"><a href="lista_deseos.php" class="nav-link text-dark fw-bold">Lista de deseos</a></li>
+      <li class="nav-item"><a href="carrito.php" class="nav-link text-dark fw-bold">Mi carrito</a></li>
+      <li class="nav-item"><a href="../php/cerrarsesion.php" class="btn  fw-bold">Cerrar Sesión</a></li>
     </ul>
   </nav>
 </div>
 
+<!-- Panel del Cliente -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Bienvenido a tu Panel de Cliente</h2>
 
-  <!-- Panel del Cliente -->
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Bienvenido al Panel del Cliente</h2>
-
-    <div class="row text-center">
-      <div class="col-md-4 mb-3">
-        <a href="../Barra de navegacion/productos.php" class="btn btn-primary w-100">Comprar Productos</a>
+  <!-- Productos recomendados -->
+  <h4 class="text-center mt-5 mb-4">Productos que podrían interesarte</h4>
+  <div class="row g-4">
+    <?php foreach ($productos as $index => $producto): ?>
+      <div class="col-sm-6 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['titulo'] ?>">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><?= $producto['titulo'] ?></h5>
+            <p class="card-text"><?= $producto['descripcion'] ?></p>
+            <p class="text-success fw-bold">$<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+            <div class="mt-auto">
+              <a href="<?= $producto['pagina'] ?>" class="btn btn-outline-primary w-100">Ver más</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <a href="../Barra de navegacion/carrito.php" class="btn btn-warning w-100">Ver Carrito</a>
-      </div>
-      <div class="col-md-4 mb-3">
-        <a href="../Barra de navegacion/servicios.php" class="btn btn-success w-100">Pagar</a>
-      </div>
-    </div>
-
-    <div class="text-center mt-4">
-      <a href="../php/cerrarsesion.php" class="btn btn-danger">
-        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-      </a>
-    </div>
+    <?php endforeach; ?>
   </div>
+</div>
 
-  <script src="../Funciones/funciones.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../Funciones/funciones.js" defer></script>
 </body>
 </html>
