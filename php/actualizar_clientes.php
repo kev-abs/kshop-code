@@ -1,17 +1,26 @@
 <?php
 include '../conexion/conexion.php';
 
-$id = $_POST['id'];
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $id = $_POST['id'] ?? null;
+    $nombre = $_POST['nombre'] ?? null;
+    $correo = $_POST['correo'] ?? null;
+    $estado = $_POST['estado'] ?? null;
 
-$sql = "UPDATE Cliente SET Nombre = ?, Correo = ? WHERE ID_Cliente = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param("ssi", $nombre, $correo, $id);
+    if ($id && $nombre && $correo && $estado) {
+        $sql = "UPDATE Cliente SET Nombre = ?, Correo = ?, Estado = ? WHERE ID_Cliente = ?";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param("sssi", $nombre, $correo, $estado, $id);
 
-if ($stmt->execute()) {
-  echo "Cliente actualizado correctamente. <a href='listar_clientes.php'>Volver</a>";
+        if ($stmt->execute()) {
+            echo "Cliente actualizado correctamente. <a href='../Paneles/paneladmin.php'>Volver</a>";
+        } else {
+            echo "Error al actualizar: " . $stmt->error;
+        }
+    } else {
+        echo "Faltan datos del formulario.";
+    }
 } else {
-  echo "Error al actualizar: " . $stmt->error;
+    echo "Acceso inválido.";
 }
 ?>
