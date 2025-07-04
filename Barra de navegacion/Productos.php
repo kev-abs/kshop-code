@@ -63,7 +63,7 @@ $productos = [
   </form>
   <nav class="navbar">
     <ul>
-      <li><a href="./Barra de navegacion/carrito.php">🛒</a></li>
+      <li><a href="carrito.php">🛒</a></li>
       <li><a href="../index.php">Inicio</a></li>
       <li><a href="Productos.php">Productos</a></li>
       <li><a href="servicios.php">Servicios</a></li>
