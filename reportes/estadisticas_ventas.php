@@ -1,15 +1,13 @@
 <?php
-// INICIO - Validar sesión como administrador
+//  Validar sesión como administrador
 session_start();
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
-// FIN - Validar sesión
 
-// INICIO - Conexión a la base de datos
+// Conexión a la base de datos
 include '../conexion/conexion.php';
-// FIN - Conexión
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +20,7 @@ include '../conexion/conexion.php';
 </head>
 <body class="bg-light">
 
-<!-- INICIO - Encabezado del módulo -->
+<!-- Encabezado del módulo -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 bg-info text-white text-center p-3 mb-4">
@@ -30,12 +28,11 @@ include '../conexion/conexion.php';
     </div>
   </div>
 </div>
-<!-- FIN - Encabezado del módulo -->
 
 <div class="container">
 
   <?php
-  // INICIO - Consultas generales
+  // Consultas generales
   $consultaVentas = "SELECT COUNT(*) AS total_ventas, SUM(Total) AS ingresos_totales FROM Pedido";
   $resultadoVentas = $conexion->query($consultaVentas);
   $datosVentas = $resultadoVentas->fetch_assoc();
@@ -43,10 +40,9 @@ include '../conexion/conexion.php';
   $consultaProductos = "SELECT SUM(Cantidad) AS productos_vendidos FROM Detalle_Pedido";
   $resultadoProductos = $conexion->query($consultaProductos);
   $datosProductos = $resultadoProductos->fetch_assoc();
-  // FIN - Consultas generales
   ?>
 
-  <!-- INICIO - Tarjetas resumen -->
+  <!-- Tarjetas resumen -->
   <div class="row text-center">
     <div class="col-md-4 mb-3">
       <div class="card bg-black text-white">
@@ -73,9 +69,8 @@ include '../conexion/conexion.php';
       </div>
     </div>
   </div>
-  <!-- FIN - Tarjetas resumen -->
 
-  <!-- INICIO - Filtro por rango de fechas -->
+  <!-- Filtro por rango de fechas -->
   <div class="mt-5 text-center">
     <h4 class="mb-4">Filtrar Pedidos por Fecha</h4>
     <form method="GET" class="row justify-content-center g-3">
@@ -92,9 +87,8 @@ include '../conexion/conexion.php';
       </div>
     </form>
   </div>
-  <!-- FIN - Filtro por rango de fechas -->
 
-  <!-- INICIO - Tabla de pedidos detallados -->
+  <!-- Tabla de pedidos detallados -->
   <div class="text-center fw-bold mb-3 mt-5">
     <h4 class="mb-3">Detalle de Pedidos</h4>
     <div class="table-responsive">
@@ -110,7 +104,7 @@ include '../conexion/conexion.php';
         </thead>
         <tbody>
         <?php
-        // INICIO - Consulta detallada con filtro de fechas si aplica
+        // Consulta detallada con filtro de fechas si aplica
         $fecha_inicio = $_GET['fecha_inicio'] ?? '';
         $fecha_fin = $_GET['fecha_fin'] ?? '';
 
@@ -140,20 +134,16 @@ include '../conexion/conexion.php';
         } else {
           echo "<tr><td colspan='5' class='text-center'>No hay pedidos en este rango de fechas.</td></tr>";
         }
-        // FIN - Consulta detallada
         ?>
         </tbody>
       </table>
     </div>
   </div>
-  <!-- FIN - Tabla de pedidos detallados -->
 
-  <!-- INICIO - Botón volver -->
+  <!-- Botón volver -->
   <div class="text-center mt-5 mb-3">
     <a href="../paneles/paneladmin.php" class="btn btn-secondary">&larr; Volver</a>
   </div>
-  <!-- FIN - Botón volver -->
-
 </div>
 
 </body>

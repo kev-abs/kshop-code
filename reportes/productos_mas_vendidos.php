@@ -18,9 +18,8 @@ include '../conexion/conexion.php';
   <meta charset="UTF-8">
   <title>Productos más vendidos - KSHOP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- INICIO - Estilos Bootstrap -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- FIN - Estilos Bootstrap -->
 </head>
 <body class="bg-light">
 

@@ -226,3 +226,88 @@ function iniciarSesion() {
     alert("Por favor, complete todos los campos.");
   }
 }
+ //Mostrar productos y eliminar en el carrito de compras//
+// Obtener carrito desde localStorage
+function obtenerCarrito() {
+  return JSON.parse(localStorage.getItem("carrito")) || [];
+}
+
+// Guardar carrito en localStorage
+function guardarCarrito(carrito) {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Agregar producto al carrito
+function agregarAlCarrito(producto) {
+  let carrito = obtenerCarrito();
+  carrito.push(producto);
+  guardarCarrito(carrito);
+  alert("Producto agregado al carrito");
+}
+
+// Mostrar productos en carrito
+function mostrarCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  const total = document.getElementById("total-carrito");
+
+  if (!lista || !total) return;
+
+  lista.innerHTML = "";
+  let carrito = obtenerCarrito();
+  let totalPrecio = 0;
+
+  if (carrito.length === 0) {
+    lista.innerHTML = "<p>No hay productos en el carrito.</p>";
+    total.textContent = "$0";
+    return;
+  }
+
+  carrito.forEach((item, index) => {
+    totalPrecio += item.precio;
+
+    const div = document.createElement("div");
+    div.className = "card mb-3";
+    div.innerHTML = `
+      <div class="row g-0 align-items-center">
+        <div class="col-3">
+          <img src="${item.imagen}" class="img-fluid rounded-start" alt="${item.nombre}">
+        </div>
+        <div class="col-6">
+          <div class="card-body">
+            <h5 class="card-title">${item.nombre}</h5>
+            <p class="card-text">$${item.precio.toLocaleString()}</p>
+          </div>
+        </div>
+        <div class="col-3 text-end pe-3">
+          <button class="btn btn-sm btn-outline-danger" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+        </div>
+      </div>
+    `;
+    lista.appendChild(div);
+  });
+
+  total.textContent = "$" + totalPrecio.toLocaleString();
+}
+
+// Eliminar producto del carrito
+function eliminarDelCarrito(index) {
+  let carrito = obtenerCarrito();
+  carrito.splice(index, 1);
+  guardarCarrito(carrito);
+  mostrarCarrito();
+}
+
+// Vaciar carrito
+function vaciarCarrito() {
+  localStorage.removeItem("carrito");
+  mostrarCarrito();
+}
+
+// Finalizar compra
+function finalizarCompra() {
+  alert("¡Gracias por tu compra!");
+  vaciarCarrito();
+}
+
+// Mostrar carrito al cargar la página
+document.addEventListener("DOMContentLoaded", mostrarCarrito);

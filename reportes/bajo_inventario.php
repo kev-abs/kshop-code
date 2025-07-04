@@ -26,11 +26,10 @@ include '../conexion/conexion.php';
 <body class="bg-light">
 
 <div class="container mt-5">
-  <!-- INICIO - Título -->
+  <!--  Título -->
   <h2 class="text-center mb-4 text-danger">📉 Productos con Bajo Inventario</h2>
-  <!-- FIN -->
 
-  <!-- INICIO - Tabla -->
+  <!--  Tabla -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
       <thead class="table-danger">
@@ -41,20 +40,11 @@ include '../conexion/conexion.php';
         </tr>
       </thead>
       <tbody>
-        <!-- Aquí se insertarán los datos reales más adelante -->
-        <tr>
-          <td colspan="3">Datos no disponibles aún.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- FIN - Tabla -->
 
-  <!-- INICIO - Botón volver -->
+  <!-- Botón volver -->
   <div class="text-center mt-4">
     <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
   </div>
-  <!-- FIN -->
 
 </div>
 

@@ -26,11 +26,10 @@ include '../conexion/conexion.php';
 <body class="bg-light">
 
 <div class="container mt-5">
-  <!-- INICIO - Título -->
+  <!-- Título -->
   <h2 class="text-center mb-4">👥 Clientes Frecuentes</h2>
-  <!-- FIN -->
 
-  <!-- INICIO - Tabla de clientes frecuentes -->
+  <!-- Tabla de clientes frecuentes -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped text-center">
       <thead class="table-dark">
@@ -41,21 +40,11 @@ include '../conexion/conexion.php';
         </tr>
       </thead>
       <tbody>
-        <!-- Aquí se insertarán los resultados cuando se conecte la lógica -->
-        <tr>
-          <td colspan="3">Datos en construcción...</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- FIN - Tabla -->
 
-  <!-- INICIO - Botón volver -->
+  <!--  Botón volver -->
   <div class="text-center mt-4">
     <a href="../paneles/paneladmin.php" class="btn btn-secondary">← Volver al Panel</a>
   </div>
-  <!-- FIN - Volver -->
-
 </div>
 
 </body>
