@@ -18,28 +18,69 @@
     }
 
     main {
-      flex: 1; /* Hace que el contenido principal crezca y empuje el footer hacia abajo */
+      flex: 1;
+    }
+
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-link {
+      color: #000000 !important;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #ffffff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
+    }
+
+    .btn-outline-dark:hover {
+      background-color: #0d6efd;
+      color: white !important;
+    }
+
+    .btn-outline-dark.text-danger:hover {
+      background-color: #dc3545;
+      color: white !important;
     }
   </style>
 </head>
 <body>
 
   <!-- ENCABEZADO -->
-  <header class="bg-dark text-white py-3 shadow-sm">
-    <div class="container d-flex justify-content-between align-items-center">
+  <header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+      <!-- LOGO -->
       <div class="d-flex align-items-center">
-        <i class="bi bi-shop fs-3 text-warning me-2"></i>
-        <span class="fs-4 fw-bold">K-SHOP</span>
+        <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
+        <a href="./index.php" class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
       </div>
-      <form class="d-none d-md-flex w-25" action="/buscar" method="GET">
-        <input type="text" class="form-control form-control-sm" name="q" placeholder="Buscar...">
+
+      <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
+      <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+        <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
       </form>
-      <ul class="nav">
-        <li class="nav-item"><a href="../index.php" class="nav-link text-white">Inicio</a></li>
-        <li class="nav-item"><a href="Productos.php" class="nav-link text-white">Productos</a></li>
-        <li class="nav-item"><a href="servicios.php" class="nav-link text-white">Servicios</a></li>
-        <li class="nav-item"><a href="contactos.php" class="nav-link text-white">Contacto</a></li>
-      </ul>
+
+      <!-- MENÚ NAVEGACIÓN -->
+      <nav class="d-flex align-items-center gap-3">
+        <a href="./Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
+        <a href="./Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
+        <a href="./Barra de navegacion/contactos.php" class="nav-link text-dark">Contáctanos</a>
+
+        <!-- CARRITO -->
+        <a href="./Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+          <i class="bi bi-cart-fill"></i>
+        </a>
+
+        <!-- INICIAR SESIÓN -->
+        <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+          <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
+        </a>
+      </nav>
     </div>
   </header>
 
@@ -47,10 +88,11 @@
   <main class="container py-5">
     <h2 class="text-center mb-4">Carrito de Compras</h2>
 
+    <!-- Producto simulado -->
     <div class="card mb-4 shadow-sm">
       <div class="row g-0">
         <div class="col-md-4 bg-light d-flex align-items-center justify-content-center">
-          <img src="#" class="img-fluid" alt="Producto">
+          <img src="../Imagenes/camiseta boxy.jpeg" class="img-fluid" alt="Producto">
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -58,21 +100,6 @@
             <p class="card-text text-danger fw-bold">0 COP <del class="text-muted">0 COP</del></p>
             <p class="card-text">Descripción del producto.</p>
             <p class="card-text"><small class="text-muted">Talla: #</small></p>
-
-    <!-- Tarjeta de producto simulada -->
-    <div class="d-flex justify-content-center">
-      <div class="card mb-4" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../Imagenes/camiseta boxy.jpeg" class="img-fluid rounded-start" alt="Producto"
-              style="background-color: #f0f0f0; height: 100%; width: 100%;">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">0 COP</h5>
-              <p class="card-text">Descripción</p>
-              <p class="card-text"><small class="text-muted">Talla: #</small></p>
-            </div>
           </div>
         </div>
       </div>

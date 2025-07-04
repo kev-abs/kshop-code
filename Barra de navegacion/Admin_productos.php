@@ -8,9 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
   $precio = $_POST["precio"];
   $stock = $_POST["stock"];
   $id_proveedor = $_POST["id_proveedor"];
+  $imagen = $_FILES['imagen']['name'];
+  $imagen_tmp = $_FILES['imagen']['tmp_name'];
 
-  $sql = "INSERT INTO producto (Nombre, Descripcion, Precio, Stock, ID_Proveedor)
-          VALUES ('$nombre', '$descripcion', '$precio', '$stock', '$id_proveedor')";
+  // Guardar la imagen en la carpeta /imagenes_productos/
+  $ruta_imagen = "../imagenes_productos/" . $imagen;
+  move_uploaded_file($imagen_tmp, $ruta_imagen);
+
+  $sql = "INSERT INTO producto (Nombre, Descripcion, Precio, Stock, ID_Proveedor, Imagen)
+          VALUES ('$nombre', '$descripcion', '$precio', '$stock', '$id_proveedor', '$imagen')";
   $conexion->query($sql);
 }
 
@@ -40,143 +46,131 @@ $resultado = $conexion->query("SELECT * FROM producto");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - admin-productos</title>
-
-  <!-- Bootstrap y Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Tu hoja de estilos -->
   <style>
     body {
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .nav-link {
+      color: #000;
+      margin-left: 1rem;
+    }
+    .nav-link:hover {
+      color: #0d6efd;
+    }
+    .btn-outline-dark:hover {
+      background-color: #0d6efd;
+      color: white;
+    }
+    .btn-outline-danger:hover {
+      background-color: #dc3545;
+      color: white;
+    }
+    .form-control, .btn {
+      border-radius: 0.5rem;
+    }
+    table {
       background-color: #f8f9fa;
-    }
-    .header-custom {
-      background-color: #000;
-      color:#000;
-    }
-    .header-custom a.nav-link {
-      color: #fff;
-      transition: color 0.3s;
-    }
-    .header-custom a.nav-link:hover {
-      color: #ffc107;
-    }
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.4rem;
     }
   </style>
 </head>
 <body>
 
 <!-- ENCABEZADO -->
-<header class="header-custom shadow-sm sticky-top">
-  <div class="container-fluid d-flex justify-content-between align-items-center py-3 px-4">
-    
-    <!-- Logo -->
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
     <div class="d-flex align-items-center">
-      <i class="bi bi-shop me-2 fs-4 text-warning"></i>
-      <span class="logo-text text-light">K-SHOP</span>
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
+      <a href="../index.php" class="text-decoration-none fs-4 fw-bold text-dark">K-SHOP</a>
     </div>
-
-    <!-- Buscador -->
-    <form action="/buscar" method="GET" class="d-none d-md-flex w-25">
-      <input type="text" name="q" class="form-control form-control-sm" placeholder="Buscar...">
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
     </form>
-
-    <!-- Navegación -->
-    <nav>
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="./carrito.php" class="nav-link">
-            <i class="bi bi-cart-fill text-warning"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../index.php" class="nav-link">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a href="./Productos.php" class="nav-link">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a href="./servicios.php" class="nav-link">Servicios</a>
-        </li>
-        <li class="nav-item">
-          <a href="./contactos.php" class="nav-link">Contáctanos</a>
-        </li>
-        <li class="nav-item">
-          <a href="./Iniciarsesion.php" class="nav-link text-warning">
-            <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
-          </a>
-        </li>
-      </ul>
+    <nav class="d-flex align-items-center gap-3">
+      <a href="./Productos.php" class="nav-link text-dark">Productos</a>
+      <a href="./servicios.php" class="nav-link text-dark">Servicios</a>
+      <a href="./carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+        <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
+      </a>
     </nav>
   </div>
 </header>
 
-<body class="container py-5">
+<div class="container py-5">
   <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>
 
-  <!-- Formulario para agregar -->
-  <form method="POST" class="mb-5">
-    <h4>Agregar nuevo producto</h4>
+  <form method="POST" class="mb-5" enctype="multipart/form-data">
+    <h4 class="mb-3">Agregar nuevo producto</h4>
     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" required>
     <textarea name="descripcion" placeholder="Descripción" class="form-control mb-2" required></textarea>
     <input type="number" name="precio" placeholder="Precio" class="form-control mb-2" required>
     <input type="number" name="stock" placeholder="Stock" class="form-control mb-2" required>
     <input type="number" name="id_proveedor" placeholder="ID Proveedor" class="form-control mb-2" required>
+    <input type="file" name="imagen" class="form-control mb-2" accept="image/*" required>
     <button name="agregar" class="btn btn-success">Agregar Producto</button>
   </form>
 
-  <!-- Tabla de productos -->
   <h4>Productos actuales</h4>
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Proveedor</th><th>Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php while ($row = $resultado->fetch_assoc()): ?>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
         <tr>
-          <td><?= $row["ID_Producto"] ?></td>
-          <td><?= $row["Nombre"] ?></td>
-          <td>$<?= number_format($row["Precio"], 0, ',', '.') ?></td>
-          <td><?= $row["Stock"] ?></td>
-          <td><?= $row["ID_Proveedor"] ?></td>
-          <td>
-            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit<?= $row["ID_Producto"] ?>">Editar</button>
-          </td>
+          <th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Proveedor</th><th>Acción</th>
         </tr>
+      </thead>
+      <tbody>
+        <?php while ($row = $resultado->fetch_assoc()): ?>
+          <tr>
+            <td><?= $row["ID_Producto"] ?></td>
+            <td><?= $row["Nombre"] ?></td>
+            <td>$<?= number_format($row["Precio"], 0, ',', '.') ?></td>
+            <td><?= $row["Stock"] ?></td>
+            <td><?= $row["ID_Proveedor"] ?></td>
+            <td>
+              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit<?= $row["ID_Producto"] ?>">Editar</button>
+            </td>
+          </tr>
 
-        <!-- Modal para editar -->
-        <div class="modal fade" id="edit<?= $row["ID_Producto"] ?>" tabindex="-1">
-          <div class="modal-dialog">
-            <form method="POST" class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Editar producto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <input type="hidden" name="id" value="<?= $row["ID_Producto"] ?>">
-                <input type="text" name="nombre" value="<?= $row["Nombre"] ?>" class="form-control mb-2">
-                <textarea name="descripcion" class="form-control mb-2"><?= $row["Descripcion"] ?></textarea>
-                <input type="number" name="precio" value="<?= $row["Precio"] ?>" class="form-control mb-2">
-                <input type="number" name="stock" value="<?= $row["Stock"] ?>" class="form-control mb-2">
-                <input type="number" name="id_proveedor" value="<?= $row["ID_Proveedor"] ?>" class="form-control mb-2">
-              </div>
-              <div class="modal-footer">
-                <button name="editar" class="btn btn-primary">Guardar cambios</button>
-              </div>
-            </form>
+          <!-- Modal para editar -->
+          <div class="modal fade" id="edit<?= $row["ID_Producto"] ?>" tabindex="-1">
+            <div class="modal-dialog">
+              <form method="POST" class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Editar producto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="hidden" name="id" value="<?= $row["ID_Producto"] ?>">
+                  <input type="text" name="nombre" value="<?= $row["Nombre"] ?>" class="form-control mb-2">
+                  <textarea name="descripcion" class="form-control mb-2"><?= $row["Descripcion"] ?></textarea>
+                  <input type="number" name="precio" value="<?= $row["Precio"] ?>" class="form-control mb-2">
+                  <input type="number" name="stock" value="<?= $row["Stock"] ?>" class="form-control mb-2">
+                  <input type="number" name="id_proveedor" value="<?= $row["ID_Proveedor"] ?>" class="form-control mb-2">
+                </div>
+                <div class="modal-footer">
+                  <button name="editar" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-      <?php endwhile; ?>
-    </tbody>
-  </table>
-  <div class="col-md-4">
-    <div><a href="../Paneles/paneladmin.php">Volver a panel</a></div>
+        <?php endwhile; ?>
+      </tbody>
+    </table>
   </div>
+  <div class="text-start mt-3">
+    <a href="../Paneles/paneladmin.php" class="btn btn-outline-secondary">Volver al panel</a>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
