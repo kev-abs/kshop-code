@@ -66,8 +66,6 @@
     <nav class="d-flex align-items-center gap-3">
       <a href="./Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
       <a href="./Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
-      <a href="./Barra de navegacion/contactos.php" class="nav-link text-dark">Contáctanos</a>
-
       <!-- CARRITO -->
       <a href="./Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
         <i class="bi bi-cart-fill"></i>
