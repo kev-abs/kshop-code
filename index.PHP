@@ -152,7 +152,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <img src="./Imagenes/equipo.jpg" class="img-fluid rounded shadow" alt="Nuestro equipo">
+          <img src="./Imagenes/tienda_cajera.jpg" class="img-fluid rounded shadow" alt="Nuestro equipo">
         </div>
         <div class="col-md-6">
           <h3 class="fw-bold">Sobre K-Shop</h3>
