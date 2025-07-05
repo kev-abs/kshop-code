@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// Evitar que el navegador guarde en caché esta página
+// Evitar caché
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
-// Verificar si la sesión está activa y si el rol es "administrador"
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
@@ -52,18 +51,18 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
 
 <!-- ENCABEZADO -->
 <header class="header-custom shadow-sm sticky-top">
-  <div class="container-fluid d-flex justify-content-between align-items-center py-3 px-4">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
     <div class="d-flex align-items-center">
-      <i class="bi bi-shop me-2 fs-4 text-warning"></i>
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
       <span class="logo-text text-light">K-SHOP</span>
     </div>
-    <form action="/buscar" method="GET" class="d-none d-md-flex w-25">
+    <form action="/buscar" method="GET" class="d-none d-md-flex w-50">
       <input type="text" name="q" class="form-control form-control-sm" placeholder="Buscar...">
     </form>
     <nav>
       <ul class="nav">
         <li class="nav-item">
-          <a href="../php/cerrarsesion.php" class="nav-link text-white">
+          <a href="../php/cerrarsesion.php" class="nav-link">
             <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
           </a>
         </li>
@@ -79,6 +78,9 @@ if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
       <i class="bi bi-three-dots-vertical"></i>
     </button>
     <ul class="dropdown-menu">
+      <li><h6 class="dropdown-header">Perfil</h6></li>
+      <li><a class="dropdown-item" href="../perfiles/perfil_admin.php">Perfil de Administrador</a></li>
+      <li><hr class="dropdown-divider"></li>
       <li><h6 class="dropdown-header">Gestión General</h6></li>
       <li><a class="dropdown-item" href="../Barra de navegacion/registrar_vendedor.php">Registrar Vendedor</a></li>
       <li><a class="dropdown-item" href="../php/consultar_vendedores.php">Consultar Vendedores</a></li>
