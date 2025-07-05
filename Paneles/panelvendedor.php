@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "vendedor") {
+    header("Location: ../Formularios/Iniciarsesion.php");
+    exit();
+}
+
+// Evita que el navegador muestre contenido cacheado
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,8 +23,21 @@
 <body>
 
   <!-- Encabezado -->
+    <!-- Encabezado -->
   <div class="header">
     <div class="logo">K-SHOP</div>
+    <form action="/buscar" method="GET" class="buscar-formulario">
+      <input type="text" name="q" placeholder="Buscar..." />
+    </form>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.php">Comprar productos</a></li>
+        <li><a href="Productos.php">Ver carrito</a></li>
+        <li><a href="servicios.php">Pagar</a></li>
+        <li><a href="../php/cerrarsesion.php" class="btn btn-outline-danger">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
 
     <!-- Buscador -->
     <form action="/buscar" method="GET">
@@ -20,7 +47,7 @@
     <!-- Navegación -->
     <nav class="navbar">
       <ul>
-        <li><a href="../index.html">Cerrar sesión</a></li>
+        <li><a href="../php">Cerrar sesión</a></li>
       </ul>
     </nav>
   </div>
@@ -47,8 +74,19 @@
   </div>
 
   <!-- Cerrar sesión -->
-  <button class="boton-vendedor logout" onclick="cerrarSesion()">Cerrar sesión</button>
-</div>
+  <a href="../php/cerrarsesion.php" class="btn btn-danger">
+  <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+</a>
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
+    <div class="container">
+      <div class="mb-3">
+        <a href="#" class="text-white me-3">Términos y condiciones</a>
+        <a href="#" class="text-white me-3">Política de privacidad</a>
+        <a href="#" class="text-white me-3">Ayuda</a>
+      </div>
+      <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>
+    </div>
+  </footer>
 <script src="../Funciones/funciones.js" defer></script>
 </body>
 </html>
