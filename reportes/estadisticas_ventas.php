@@ -25,6 +25,16 @@ include '../conexion/conexion.php';
     <div class="row justify-content-between">
       <div class="col-12 text-white text-center p-3 mb-4" style="background-color: rgb(0, 0, 0);">
         <h2 class="m-0">Estadísticas de Ventas</h2>
+        <!--boton volver-->
+       <nav>
+        <ul class="nav">
+          <li class="nav-item">
+          <a href="../paneles/paneladmin.php" class="btn btn-secondary shadow">
+              <i class="bi bi-box-arrow-right"></i> volver
+            </a>
+          </li>
+        </ul>
+      </nav>
       </div>
     </div>
   </div>
@@ -150,17 +160,6 @@ include '../conexion/conexion.php';
     </div>
    </div> <!-- cierre del .container -->
 
-    <!-- Botón de Volver -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 text-end">
-          <a href="../paneles/paneladmin.php" class="btn btn-secondary shadow">
-            ← Volver
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
    <!-- FOOTER -->
     <footer class="bg-dark text-white text-center text-md-start py-5 mt-auto">
       <div class="container">
