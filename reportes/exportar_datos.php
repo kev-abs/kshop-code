@@ -21,8 +21,29 @@ include '../conexion/conexion.php';
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+  <style>
+    /* === Estilos personalizados para la tabla === */
+    .tabla-estilizada {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabla-estilizada tbody tr:nth-child(odd) {
+      background-color: #f8f9fa;
+    }
+
+    .tabla-estilizada tbody tr:hover {
+      background-color: #e9ecef;
+    }
+
+    /* === Alinear botón volver al panel === */
+    .btn-volver {
+      margin-top: 0.2rem;
+    }
+  </style>
 </head>
 <body class="bg-light">
 
