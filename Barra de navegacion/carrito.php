@@ -45,9 +45,10 @@ $total = 0;
     <nav class="d-flex align-items-center gap-3">
       <a href="./Productos.php" class="nav-link text-dark">Productos</a>
       <a href="./servicios.php" class="nav-link text-dark">Servicios</a>
-      <a href="./contactos.php" class="nav-link text-dark">Contáctanos</a>
-      <a href="./carrito.php" class="btn btn-outline-dark border-0"><i class="bi bi-cart-fill"></i></a>
-      <a href="../Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark"><i class="bi bi-person-circle me-1"></i>Iniciar Sesión</a>
+      <a href="./carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark"><i class="bi bi-person-circle me-1"></i>Iniciar Sesión</a>
     </nav>
   </div>
 </header>

@@ -1,6 +1,3 @@
-<?php
-$_SESSION['rol'] = 'admin'; // o 'vendedor' o 'cliente'
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
