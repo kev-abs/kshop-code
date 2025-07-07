@@ -91,7 +91,6 @@ while ($fila = $resultado->fetch_assoc()) {
               <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             </div>
             <div class="modal-footer">
-              <!-- Botón de detalles podría llevar a una página futura -->
               <a href="#" class="btn btn-secondary disabled">Detalles</a>
               <form action="agregar_carrito.php" method="POST">
                 <input type="hidden" name="id" value="<?= $producto['ID_Producto'] ?>">
