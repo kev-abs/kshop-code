@@ -118,6 +118,18 @@ $productos = [
     <!-- MENÚ NAVEGACIÓN -->
     <nav class="d-flex align-items-center gap-3">
 
+      <!-- Perfil cliente -->
+      <a href="../perfiles/perfil_cliente.php" class="nav-link text-dark fw-bold"> 
+        <i class="bi bi-person-circle me-1"></i>Mi Perfil
+      </a>
+      <!-- Pedidos -->
+       <a href="../php/pedidos.php" class="nav-link text-dark">Pedidos</a>
+      <!--Lista de deseos-->
+      <a href="../Barra de cliente/lista_de_deseos.php" class="nav-link text-dark">Lista de deseos</a>
+      <!--Carrito-->
+      <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
       <!-- CERRAR SESIÓN-->
       <a href="../php/cerrarsesion.php" class="nav-link">
         <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
@@ -125,22 +137,6 @@ $productos = [
     </nav>
   </div>
 </header>
-<!-- Encabezado personalizado para el cliente -->
-<div class="header d-flex justify-content-between align-items-center p-3" style="background-color:rgb(168, 192, 193); color: white;">
-  <div class="logo fw-bold fs-3">K-SHOP</div>
-  <form action="/buscar" method="GET" class="d-flex" style="max-width: 300px;">
-    <input type="text" name="q" placeholder="Buscar productos..." class="form-control me-2" />
-  </form>
-  <nav>
-    <ul class="nav">
-      <li class="nav-item"><a href="../php/perfil_cliente.php" class="nav-link text-dark fw-bold">Perfil</a></li>
-      <li class="nav-item"><a href="pedidos.php" class="nav-link text-dark fw-bold">Mis pedidos</a></li>
-      <li class="nav-item"><a href="lista_deseos.php" class="nav-link text-dark fw-bold">Lista de deseos</a></li>
-      <li class="nav-item"><a href="carrito.php" class="nav-link text-dark fw-bold">Mi carrito</a></li>
-      <li class="nav-item"><a href="../php/cerrarsesion.php" class="btn  fw-bold">Cerrar Sesión</a></li>
-    </ul>
-  </nav>
-</div>
 
 <!-- Panel del Cliente -->
 <div class="container mt-5">
