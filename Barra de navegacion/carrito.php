@@ -57,7 +57,7 @@
       <!-- LOGO -->
       <div class="d-flex align-items-center">
         <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
-        <a href="./index.php" class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
+        <a href="../index.php" class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
       </div>
 
       <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
@@ -67,10 +67,8 @@
 
       <!-- MENÚ NAVEGACIÓN -->
       <nav class="d-flex align-items-center gap-3">
-        <a href="./Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
-        <a href="./Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
-        <a href="./Barra de navegacion/contactos.php" class="nav-link text-dark">Contáctanos</a>
-
+        <a href="./Productos.php" class="nav-link text-dark">Productos</a>
+        <a href="./servicios.php" class="nav-link text-dark">Servicios</a>
         <!-- CARRITO -->
         <a href="./Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
           <i class="bi bi-cart-fill"></i>
