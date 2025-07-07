@@ -58,7 +58,7 @@ if (!$cliente) {
 <!-- Formulario -->
 <div class="container mt-5">
   <h2 class="text-center mb-4">✏️ Editar Mi Perfil</h2>
-  <form action="editar_perfil.php" method="POST" class="card p-4 shadow">
+  <form action="editar_perfil_cliente.php" method="POST" class="card p-4 shadow">
     <input type="hidden" name="id" value="<?= $cliente['ID_Cliente'] ?>">
 
     <div class="mb-3">

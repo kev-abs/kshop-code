@@ -1,72 +1,74 @@
-<?php
-session_start();
-
-// Evitar caché
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-
-if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
-    header("Location: ../Barra de navegacion/Iniciarsesion.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panel del Administrador - K-SHOP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-SHOP - Panel Admin</title>
+
+  <!-- Bootstrap y Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
+    html, body {
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+    }
     body {
-      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
     }
-    .header-custom {
-      background-color: #000;
+    main {
+      flex: 1;
     }
-    .header-custom a.nav-link {
-      color: #fff;
-      transition: color 0.3s;
+    .nav-link {
+      color: #000000 !important;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .header-custom a.nav-link:hover {
-      color: #ffc107;
+    .nav-link:hover {
+      color: #ffffff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
     }
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.4rem;
+    .nav-link.text-warning:hover {
+      background-color: #dc3545;
+    }
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .carousel img {
+      object-fit: cover;
+      height: 500px;
+      filter: brightness(85%);
     }
   </style>
-  <script>
-    window.addEventListener('pageshow', function (event) {
-      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-        window.location.href = "../Barra de navegacion/Iniciarsesion.php";
-      }
-    });
-  </script>
 </head>
 <body>
 
 <!-- ENCABEZADO -->
-<header class="header-custom shadow-sm sticky-top">
-  <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+    <!-- LOGO -->
     <div class="d-flex align-items-center">
-      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
-      <span class="logo-text text-light">K-SHOP</span>
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" height="" class="me-2">
+      <a class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
     </div>
-    <form action="/buscar" method="GET" class="d-none d-md-flex w-50">
-      <input type="text" name="q" class="form-control form-control-sm" placeholder="Buscar...">
+
+    <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
     </form>
-    <nav>
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="../php/cerrarsesion.php" class="nav-link">
+
+    <!-- MENÚ NAVEGACIÓN -->
+    <nav class="d-flex align-items-center gap-3">
+
+      <!-- CERRAR SESIÓN-->
+      <a href="../php/cerrarsesion.php" class="nav-link">
             <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
           </a>
-        </li>
-      </ul>
     </nav>
   </div>
 </header>
