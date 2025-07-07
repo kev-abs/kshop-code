@@ -81,20 +81,20 @@ include '../conexion/conexion.php';
 
   <div class="container-fluid">
   <div class="row">
-    <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	rgb(0, 0, 0);">
+    <div class="col-12 bg-ligth text-white text-center p-3 mb-4" style="background-color:	#ffffff(0, 0, 0);">
        <div class="d-flex justify-content-between align-items-center">
         <!-- LOGO a la izquierda -->
         <div class="d-flex align-items-center">
-          <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="60" class="me-2">
-          <a href="./index.php" class="text-decoration-none fs-6 fw-bold text-white">K-SHOP</a>
+          <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
+          <a href="./index.php" class="text-decoration-none fs-6 fw-bold text-dark">K-SHOP</a>
         </div>
         <!-- TÍTULO centrado -->
-      <h2 class="m-0 text-center felx-grow-1">Clientes mas Frecuentes</h2>
+      <h2 class="m-0 text-center felx-grow-1 text-dark">Clientes mas Frecuentes</h2>
       <!-- Botón volver alineado a la izquierda con estilo mejorado -->
-          <nav style="background-color: rgb(0, 0, 0);" class="px-3 py-2">
+          <nav  class="px-3 py-2">
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <a href="../paneles/paneladmin.php"
+                <a href="../paneles/paneladmin.php" class="text-dark"
                   style="color: white; font-weight: 600; font-size: 1rem; text-decoration: none;"
                   onmouseover="this.style.color='#FFD700'"
                   onmouseout="this.style.color='white'">
@@ -137,8 +137,7 @@ include '../conexion/conexion.php';
       </table>
   </div>
   </div> <!--cierre del container-->
-  </body>
-  </div> 
+
   <!-- FOOTER -->
 <footer class="bg-dark text-white text-center text-md-start py-5">
     <div class="container-fluid">
