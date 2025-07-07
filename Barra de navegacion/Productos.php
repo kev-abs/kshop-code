@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+// Lista de productos
 $productos = [
   [
     "titulo" => "Camiseta manga corta dama",
@@ -49,48 +52,30 @@ $productos = [
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K-SHOP - Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #ffffff;
-      color: #000;
-    }
-    .nav-link {
-      color: #000000 !important;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .nav-link:hover {
-      color: #ffffff !important;
-      background-color: #0d6efd;
-      border-radius: 0.375rem;
-    }
-    .nav-link.text-warning:hover {
-      background-color: #dc3545;
-    }
-    .logo-img {
-      height: 40px;
-      margin-right: 10px;
-    }
-    .btn-outline-dark:hover {
-      background-color: #0d6efd;
-      color: white !important;
-    }
-    .btn-outline-dark.text-danger:hover {
-      background-color: #dc3545;
-      color: white !important;
-    }
     .card:hover {
       transform: scale(1.02);
       transition: transform 0.3s ease-in-out;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
+    .nav-link {
+      color: #000000 !important;
+      transition: 0.3s;
+    }
+    .nav-link:hover {
+      background-color: #0d6efd;
+      color: white !important;
+      border-radius: 0.375rem;
+    }
   </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="bg-white sticky-top py-3 border-bottom shadow-sm">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     <div class="d-flex align-items-center">
@@ -102,9 +87,8 @@ $productos = [
     </form>
     <nav class="d-flex align-items-center gap-3">
       <a href="./Productos.php" class="nav-link text-dark">Productos</a>
-      <a href="./servicios.php" class="nav-link text-dark">Servicios</a>      <a href="./carrito.php" class="btn btn-outline-dark border-0">
-        <i class="bi bi-cart-fill"></i>
-      </a>
+      <a href="./servicios.php" class="nav-link text-dark">Servicios</a>
+      <a href="./carrito.php" class="btn btn-outline-dark border-0"><i class="bi bi-cart-fill"></i></a>
       <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
         <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
       </a>
@@ -112,6 +96,7 @@ $productos = [
   </div>
 </header>
 
+<!-- MAIN -->
 <main class="container py-5">
   <h1 class="text-center mb-5 fw-bold">Explora Nuestro Catálogo</h1>
   <div class="row g-4">
@@ -126,6 +111,8 @@ $productos = [
           </div>
         </div>
       </div>
+
+      <!-- Modal -->
       <div class="modal fade" id="modalProducto<?= $index ?>" tabindex="-1" aria-labelledby="modalProductoLabel<?= $index ?>" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -140,14 +127,14 @@ $productos = [
             </div>
             <div class="modal-footer">
               <a href="<?= $producto['pagina'] ?>" class="btn btn-secondary">Detalles</a>
-              <button class="btn btn-success"
-                onclick='agregarAlCarrito({
-                  id: <?= $index + 1 ?>,
-                  nombre: <?= json_encode($producto["titulo"]) ?>,
-                  descripcion: <?= json_encode($producto["descripcion"]) ?>,
-                  precio: <?= $producto["precio"] ?>,
-                  imagen: <?= json_encode($producto["imagen"]) ?>
-                })'>Agregar al carrito</button>
+              <!-- NUEVO FORMULARIO PARA AGREGAR AL CARRITO -->
+              <form action="agregar_carrito.php" method="POST">
+                <input type="hidden" name="id" value="<?= $index ?>">
+                <input type="hidden" name="titulo" value="<?= $producto['titulo'] ?>">
+                <input type="hidden" name="precio" value="<?= $producto['precio'] ?>">
+                <input type="hidden" name="imagen" value="<?= $producto['imagen'] ?>">
+                <button type="submit" class="btn btn-success">Agregar al carrito</button>
+              </form>
             </div>
           </div>
         </div>
@@ -156,6 +143,7 @@ $productos = [
   </div>
 </main>
 
+<!-- FOOTER -->
 <footer class="bg-dark text-white pt-5 pb-3 mt-5">
   <div class="container">
     <div class="row mb-4">
@@ -185,7 +173,7 @@ $productos = [
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../Funciones/funciones.js" defer></script>
 </body>
 </html>
+
 
