@@ -80,7 +80,7 @@
       </a>
 
       <!-- INICIAR SESIÓN -->
-      <a href="./Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
         <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
       </a>
     </nav>

@@ -1,16 +1,18 @@
 <?php
 session_start();
 
-// Evitar caché
+// Bloqueo para evitar volver con "atrás"
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
+header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
 
-if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
-    header("Location: ../Barra de navegacion/Iniciarsesion.php");
+// Validación de sesión
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
+    header("Location: ../index.php");
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

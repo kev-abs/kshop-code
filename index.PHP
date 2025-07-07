@@ -200,10 +200,10 @@
       <div class="col-md-3 mb-3">
         <h5>Enlaces rápidos</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white">Inicio</a></li>
-          <li><a href="#" class="text-white">Productos</a></li>
-          <li><a href="#" class="text-white">Servicios</a></li>
-          <li><a href="#" class="text-white">Contáctanos</a></li>
+          <li><a href="index.php" class="text-white">Inicio</a></li>
+          <li><a href="./Barra de navegacion/productos.php" class="text-white">Productos</a></li>
+          <li><a href="./Barra de navegacion/Productos.php" class="text-white">Servicios</a></li>
+          <li><a href="./Barra de navegacion/Productos.php" class="text-white">Contáctanos</a></li>
         </ul>
       </div>
       <div class="col-md-3 mb-3">
