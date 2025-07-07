@@ -84,7 +84,7 @@ $total = 0;
     <div class="text-end">
       <p class="fs-5 fw-bold">Total: <span class="text-danger"><?= number_format($total, 0) ?> COP</span></p>
       <div class="d-flex justify-content-end gap-2">
-        <form action="finalizar_compra.php" method="POST">
+        <form action="../compra/metodo de envio.php" method="POST">
           <button type="submit" class="btn btn-success">Comprar</button>
         </form>
         <form action="vaciar_carrito.php" method="POST">
