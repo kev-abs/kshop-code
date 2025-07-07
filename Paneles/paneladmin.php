@@ -7,7 +7,7 @@ header("Pragma: no-cache");
 header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
 
 // Validación de sesión
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'administrador') {
     header("Location: ../index.php");
     exit();
 }
