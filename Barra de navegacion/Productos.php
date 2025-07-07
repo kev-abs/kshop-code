@@ -1,51 +1,16 @@
 <?php
 session_start();
+include '../conexion/conexion.php'; // Conexión a la base de datos
 
-// Lista de productos
-$productos = [
-  [
-    "titulo" => "Camiseta manga corta dama",
-    "descripcion" => "Fresca y cómoda para el día a día.",
-    "imagen" => "../Imagenes/camiseta aqua manga corta mujer.avif",
-    "pagina" => "producto1.php",
-    "precio" => 39900
-  ],
-  [
-    "titulo" => "Camiseta Boxy Ultra Aestetick",
-    "descripcion" => "Un estilo único y moderno.",
-    "imagen" => "../Imagenes/camiseta boxy.jpeg",
-    "pagina" => "producto1.php",
-    "precio" => 80000
-  ],
-  [
-    "titulo" => "Pantalón cargo cannabis",
-    "descripcion" => "Un pantalón con mucha personalidad y estilo.",
-    "imagen" => "../Imagenes/pantalon cargo.jpeg",
-    "pagina" => "producto1.php",
-    "precio" => 100000
-  ],
-  [
-    "titulo" => "Camiseta manga corta caballero",
-    "descripcion" => "Ideal para climas cálidos y casuales.",
-    "imagen" => "../Imagenes/camiseta negra manga corta hombre.jpg",
-    "pagina" => "producto2.php",
-    "precio" => 42900
-  ],
-  [
-    "titulo" => "Buzo dama",
-    "descripcion" => "Perfecto para el clima frío.",
-    "imagen" => "../Imagenes/camiseta blanca manga larga mujer.jpg",
-    "pagina" => "producto3.php",
-    "precio" => 59900
-  ],
-  [
-    "titulo" => "Buzo caballero",
-    "descripcion" => "Diseño moderno y cálido.",
-    "imagen" => "../Imagenes/camiseta negra manga larga hombre.webp",
-    "pagina" => "producto4.php",
-    "precio" => 62900
-  ]
-];
+// Consulta productos desde la base de datos
+$consulta = "SELECT ID_Producto, Nombre, Descripcion, Imagen, Precio FROM producto";
+$resultado = $conexion->query($consulta);
+
+// Convertimos resultados a un array
+$productos = [];
+while ($fila = $resultado->fetch_assoc()) {
+    $productos[] = $fila;
+}
 ?>
 
 <!DOCTYPE html>
@@ -103,10 +68,10 @@ $productos = [
     <?php foreach ($productos as $index => $producto): ?>
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="<?= $producto['imagen'] ?>" class="card-img-top img-fluid" alt="<?= $producto['titulo'] ?>">
+          <img src="<?= $producto['Imagen'] ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title"><?= $producto['titulo'] ?></h5>
-            <p class="card-text">$<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+            <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
+            <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             <button class="btn btn-outline-primary mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto<?= $index ?>">Ver más</button>
           </div>
         </div>
@@ -117,22 +82,22 @@ $productos = [
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $producto['titulo'] ?></h5>
+              <h5 class="modal-title"><?= $producto['Nombre'] ?></h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-              <img src="<?= $producto['imagen'] ?>" class="img-fluid mb-3" alt="<?= $producto['titulo'] ?>">
-              <p><strong>Descripción:</strong> <?= $producto['descripcion'] ?></p>
-              <p><strong>Precio:</strong> $<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+              <img src="<?= $producto['Imagen'] ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
+              <p><strong>Descripción:</strong> <?= $producto['Descripcion'] ?></p>
+              <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             </div>
             <div class="modal-footer">
-              <a href="<?= $producto['pagina'] ?>" class="btn btn-secondary">Detalles</a>
-              <!-- NUEVO FORMULARIO PARA AGREGAR AL CARRITO -->
+              <!-- Botón de detalles podría llevar a una página futura -->
+              <a href="#" class="btn btn-secondary disabled">Detalles</a>
               <form action="agregar_carrito.php" method="POST">
-                <input type="hidden" name="id" value="<?= $index ?>">
-                <input type="hidden" name="titulo" value="<?= $producto['titulo'] ?>">
-                <input type="hidden" name="precio" value="<?= $producto['precio'] ?>">
-                <input type="hidden" name="imagen" value="<?= $producto['imagen'] ?>">
+                <input type="hidden" name="id" value="<?= $producto['ID_Producto'] ?>">
+                <input type="hidden" name="titulo" value="<?= $producto['Nombre'] ?>">
+                <input type="hidden" name="precio" value="<?= $producto['Precio'] ?>">
+                <input type="hidden" name="imagen" value="<?= $producto['Imagen'] ?>">
                 <button type="submit" class="btn btn-success">Agregar al carrito</button>
               </form>
             </div>
@@ -175,5 +140,3 @@ $productos = [
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
