@@ -209,7 +209,7 @@ $total = $subtotal + $envio;
     </div>
   </main>
 
-  <footer class="bg-dark text-white text-center py-4 mt-auto">
+<footer class="bg-dark text-white text-center py-4 mt-auto">
     <div class="container">
       <div class="mb-3">
         <a href="#" class="text-white me-3">Términos y condiciones</a>

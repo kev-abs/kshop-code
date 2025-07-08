@@ -96,11 +96,11 @@ $total = 0;
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-4">
+<footer class="bg-dark text-white text-center py-4 mt-auto">
   <div class="container">
     <div class="mb-3">
-      <a href="#" class="text-white me-3">Términos y condiciones</a>
-      <a href="#" class="text-white me-3">Política de privacidad</a>
+      <a href="../legales/Terminos_de_uso.php" class="text-white me-3">Términos y condiciones</a>
+      <a href="../legales/politicas_de_privacidad.php" class="text-white me-3">Política de privacidad</a>
       <a href="#" class="text-white me-3">¿Necesitas ayuda?</a>
     </div>
     <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>

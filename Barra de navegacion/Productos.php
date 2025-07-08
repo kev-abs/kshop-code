@@ -89,13 +89,8 @@ while ($fila = $resultado->fetch_assoc()) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-<<<<<<< HEAD
               <img src="<?= $imagenURL ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
 
-=======
-              <!-- Imagen del producto en el modal con ruta local -->
-              <img src="../Imagenes/<?= rawurlencode($producto['Imagen']) ?>" class="img-fluid mb-3" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
->>>>>>> a7a1c9c3c6086568356f0ec8909326a3058ab5ed
               <p><strong>Descripción:</strong> <?= $producto['Descripcion'] ?></p>
               <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             </div>
@@ -117,7 +112,7 @@ while ($fila = $resultado->fetch_assoc()) {
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white pt-5 pb-3 mt-5">
+<footer class="bg-dark text-white text-center py-4 mt-auto">
   <div class="container">
     <div class="row mb-4">
       <div class="col-md-4">
