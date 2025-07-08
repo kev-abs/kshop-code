@@ -69,7 +69,7 @@ while ($fila = $resultado->fetch_assoc()) {
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
           <!-- Imagen del producto con ruta local -->
-          <img src="data:image/jpeg;base64,<?= base64_encode($producto['Imagen']) ?>" />
+          <img src="../Imagenes/<?= htmlspecialchars($producto['Imagen']) ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
             <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
@@ -88,7 +88,7 @@ while ($fila = $resultado->fetch_assoc()) {
             </div>
             <div class="modal-body">
               <!-- Imagen del producto en el modal con ruta local -->
-              <img src="../Imagenes/<?= $producto['Imagen'] ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
+              <img src="../Imagenes/<?= htmlspecialchars($producto['Imagen']) ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
               <p><strong>Descripción:</strong> <?= $producto['Descripcion'] ?></p>
               <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             </div>
