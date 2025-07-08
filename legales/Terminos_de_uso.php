@@ -13,25 +13,52 @@ session_start();
     body {
       background-color: #f8f9fa;
     }
+    main {
+      min-height: 75vh;
+    }
     .logo-text {
       font-weight: bold;
       font-size: 1.4rem;
+    }
+    .nav-link {
+      color: #000 !important;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .nav-link:hover {
+      color: #fff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
     }
   </style>
 </head>
 <body>
 
 <!-- ENCABEZADO -->
-<header class="bg-dark text-white py-3">
-  <div class="container d-flex justify-content-between align-items-center">
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+    <!-- LOGO -->
     <div class="d-flex align-items-center">
       <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
-      <span class="logo-text">K-SHOP</span>
+      <a class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
     </div>
-    <a href="../index.php" class="btn btn-outline-light">Volver a Inicio</a>
+
+    <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
+    </form>
+
+    <!-- MENÚ NAVEGACIÓN -->
+    <nav class="d-flex align-items-center gap-3">
+      <!-- CERRAR SESIÓN-->
+      <a href="../php/cerrarsesion.php" class="nav-link">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      </a>
+    </nav>
   </div>
 </header>
- <!--CONTENIDO PRINCIPAL -->
+
+<!-- CONTENIDO PRINCIPAL -->
 <main class="container my-5">
   <h2 class="mb-4 text-center">Términos y Condiciones de Uso</h2>
   <div class="card shadow-sm border-start border-5 border-warning">
