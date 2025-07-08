@@ -209,7 +209,7 @@
       <div class="col-md-3 mb-3">
         <h5>Legal</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white">Términos y condiciones</a></li>
+          <li><a href="./legales/Terminos_de_uso.php" class="text-white">Términos y condiciones</a></li>
           <li><a href="#" class="text-white">Política de privacidad</a></li>
           <li><a href="#" class="text-white">Cookies</a></li>
         </ul>
