@@ -50,9 +50,8 @@ session_start();
 
     <!-- MENÚ NAVEGACIÓN -->
     <nav class="d-flex align-items-center gap-3">
-      <!-- CERRAR SESIÓN-->
-      <a href="../php/cerrarsesion.php" class="nav-link">
-        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      <a href="../index.PHP" class="nav-link">
+        Volver
       </a>
     </nav>
   </div>

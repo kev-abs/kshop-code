@@ -210,7 +210,7 @@
         <h5>Legal</h5>
         <ul class="list-unstyled">
           <li><a href="./legales/Terminos_de_uso.php" class="text-white">Términos y condiciones</a></li>
-          <li><a href="#" class="text-white">Política de privacidad</a></li>
+          <li><a href="./legales/politicas_de_privacidad.php" class="text-white">Política de privacidad</a></li>
           <li><a href="#" class="text-white">Cookies</a></li>
         </ul>
       </div>
