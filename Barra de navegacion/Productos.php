@@ -69,14 +69,9 @@ while ($fila = $resultado->fetch_assoc()) {
       <?php $imagenURL = '/kshop-code/imagenes_productos/' . $producto['Imagen']; ?>
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
-<<<<<<< HEAD
           <?php $imagenURL = '../imagenes_productos/' . $producto['Imagen']; ?>
 <img src="<?= $imagenURL ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
 
-=======
-          <!-- Imagen del producto con ruta local -->
-          <img src="../Imagenes/<?= rawurlencode($producto['Imagen']) ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
->>>>>>> a7a1c9c3c6086568356f0ec8909326a3058ab5ed
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
             <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
