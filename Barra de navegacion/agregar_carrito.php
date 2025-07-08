@@ -1,27 +1,31 @@
 <?php
 session_start();
 
+$id = $_POST['id'];
+$titulo = $_POST['titulo'];
+$precio = $_POST['precio'];
+$imagen = $_POST['imagen'];
+
+// Construir la ruta completa para mostrar correctamente la imagen
+$ruta_imagen = '../imagenes_productos/' . $imagen;
+
+// Inicializar el carrito si no existe
 if (!isset($_SESSION['carrito'])) {
-  $_SESSION['carrito'] = [];
+    $_SESSION['carrito'] = [];
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $id = $_POST['id'];
-  $titulo = $_POST['titulo'];
-  $precio = $_POST['precio'];
-  $imagen = $_POST['imagen'];
-
-  if (isset($_SESSION['carrito'][$id])) {
-    $_SESSION['carrito'][$id]['cantidad'] += 1;
-  } else {
+// Si el producto ya está en el carrito, aumentar cantidad
+if (isset($_SESSION['carrito'][$id])) {
+    $_SESSION['carrito'][$id]['cantidad']++;
+} else {
     $_SESSION['carrito'][$id] = [
-      'titulo' => $titulo,
-      'precio' => $precio,
-      'imagen' => $imagen,
-      'cantidad' => 1
+        'titulo' => $titulo,
+        'precio' => $precio,
+        'imagen' => $ruta_imagen,
+        'cantidad' => 1
     ];
-  }
 }
 
-header('Location: Productos.php');
+// Redirigir al carrito
+header("Location: carrito.php");
 exit;

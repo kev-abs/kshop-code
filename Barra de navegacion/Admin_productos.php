@@ -166,6 +166,66 @@ $resultado = $conexion->query("SELECT * FROM producto");
       </tbody>
     </table>
   </div>
+  <!-- ... (código anterior sin cambios) -->
+
+<h4>Productos actuales</h4>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Proveedor</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while ($row = $resultado->fetch_assoc()): ?>
+        <?php $imagenURL = '/tiendakshop/imagenes_productos/' . $row['Imagen']; ?>
+        <tr>
+          <td><?= $row["ID_Producto"] ?></td>
+          <td>
+            <img src="<?= $imagenURL ?>" alt="Imagen producto" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+          </td>
+          <td><?= $row["Nombre"] ?></td>
+          <td>$<?= number_format($row["Precio"], 0, ',', '.') ?></td>
+          <td><?= $row["Stock"] ?></td>
+          <td><?= $row["ID_Proveedor"] ?></td>
+          <td>
+            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit<?= $row["ID_Producto"] ?>">Editar</button>
+          </td>
+        </tr>
+
+        <!-- Modal para editar -->
+        <div class="modal fade" id="edit<?= $row["ID_Producto"] ?>" tabindex="-1">
+          <div class="modal-dialog">
+            <form method="POST" class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Editar producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" name="id" value="<?= $row["ID_Producto"] ?>">
+                <input type="text" name="nombre" value="<?= $row["Nombre"] ?>" class="form-control mb-2">
+                <textarea name="descripcion" class="form-control mb-2"><?= $row["Descripcion"] ?></textarea>
+                <input type="number" name="precio" value="<?= $row["Precio"] ?>" class="form-control mb-2">
+                <input type="number" name="stock" value="<?= $row["Stock"] ?>" class="form-control mb-2">
+                <input type="number" name="id_proveedor" value="<?= $row["ID_Proveedor"] ?>" class="form-control mb-2">
+              </div>
+              <div class="modal-footer">
+                <button name="editar" class="btn btn-primary">Guardar cambios</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      <?php endwhile; ?>
+    </tbody>
+  </table>
+</div>
+
   <div class="text-start mt-3">
     <a href="../Paneles/paneladmin.php" class="btn btn-outline-secondary">Volver al panel</a>
   </div>

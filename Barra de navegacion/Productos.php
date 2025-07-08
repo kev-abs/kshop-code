@@ -66,9 +66,12 @@ while ($fila = $resultado->fetch_assoc()) {
   <h1 class="text-center mb-5 fw-bold">Explora Nuestro Catálogo</h1>
   <div class="row g-4">
     <?php foreach ($productos as $index => $producto): ?>
+      <?php $imagenURL = '/kshop-code/imagenes_productos/' . $producto['Imagen']; ?>
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
-          <img src="<?= $producto['Imagen'] ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
+          <?php $imagenURL = '../imagenes_productos/' . $producto['Imagen']; ?>
+<img src="<?= $imagenURL ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
+
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
             <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
@@ -86,7 +89,8 @@ while ($fila = $resultado->fetch_assoc()) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-              <img src="<?= $producto['Imagen'] ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
+              <img src="<?= $imagenURL ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
+
               <p><strong>Descripción:</strong> <?= $producto['Descripcion'] ?></p>
               <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             </div>
