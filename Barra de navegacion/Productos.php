@@ -69,9 +69,14 @@ while ($fila = $resultado->fetch_assoc()) {
       <?php $imagenURL = '/kshop-code/imagenes_productos/' . $producto['Imagen']; ?>
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
+<<<<<<< HEAD
           <?php $imagenURL = '../imagenes_productos/' . $producto['Imagen']; ?>
 <img src="<?= $imagenURL ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
 
+=======
+          <!-- Imagen del producto con ruta local -->
+          <img src="../Imagenes/<?= rawurlencode($producto['Imagen']) ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+>>>>>>> a7a1c9c3c6086568356f0ec8909326a3058ab5ed
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
             <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
@@ -89,8 +94,13 @@ while ($fila = $resultado->fetch_assoc()) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
+<<<<<<< HEAD
               <img src="<?= $imagenURL ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
 
+=======
+              <!-- Imagen del producto en el modal con ruta local -->
+              <img src="../Imagenes/<?= rawurlencode($producto['Imagen']) ?>" class="img-fluid mb-3" alt="<?= htmlspecialchars($producto['Nombre']) ?>">
+>>>>>>> a7a1c9c3c6086568356f0ec8909326a3058ab5ed
               <p><strong>Descripción:</strong> <?= $producto['Descripcion'] ?></p>
               <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
             </div>
@@ -100,7 +110,7 @@ while ($fila = $resultado->fetch_assoc()) {
                 <input type="hidden" name="id" value="<?= $producto['ID_Producto'] ?>">
                 <input type="hidden" name="titulo" value="<?= $producto['Nombre'] ?>">
                 <input type="hidden" name="precio" value="<?= $producto['Precio'] ?>">
-                <input type="hidden" name="imagen" value="<?= $producto['Imagen'] ?>">
+                <input type="hidden" name="imagen" value="../Imagenes/<?= $producto['Imagen'] ?>">
                 <button type="submit" class="btn btn-success">Agregar al carrito</button>
               </form>
             </div>
