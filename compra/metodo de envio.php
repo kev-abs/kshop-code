@@ -108,7 +108,12 @@ $total = 0;
         </label>
       </div>
 
-      <a href="envio_formulario.php" id="continuarBtn" class="btn btn-dark btn-lg w-100 disabled" tabindex="-1" aria-disabled="true">CONTINUAR</a>
+      <form id="formEnvio" action="envio_formulario.php" method="POST">
+  <input type="hidden" name="envio_tipo" id="envio_tipo">
+  <input type="hidden" name="envio_valor" id="envio_valor">
+  <button type="submit" id="continuarBtn" class="btn btn-dark btn-lg w-100 disabled" disabled>CONTINUAR</button>
+</form>
+
     </div>
 
     <!-- Columna derecha: Resumen de compra -->
@@ -162,44 +167,49 @@ $total = 0;
     </p>
   </div>
 </footer>
+
+
+
 <script>
   document.querySelectorAll(".envio-opcion").forEach((radio) => {
-    radio.addEventListener("change", function () {
-      const continuarBtn = document.getElementById("continuarBtn");
-      continuarBtn.classList.remove("disabled");
-      continuarBtn.removeAttribute("aria-disabled");
-      continuarBtn.setAttribute("tabindex", "0");
+  radio.addEventListener("change", function () {
+    const continuarBtn = document.getElementById("continuarBtn");
+    continuarBtn.classList.remove("disabled");
+    continuarBtn.removeAttribute("aria-disabled");
+    continuarBtn.removeAttribute("disabled");
 
-      // Obtener el subtotal desde el atributo personalizado
-      const subtotalElemento = document.getElementById("subtotal");
-      const subtotal = parseInt(subtotalElemento.getAttribute("data-subtotal"));
+    const envioTipo = this.value;
+    const envioValor = parseInt(this.closest("label").querySelector("span").textContent.replace(/\D/g, ''));
 
-      // Obtener valor del envío seleccionado
-      const envioSeleccionado = parseInt(this.parentElement.nextElementSibling?.textContent.replace(/\D/g, '')) || 
-                                 parseInt(this.closest("label").querySelector("span").textContent.replace(/\D/g, ''));
-
-      // Calcular total con envío
-      const totalConEnvio = subtotal + envioSeleccionado;
-
-      // Mostrar el total con envío
-      const totalEnvioRow = document.getElementById("totalEnvioRow");
-      const totalConEnvioElemento = document.getElementById("totalConEnvio");
-      totalEnvioRow.style.display = "flex";
-      totalConEnvioElemento.textContent = `$${totalConEnvio.toLocaleString("es-CO")}`;
-    });
+    document.getElementById("envio_tipo").value = envioTipo;
+    document.getElementById("envio_valor").value = envioValor;
   });
+});
 </script>
 
 
 <script>
   document.querySelectorAll(".envio-opcion").forEach((radio) => {
-    radio.addEventListener("change", function () {
-      const continuarBtn = document.getElementById("continuarBtn");
-      continuarBtn.classList.remove("disabled");
-      continuarBtn.removeAttribute("aria-disabled");
-      continuarBtn.setAttribute("tabindex", "0");
-    });
+  radio.addEventListener("change", function () {
+    const continuarBtn = document.getElementById("continuarBtn");
+    continuarBtn.classList.remove("disabled");
+    continuarBtn.removeAttribute("disabled");
+
+    const envioTipo = this.value;
+    const envioValor = parseInt(this.closest("label").querySelector("span").textContent.replace(/\D/g, ''));
+    const subtotal = parseInt(document.getElementById("subtotal").dataset.subtotal);
+
+    // Enviar datos ocultos
+    document.getElementById("envio_tipo").value = envioTipo;
+    document.getElementById("envio_valor").value = envioValor;
+
+    // Mostrar total con envío
+    const totalConEnvio = subtotal + envioValor;
+    document.getElementById("totalEnvioRow").style.display = 'flex';
+    document.getElementById("totalConEnvio").textContent = '$' + totalConEnvio.toLocaleString("es-CO");
   });
+});
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
