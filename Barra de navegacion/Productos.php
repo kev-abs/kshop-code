@@ -69,7 +69,7 @@ while ($fila = $resultado->fetch_assoc()) {
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
           <!-- Imagen del producto con ruta local -->
-          <img src="../Imagenes/<?= $producto['Imagen'] ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
+          <img src="data:image/jpeg;base64,<?= base64_encode($producto['Imagen']) ?>" />
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
             <p class="card-text">$<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
