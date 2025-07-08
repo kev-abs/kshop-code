@@ -73,10 +73,10 @@ include '../conexion/conexion.php';
         <!-- LOGO a la izquierda -->
         <div class="d-flex align-items-center">
           <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
-          <a href="./index.php" class="text-decoration-none fs-6 fw-bold text-dark">K-SHOP</a>
+          <a href="./index.php" class="text-decoration-none fs-5 fw-bold text-dark">K-SHOP</a>
         </div>
         <!-- TÍTULO centrado -->
-      <h2 class="m-0 text-center felx-grow-1">Exportar Datos</h2>
+      <h2 class="m-0 text-center felx-grow-1 text-dark">Exportar Datos</h2>
       <!-- Botón volver alineado a la izquierda con estilo mejorado -->
           <nav class="px-3 py-2">
             <ul class="nav justify-content-end">

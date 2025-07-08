@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['envio_tipo'], $_POST['envio_valor']) && is_numeric($_POST['envio_valor'])) {
+        $_SESSION['envio_tipo'] = $_POST['envio_tipo'];
+        $_SESSION['envio_valor'] = (int) $_POST['envio_valor'];
+    }
+}
+
+
 // Recuperar el carrito
 $carrito = $_SESSION['carrito'] ?? [];
 $subtotal = 0;
