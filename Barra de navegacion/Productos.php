@@ -13,6 +13,7 @@ while ($fila = $resultado->fetch_assoc()) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -70,7 +71,8 @@ while ($fila = $resultado->fetch_assoc()) {
       <div class="col-sm-6 col-md-4">
         <div class="card h-100">
           <?php $imagenURL = '../imagenes_productos/' . $producto['Imagen']; ?>
-<img src="<?= $imagenURL ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
+<img src="data:image/jpeg;base64,<?= base64_encode($producto['Imagen']) ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
+
 
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?= $producto['Nombre'] ?></h5>
@@ -89,7 +91,8 @@ while ($fila = $resultado->fetch_assoc()) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-              <img src="<?= $imagenURL ?>" class="img-fluid mb-3" alt="<?= $producto['Nombre'] ?>">
+              <img src="data:image/jpeg;base64,<?= base64_encode($producto['Imagen']) ?>" class="card-img-top img-fluid" alt="<?= $producto['Nombre'] ?>">
+
 
               <p><strong>Descripción:</strong> <?= $producto['Descripcion'] ?></p>
               <p><strong>Precio:</strong> $<?= number_format($producto['Precio'], 0, ',', '.') ?></p>
@@ -100,7 +103,6 @@ while ($fila = $resultado->fetch_assoc()) {
                 <input type="hidden" name="id" value="<?= $producto['ID_Producto'] ?>">
                 <input type="hidden" name="titulo" value="<?= $producto['Nombre'] ?>">
                 <input type="hidden" name="precio" value="<?= $producto['Precio'] ?>">
-                <input type="hidden" name="imagen" value="../Imagenes/<?= $producto['Imagen'] ?>">
                 <button type="submit" class="btn btn-success">Agregar al carrito</button>
               </form>
             </div>

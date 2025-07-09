@@ -48,7 +48,8 @@ $total = 0;
       <a href="./carrito.php" class="btn btn-outline-dark border-0">
         <i class="bi bi-cart-fill"></i>
       </a>
-      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark"><i class="bi bi-person-circle me-1"></i>Iniciar Sesión</a>
+      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+        <i class="bi bi-person-circle me-1"></i>Iniciar Sesión</a>
     </nav>
   </div>
 </header>
@@ -67,7 +68,8 @@ $total = 0;
       <div class="card mb-4 shadow-sm">
         <div class="row g-0">
           <div class="col-md-4 bg-light d-flex align-items-center justify-content-center">
-            <img src="<?= $producto['imagen'] ?>" class="img-fluid p-3" alt="Producto" width="200">
+            <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" class="img-fluid p-3" alt="Producto" width="200">
+
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -96,11 +98,11 @@ $total = 0;
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-4 mt-auto">
+<footer class="bg-dark text-white text-center py-4">
   <div class="container">
     <div class="mb-3">
-      <a href="../legales/Terminos_de_uso.php" class="text-white me-3">Términos y condiciones</a>
-      <a href="../legales/politicas_de_privacidad.php" class="text-white me-3">Política de privacidad</a>
+      <a href="#" class="text-white me-3">Términos y condiciones</a>
+      <a href="#" class="text-white me-3">Política de privacidad</a>
       <a href="#" class="text-white me-3">¿Necesitas ayuda?</a>
     </div>
     <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>

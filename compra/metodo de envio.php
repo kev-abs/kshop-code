@@ -127,7 +127,8 @@ $total = 0;
         $total += $subtotal;
       ?>
       <div class="d-flex mb-3">
-        <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="Producto" class="img-thumbnail me-3" style="width: 100px;" />
+        <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" alt="<?= $producto['titulo'] ?>" width="100">
+
         <div>
           <p class="mb-0 fw-bold">
             $<?= number_format($producto['precio'], 0, ',', '.') ?> x <?= $producto['cantidad'] ?>

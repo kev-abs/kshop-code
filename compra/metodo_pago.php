@@ -140,7 +140,8 @@ $total = $subtotal + $envio;
       <?php if (!empty($carrito)): ?>
         <?php foreach ($carrito as $producto): ?>
           <div class="d-flex mb-3">
-            <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="Producto" class="img-thumbnail me-3" style="width: 100px;" />
+            <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" alt="<?= $producto['titulo'] ?>" width="100">
+
             <div>
               <p class="mb-0 fw-bold">$<?= number_format($producto['precio'], 0, ',', '.') ?> x <?= $producto['cantidad'] ?></p>
               <p class="mb-1 small"><?= htmlspecialchars($producto['titulo']) ?></p>

@@ -108,8 +108,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'administrador') {
       <li><a class="dropdown-item" href="../Barra de navegacion/Admin_productos.php">Consultar Productos</a></li>
       <li><a class="dropdown-item" href="../Barra de navegacion/Admin_productos.php#formulario">Agregar Producto</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Consultar Inventario</a></li>
-      <li><a class="dropdown-item" href="#">Actualizar Existencias</a></li>
+      <li><a class="dropdown-item" href="../Inventario/consultar_inventario.php">Consultar Inventario</a></li>
+      <li><a class="dropdown-item" href="../Inventario/actualizar_inventario.php">Actualizar Inventario</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="#">Consultar Ventas</a></li>
       <li><hr class="dropdown-divider"></li>
