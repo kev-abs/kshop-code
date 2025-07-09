@@ -83,18 +83,16 @@
 </header>
 
   <!-- Contenido principal del carrito -->
-  <main class="carrito">
-    <h1>Estado de compra</h1>
-    <div class="row">
-    <div class="d-flex justify-content-center">
-        <h3>Compra Exitosa</h3>
-        
-    </div> 
-    </div> 
-    <div class="row">
-    <div class="d-flex justify-content-center">✔️</div> 
-    </div>  
-  </main>
+  <main class="carrito d-flex justify-content-center align-items-center py-5">
+  <div class="card text-center shadow p-4" style="max-width: 400px;">
+    <div class="card-body">
+      <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+      <h3 class="mt-3">¡Compra Exitosa!</h3>
+      <p class="text-muted">Gracias por tu compra. Pronto recibirás tu pedido.</p>
+      <a href="../index.php" class="btn btn-primary mt-3">Volver al inicio</a>
+    </div>
+  </div>
+</main>
 
   <!--FOOTER-->
 <footer class="bg-dark text-white text-center py-4 mt-auto">
