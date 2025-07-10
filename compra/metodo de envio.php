@@ -79,7 +79,7 @@ foreach ($carrito as $producto) {
       <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
         <i class="bi bi-cart-fill"></i>
       </a>
-      <a href="./Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+      <a href="../Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
         <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
       </a>
     </nav>

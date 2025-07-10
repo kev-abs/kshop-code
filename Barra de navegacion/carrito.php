@@ -77,7 +77,7 @@ $total = 0;
         <div class="row g-0">
           <div class="col-md-4 bg-light d-flex align-items-center justify-content-center">
             <!-- Suponemos que guardas la ruta de imagen en 'imagen' -->
-            <img src="../imagenes_productos/<?= htmlspecialchars($producto['imagen']) ?>" class="img-fluid p-3" alt="Producto" width="200">
+            <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" class="img-fluid p-3" alt="Producto" width="200">
           </div>
           <div class="col-md-8">
             <div class="card-body">
