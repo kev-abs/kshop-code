@@ -57,17 +57,77 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
   </style>
 </head>
+  <style>
+    html, body {
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    .nav-link {
+      color: #000000 !important;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffffff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
+    }
+    .nav-link.text-warning:hover {
+      background-color: #dc3545;
+    }
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .carousel img {
+      object-fit: cover;
+      height: 500px;
+      filter: brightness(85%);
+    }
+  </style>
+</head>
 <body>
 
-<header class="bg-dark py-3 text-white">
-  <div class="container d-flex justify-content-between align-items-center">
+<!-- ENCABEZADO -->
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+    <!-- LOGO -->
     <div class="d-flex align-items-center">
-      <i class="bi bi-pencil-square fs-4 text-warning me-2"></i>
-      <h4 class="mb-0">Editar Perfil del Administrador</h4>
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" height="" class="me-2">
+      <a class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
     </div>
-    <a href="perfil_admin.php" class="btn btn-outline-light">
-      <i class="bi bi-arrow-left"></i> Volver al Perfil
-    </a>
+
+    <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
+    </form>
+
+    <!-- MENÚ NAVEGACIÓN -->
+    <nav class="d-flex align-items-center gap-3">
+
+      <!-- Volver al Panel -->
+      <a href="../Paneles/panelcliente.php" class="nav-link text-dark fw-semibold">Volver</a>
+      <!-- Pedidos -->
+      <a href="pedidos.php" class="nav-link text-dark fw-semibold">Mis pedidos</a>
+      <!--Lista de deseos-->
+      <a href="lista_deseos.php" class="nav-link text-dark fw-semibold">Lista de deseos</a>
+      <!--Carrito-->
+      <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+      <!-- CERRAR SESIÓN-->
+      <a href="../php/cerrarsesion.php" class="nav-link">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      </a>
+    </nav>
   </div>
 </header>
 
