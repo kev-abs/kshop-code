@@ -85,10 +85,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'vendedor') {
       <li><hr class="dropdown-divider"></li>
       <li><h6 class="dropdown-header">Gestión de Ventas</h6></li>
       <li><a class="dropdown-item" href="../ventas/consultar_ventas.php">Consultar Ventas</a></li>
-      <li><a class="dropdown-item" href="../ventas/registrar_venta.php">Registrar Nueva Venta</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><h6 class="dropdown-header">Clientes</h6></li>
-      <li><a class="dropdown-item" href="../clientes/consultar_clientes.php">Consultar Clientes</a></li>
+      <li><a class="dropdown-item" href="../php/consultar_clientes.php">Consultar Clientes</a></li>
     </ul>
   </div>
 </div>

@@ -1,25 +1,33 @@
 <?php
 session_start();
-if (!isset($_SESSION["rol"]) || $_SESSION["rol"] !== "administrador") {
+
+// Validación de rol
+if (!isset($_SESSION["rol"]) || !in_array($_SESSION["rol"], ["administrador", "vendedor"])) {
     header("Location: ../Barra de navegacion/Iniciarsesion.php");
     exit();
 }
 
 include '../conexion/conexion.php';
+$rol = $_SESSION["rol"];
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Clientes - K-SHOP</title>
+  <title>Clientes Registrados - K-SHOP</title>
   <link rel="stylesheet" href="../Estilos/stilos.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
   <h2 class="text-center mb-4">Clientes Registrados</h2>
-  <a href="../Paneles/paneladmin.php" class="btn btn-secondary mb-3">← Volver al Panel</a>
+
+  <?php if ($rol === "administrador"): ?>
+    <a href="../Paneles/paneladmin.php" class="btn btn-secondary mb-3">← Volver al Panel</a>
+  <?php elseif ($rol === "vendedor"): ?>
+    <a href="../Paneles/panelvendedor.php" class="btn btn-secondary mb-3">← Volver al Panel</a>
+  <?php endif; ?>
 
   <?php
   $sql = "SELECT * FROM Cliente ORDER BY Fecha_Registro DESC";
@@ -34,7 +42,9 @@ include '../conexion/conexion.php';
           <th>Correo</th>
           <th>Estado</th>
           <th>Fecha de Registro</th>
-          <th>Editar Estado</th>
+          <?php if ($rol === "administrador"): ?>
+            <th>Editar Estado</th>
+          <?php endif; ?>
         </tr>
       </thead>
       <tbody>
@@ -45,9 +55,11 @@ include '../conexion/conexion.php';
           <td><?= $fila['Correo'] ?></td>
           <td><?= $fila['Estado'] ?></td>
           <td><?= $fila['Fecha_Registro'] ?></td>
-          <td>
-            <a href="editar_clientes.php?id=<?= $fila['ID_Cliente'] ?>" class="btn btn-warning btn-sm">Editar Estado</a>
-          </td>
+          <?php if ($rol === "administrador"): ?>
+            <td>
+              <a href="editar_clientes.php?id=<?= $fila['ID_Cliente'] ?>" class="btn btn-warning btn-sm">Editar Estado</a>
+            </td>
+          <?php endif; ?>
         </tr>
         <?php endwhile; ?>
       </tbody>
@@ -58,3 +70,4 @@ include '../conexion/conexion.php';
 </div>
 </body>
 </html>
+
