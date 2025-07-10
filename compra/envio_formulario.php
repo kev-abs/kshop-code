@@ -8,8 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-// Recuperar el carrito
 $carrito = $_SESSION['carrito'] ?? [];
 $subtotal = 0;
 
@@ -18,14 +16,12 @@ foreach ($carrito as $producto) {
     $subtotal += $producto['precio'] * $cantidad;
 }
 
-// Recuperar costo de envío
 $envio = $_SESSION['envio_valor'] ?? 0;
 $total = $subtotal + $envio;
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,8 +29,7 @@ $total = $subtotal + $envio;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    html,
-    body {
+    html, body {
       height: 100%;
       background-color: #ffffff;
       color: #000000;
@@ -60,15 +55,16 @@ $total = $subtotal + $envio;
       border-radius: 0.375rem;
     }
 
-    .logo-img {
-      height: 40px;
-      margin-right: 10px;
-    }
-
-    .resumen-fijo img {
-      width: 100px;
+    .card-img {
       object-fit: cover;
+      max-height: 100px;
     }
+    .resumen-fijo img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
   </style>
 </head>
 
@@ -125,16 +121,14 @@ $total = $subtotal + $envio;
                 <option value="TI">Tarjeta de Identidad</option>
               </select>
             </div>
-            <div class="col-md-6"><label>Número de documento</label><input type="text" class="form-control" required>
-            </div>
+            <div class="col-md-6"><label>Número de documento</label><input type="text" class="form-control" required></div>
           </div>
 
           <!-- Dirección -->
           <h5 class="mt-5">Dirección de envío</h5>
           <div class="row g-3">
             <div class="col-12"><input type="text" class="form-control" placeholder="Calle y número" required></div>
-            <div class="col-12"><input type="text" class="form-control" placeholder="Escalera, piso... (Opcional)">
-            </div>
+            <div class="col-12"><input type="text" class="form-control" placeholder="Escalera, piso... (Opcional)"></div>
             <div class="col-md-6"><input type="text" class="form-control" placeholder="Código postal" required></div>
             <div class="col-md-6">
               <select class="form-select" required>
@@ -161,56 +155,57 @@ $total = $subtotal + $envio;
 
       <!-- Resumen de compra -->
       <div class="col-md-4">
-  <div class="resumen-fijo">
-    <h5 class="fw-bold mb-4">
-      Resumen de la compra (<?= count($carrito) ?>)
-    </h5>
+        <h5 class="fw-bold mb-4">Resumen de la compra (<?= count($carrito) ?>)</h5>
 
-    <?php if (!empty($carrito)): ?>
-      <?php foreach ($carrito as $producto): ?>
-        <?php
-          $cantidad = $producto['cantidad'] ?? 1;
-          $subtotal_producto = $producto['precio'] * $cantidad;
-        ?>
-        <div class="d-flex align-items-center mb-3">
-          <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" alt="<?= $producto['titulo'] ?>" width="100">
-
-          <div>
-            <p class="mb-0 fw-bold">
-              $<?= number_format($producto['precio'], 0, ',', '.') ?> x <?= $cantidad ?>
-            </p>
-            <p class="mb-1 small"><?= htmlspecialchars($producto['descripcion'] ?? 'Producto sin descripción') ?></p>
-            <p class="small text-muted mb-0">
-              Talla: <?= $producto['talla'] ?? 'Única' ?><br>
-              Subtotal: $<?= number_format($subtotal_producto, 0, ',', '.') ?>
-            </p>
-          </div>
+        <?php if (!empty($carrito)): ?>
+          <?php foreach ($carrito as $producto): ?>
+  <?php
+    $cantidad = $producto['cantidad'] ?? 1;
+    $subtotal_producto = $producto['precio'] * $cantidad;
+  ?>
+  <div class="card mb-3 shadow-sm">
+    <div class="row g-0">
+      <div class="col-4 d-flex align-items-center justify-content-center bg-light">
+        <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>"
+             class="img-fluid p-2"
+             alt="<?= $producto['titulo'] ?>"
+             style="max-height: 100px; object-fit: contain;">
+      </div>
+      <div class="col-8">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1"><?= htmlspecialchars($producto['titulo']) ?></h6>
+          <p class="card-text mb-0">Precio: $<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+          <p class="card-text mb-0">Cantidad: <?= $cantidad ?></p>
+          <p class="card-text mb-0">Talla: <?= $producto['talla'] ?? 'Única' ?></p>
+          <p class="card-text"><small class="text-muted">Subtotal: $<?= number_format($subtotal_producto, 0, ',', '.') ?></small></p>
         </div>
-      <?php endforeach; ?>
-    <?php else: ?>
-      <div class="alert alert-warning">Tu carrito está vacío.</div>
-    <?php endif; ?>
-
-    <hr>
-    <div class="d-flex justify-content-between">
-      <span>Subtotal</span>
-      <span>$<?= number_format($subtotal, 0, ',', '.') ?></span>
-    </div>
-    <div class="d-flex justify-content-between">
-      <span>Envío</span>
-      <span>$<?= number_format($envio, 0, ',', '.') ?></span>
-    </div>
-    <div class="d-flex justify-content-between fw-bold mt-2">
-      <span>Total</span>
-      <span>$<?= number_format($total, 0, ',', '.') ?></span>
+      </div>
     </div>
   </div>
-</div>
+<?php endforeach; ?>
 
+
+          <hr>
+<div class="d-flex justify-content-between fw-bold">
+  <span>Subtotal</span>
+  <span>$<?= number_format($subtotal, 0, ',', '.') ?></span>
+</div>
+<div class="d-flex justify-content-between fw-bold">
+  <span>Envío</span>
+  <span>$<?= number_format($envio, 0, ',', '.') ?></span>
+</div>
+<div class="d-flex justify-content-between fw-bold mt-2">
+  <span>Total</span>
+  <span>$<?= number_format($total, 0, ',', '.') ?></span>
+</div>
+        <?php else: ?>
+          <div class="alert alert-warning">Tu carrito está vacío.</div>
+        <?php endif; ?>
+      </div>
     </div>
   </main>
 
-<footer class="bg-dark text-white text-center py-4 mt-auto">
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
     <div class="container">
       <div class="mb-3">
         <a href="#" class="text-white me-3">Términos y condiciones</a>
@@ -223,5 +218,4 @@ $total = $subtotal + $envio;
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

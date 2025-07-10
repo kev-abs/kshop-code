@@ -1,6 +1,11 @@
+<?php
+session_start();
+unset($_SESSION['carrito']); // Vacía el carrito al llegar aquí
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,15 +72,15 @@
 
     <!-- MENÚ NAVEGACIÓN -->
     <nav class="d-flex align-items-center gap-3">
-      <a href="./Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
-      <a href="./Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
+      <a href="../Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
+      <a href="../Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
       <!-- CARRITO -->
-      <a href="./Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+      <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
         <i class="bi bi-cart-fill"></i>
       </a>
 
       <!-- INICIAR SESIÓN -->
-      <a href="./Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+      <a href="../Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
         <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
       </a>
     </nav>

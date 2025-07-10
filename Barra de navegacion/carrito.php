@@ -15,6 +15,14 @@ $total = 0;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
     .nav-link {
       color: #000 !important;
       transition: 0.3s;
@@ -68,12 +76,12 @@ $total = 0;
       <div class="card mb-4 shadow-sm">
         <div class="row g-0">
           <div class="col-md-4 bg-light d-flex align-items-center justify-content-center">
-            <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" class="img-fluid p-3" alt="Producto" width="200">
-
+            <!-- Suponemos que guardas la ruta de imagen en 'imagen' -->
+            <img src="../imagenes_productos/<?= htmlspecialchars($producto['imagen']) ?>" class="img-fluid p-3" alt="Producto" width="200">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title"><?= $producto['titulo'] ?></h5>
+              <h5 class="card-title"><?= htmlspecialchars($producto['titulo']) ?></h5>
               <p class="card-text">Precio: <?= number_format($producto['precio'], 0) ?> COP</p>
               <p class="card-text">Cantidad: <?= $producto['cantidad'] ?></p>
               <p class="card-text fw-bold">Subtotal: <?= number_format($subtotal, 0) ?> COP</p>
@@ -98,7 +106,7 @@ $total = 0;
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-4">
+<footer class="bg-dark text-white text-center py-4 mt-auto">
   <div class="container">
     <div class="mb-3">
       <a href="#" class="text-white me-3">Términos y condiciones</a>

@@ -1,7 +1,13 @@
 <?php
 session_start();
 $carrito = $_SESSION['carrito'] ?? [];
-$total = 0;
+
+$subtotal = 0;
+foreach ($carrito as $producto) {
+  $cantidad = $producto['cantidad'] ?? 1;
+  $subtotal += $producto['precio'] * $cantidad;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,6 +53,12 @@ $total = 0;
       height: 500px;
       filter: brightness(85%);
     }
+    .resumen-fijo img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
   </style>
 </head>
 
@@ -122,26 +134,36 @@ $total = 0;
 
   <?php if (!empty($carrito)): ?>
     <?php foreach ($carrito as $producto): ?>
-      <?php
-        $subtotal = $producto['precio'] * $producto['cantidad'];
-        $total += $subtotal;
-      ?>
-      <div class="d-flex mb-3">
-        <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" alt="<?= $producto['titulo'] ?>" width="100">
-
-        <div>
-          <p class="mb-0 fw-bold">
-            $<?= number_format($producto['precio'], 0, ',', '.') ?> x <?= $producto['cantidad'] ?>
-          </p>
-          <p class="mb-1 small"><?= htmlspecialchars($producto['titulo']) ?></p>
-          <p class="small text-muted mb-0">Subtotal: $<?= number_format($subtotal, 0, ',', '.') ?></p>
+  <?php
+    $cantidad = $producto['cantidad'] ?? 1;
+    $subtotal_producto = $producto['precio'] * $cantidad;
+  ?>
+  <div class="card mb-3 shadow-sm">
+    <div class="row g-0">
+      <div class="col-4 d-flex align-items-center justify-content-center bg-light">
+        <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>"
+             class="img-fluid p-2"
+             alt="<?= $producto['titulo'] ?>"
+             style="max-height: 100px; object-fit: contain;">
+      </div>
+      <div class="col-8">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1"><?= htmlspecialchars($producto['titulo']) ?></h6>
+          <p class="card-text mb-0">Precio: $<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+          <p class="card-text mb-0">Cantidad: <?= $cantidad ?></p>
+          <p class="card-text mb-0">Talla: <?= $producto['talla'] ?? 'Única' ?></p>
+          <p class="card-text"><small class="text-muted">Subtotal: $<?= number_format($subtotal_producto, 0, ',', '.') ?></small></p>
         </div>
       </div>
-    <?php endforeach; ?>
+    </div>
+  </div>
+<?php endforeach; ?>
+
     <hr />
     <div class="d-flex justify-content-between fw-bold">
       <span>Subtotal</span>
-      <span id="subtotal" data-subtotal="<?= $total ?>">$<?= number_format($total, 0, ',', '.') ?></span>
+      <span id="subtotal" data-subtotal="<?= $subtotal ?>">$<?= number_format($subtotal, 0, ',', '.') ?></span>
+
     </div>
     <div class="d-flex justify-content-between fw-bold mt-2" id="totalEnvioRow" style="display: none;">
       <span>Total con envío</span>

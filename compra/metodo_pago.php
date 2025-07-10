@@ -51,6 +51,12 @@ $total = $subtotal + $envio;
       height: 40px;
       margin-right: 10px;
     }
+    .resumen-fijo img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
   </style>
 </head>
 
@@ -139,16 +145,31 @@ $total = $subtotal + $envio;
       <h5 class="fw-bold">Resumen de la compra (<?= count($carrito) ?>)</h5>
       <?php if (!empty($carrito)): ?>
         <?php foreach ($carrito as $producto): ?>
-          <div class="d-flex mb-3">
-            <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>" alt="<?= $producto['titulo'] ?>" width="100">
+  <?php
+    $cantidad = $producto['cantidad'] ?? 1;
+    $subtotal_producto = $producto['precio'] * $cantidad;
+  ?>
+  <div class="card mb-3 shadow-sm">
+    <div class="row g-0">
+      <div class="col-4 d-flex align-items-center justify-content-center bg-light">
+        <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>"
+             class="img-fluid p-2"
+             alt="<?= $producto['titulo'] ?>"
+             style="max-height: 100px; object-fit: contain;">
+      </div>
+      <div class="col-8">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1"><?= htmlspecialchars($producto['titulo']) ?></h6>
+          <p class="card-text mb-0">Precio: $<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+          <p class="card-text mb-0">Cantidad: <?= $cantidad ?></p>
+          <p class="card-text mb-0">Talla: <?= $producto['talla'] ?? 'Única' ?></p>
+          <p class="card-text"><small class="text-muted">Subtotal: $<?= number_format($subtotal_producto, 0, ',', '.') ?></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php endforeach; ?>
 
-            <div>
-              <p class="mb-0 fw-bold">$<?= number_format($producto['precio'], 0, ',', '.') ?> x <?= $producto['cantidad'] ?></p>
-              <p class="mb-1 small"><?= htmlspecialchars($producto['titulo']) ?></p>
-              <p class="small text-muted mb-0">Talla: <?= $producto['talla'] ?? 'Única' ?></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
       <?php else: ?>
         <div class="alert alert-warning">Tu carrito está vacío.</div>
       <?php endif; ?>
