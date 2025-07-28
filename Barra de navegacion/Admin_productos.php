@@ -80,7 +80,7 @@ $resultado = $conexion->query("SELECT * FROM producto");
 </header>
 
 <div class="container py-5">
-  <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>
+  <h1 class="mb-4">Panel de administrador - Productos</h1>
 
   <!-- Formulario agregar -->
   <form method="POST" class="mb-5" enctype="multipart/form-data">
