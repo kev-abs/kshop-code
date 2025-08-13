@@ -117,21 +117,19 @@ CREATE TABLE `empleado` (
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `cliente` (`ID_Cliente`, `Nombre`, `Correo`, `Contrasena`, `Fecha_Registro`, `Estado`, `Documento`, `Telefono`) VALUES
-(1, 'Manuel Rivera', 'manuel25142808@gmail.com', '$2y$10$XTvSfmJnjsfpfSGL/w6GGO7PYrwY0l0l/MbVcZ5eOIcPC9JximQHG', '2025-06-27', 'Activo', '', ''),
-(2, 'Diana Quintero', 'dianita@gmail.com', '$2y$10$H2wrlDHG5.xMH8VqXu4GmuQhxhFI2mKRj5h0cPsokFUeX03syNCq2', '2025-06-27', 'Inactivo', '', ''),
-(3, 'Carlos Villagran', 'carlitos@gmail.com', '$2y$10$O1exmwwINE2.Sfn1JCisceQZWsyd5Du9HB0HDjKSUvlCo5IQ8U3tC', '2025-06-27', 'Activo', '', ''),
-(7, 'Fabian Parra', 'foparra@gmail.com', '$2y$10$zYQ86hoxCpdsynPhWN2IJeQL0TQ9V.HhASmbkeN4mccSaWxInHmF2', '2025-06-27', 'Activo', '', ''),
-(8, 'Santiago Salgado', 'Santiblablabla@gmail.com', '$2y$10$thX.C7gDLqwubWVrcl1UB.DTgMNntYHLXsiUEAp97En7t9zQ8b3Oy', '2025-07-02', 'Activo', '', ''),
-(9, 'Kevyn Abella', 'kevtititi@gmail.com', '$2y$10$EjC2FqRmyQ1SaBYEWyvpWe0mHvIXkIhjdXIR/fj2WNAss0.1F3ahW', '2025-07-02', 'Activo', '', ''),
-(10, 'Kevyn Abella Sanchez', 'kevyn06@gmail.com', '$2y$10$GObyWBMNSdef1THfsNmr9.0WhDL4DVuekSFgqGF2QcUw5jtzespOi', '2025-07-02', 'Activo', '', ''),
-(11, 'Ana Bertulia', 'anabertulia@gmail.com', '$2y$10$UmfmETezDl0y3JnMy2RV6unDtAVvpHgyLjW7LRZxVFtOgUhq.84Zy', '2025-07-02', 'Activo', '', ''),
-(12, 'maria clara', 'maricruz@gmail.com', '$2y$10$E87IVWabtKZFhiYF2hW9v.Vk9L/MyEXQceSngDsrWJdRSHZ39hpny', '2025-07-02', 'Activo', '', ''),
-(13, 'Juan Pérez', 'juanperez@gmail.com', '1234segura', '2024-06-01', 'Activo', '', ''),
-(14, 'María López', 'marialopez@gmail.com', 'clave123', '2024-06-05', 'Activo', '', ''),
-(15, 'Carlos Gómez', 'carlosg@gmail.com', 'passw0rd', '2024-06-10', 'Activo', '', ''),
-(16, 'Laura Ruiz', 'lauraruiz@gmail.com', 'laura456', '2024-06-15', 'Activo', '', ''),
-(17, 'Andrés Torres', 'andrest@gmail.com', 'andres789', '2024-06-20', 'Activo', '', '');
+INSERT INTO `empleado` (`ID_Empleado`, `Nombre`, `Cargo`, `Correo`, `Contrasena`, `Fecha_Contratacion`, `Estado`) VALUES
+(1, 'Administrador principal', 'Administrador', 'admin@kshop.com', 'admin123', '2025-06-27', 'Activo'),
+(2, 'Luis Mendoza', 'Administrador', 'luism@gmail.com', 'admin123', '2023-01-10', 'Activo'),
+(3, 'Camila Salazar', 'Vendedor', 'camilas@gmail.com', 'venta123', '2023-03-15', 'Activo'),
+(4, 'Pedro Ríos', 'Vendedor', 'pedror@gmail.com', 'ventas456', '2023-04-20', 'Activo'),
+(5, 'Ana Torres', 'Administrador', 'anatorres@gmail.com', 'anaadmin', '2023-05-01', 'Activo'),
+(6, 'Santiago Vargas', 'Vendedor', 'santiagov@gmail.com', 'vendedor789', '2023-06-12', 'Activo'),
+(7, 'Marta Cecilia Carvajal Rugeles', 'vendedor', 'marta33@kshop.com', 'marta123', '2023-06-12', 'Activo'),
+(8, 'Carlos Villagran', 'vendedor', 'carlitos@kshop.com', '$2y$10$DsGgPGRa3afXtEsz18mPk.8K4ukR6SPsFnksyisXr3ablwKUmdG8a', '2023-06-12', 'Activo'),
+(9, 'Jose Suarez', 'vendedor', 'jose@kshop.com', '$2y$10$HEcgM/U2MDKFwN016Dnj8Ok9YrWePk4W6LgaoirQG54EUgytAbkHG', '2023-06-12', 'Activo'),
+(10, 'Sol Vargas', 'vendedor', 'sol@kshop.com', '$2y$10$BkKqc3rEB2bysULtxr3KYOLQkH.03smj59AnKy5EzuSWeOX/gLXje', '2025-07-03', 'Activo'),
+(11, 'Kevin Mendez', 'vendedor', 'kevin@kshop.com', '$2y$10$aH4Vi44pOB9EqjIE9CSwVuGl14JtKocjc7AI82eIOZU31JbizskES', '2025-07-04', 'Activo');
+
 
 -- --------------------------------------------------------
 
