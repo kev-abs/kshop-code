@@ -35,30 +35,89 @@ if (!$cliente) {
 <head>
   <meta charset="UTF-8">
   <title>Editar Perfil - K-SHOP</title>
+  <!-- Bootstrap y Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../Estilos/stilos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+  <style>
+    html, body {
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    .nav-link {
+      color: #000000 !important;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffffff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
+    }
+    .nav-link.text-warning:hover {
+      background-color: #dc3545;
+    }
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .carousel img {
+      object-fit: cover;
+      height: 500px;
+      filter: brightness(85%);
+    }
+  </style>
 </head>
 <body>
 
-<!-- Encabezado -->
-<div class="header d-flex justify-content-between align-items-center p-3" style="background-color: #198754; color: white;">
-  <div class="logo fw-bold fs-3">K-SHOP</div>
-  <nav>
-    <ul class="nav">
-      <li class="nav-item">
-        <a href="../Paneles/panelcliente.php" class="nav-link text-dark">Panel</a>
-      </li>
-      <li class="nav-item">
-        <a href="../php/cerrarsesion.php" class="btn ">Cerrar Sesión</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+<!-- ENCABEZADO -->
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+    <!-- LOGO -->
+    <div class="d-flex align-items-center">
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" height="" class="me-2">
+      <a class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
+    </div>
+
+    <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
+    </form>
+
+    <!-- MENÚ NAVEGACIÓN -->
+    <nav class="d-flex align-items-center gap-3">
+
+      <!-- Volver al Panel -->
+      <a href="./perfil_cliente.php" class="nav-link text-dark fw-semibold">Volver</a>
+      <!-- Pedidos -->
+      <a href="pedidos.php" class="nav-link text-dark fw-semibold">Mis pedidos</a>
+      <!--Lista de deseos-->
+      <a href="lista_deseos.php" class="nav-link text-dark fw-semibold">Lista de deseos</a>
+      <!--Carrito-->
+      <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+      <!-- CERRAR SESIÓN-->
+      <a href="../php/cerrarsesion.php" class="nav-link">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      </a>
+    </nav>
+  </div>
+</header>
 
 <!-- Formulario -->
 <div class="container mt-5">
   <h2 class="text-center mb-4">✏️ Editar Mi Perfil</h2>
-  <form action="editar_perfil.php" method="POST" class="card p-4 shadow">
+  <form action="editar_perfil_cliente.php" method="POST" class="card p-4 shadow">
     <input type="hidden" name="id" value="<?= $cliente['ID_Cliente'] ?>">
 
     <div class="mb-3">

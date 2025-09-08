@@ -1,50 +1,106 @@
+<?php
+session_start();
+unset($_SESSION['carrito']); // Vacía el carrito al llegar aquí
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Carrito de compras</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Estilos/stilos.css" />
+  <!-- Bootstrap y Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    .nav-link {
+      color: #000000 !important;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffffff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
+    }
+    .nav-link.text-warning:hover {
+      background-color: #dc3545;
+    }
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .carousel img {
+      object-fit: cover;
+      height: 500px;
+      filter: brightness(85%);
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Encabezado -->
-  <header class="header">
-    <div class="logo">K-SHOP</div>
-    <form action="/buscar" method="GET" class="form-busqueda">
-      <input type="text" name="q" placeholder="Buscar..." />
-    </form>
-    <nav class="navbar">
-      <ul>
-        <li><a href="../index.php">Inicio</a></li>
-        <li><a href="Productos.php">Productos</a></li>
-        <li><a href="servicios.php">Servicios</a></li>
-        <li><a href="contactos.php">Contacto</a></li>
+    <!-- ENCABEZADO -->
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
 
-      </ul>
+    <!-- LOGO -->
+    <div class="d-flex align-items-center">
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" height="" class="me-2">
+      <a href="../index.php" class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
+    </div>
+
+    <!-- BARRA DE BÚSQUEDA CENTRADA (invisible en móvil) -->
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
+    </form>
+
+    <!-- MENÚ NAVEGACIÓN -->
+    <nav class="d-flex align-items-center gap-3">
+      <a href="../Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
+      <a href="../Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
+      <!-- CARRITO -->
+      <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+
+      <!-- INICIAR SESIÓN -->
+      <a href="../Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+        <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
+      </a>
     </nav>
-  </header>
+  </div>
+</header>
 
   <!-- Contenido principal del carrito -->
-  <main class="carrito">
-    <h1>Estado de compra</h1>
-    <div class="row">
-    <div class="d-flex justify-content-center">
-        <h3>Compra Exitosa</h3>
-        
-    </div> 
-    </div> 
-    <div class="row">
-    <div class="d-flex justify-content-center">✔️</div> 
-    </div>  
-  </main>
+  <main class="carrito d-flex justify-content-center align-items-center py-5">
+  <div class="card text-center shadow p-4" style="max-width: 400px;">
+    <div class="card-body">
+      <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+      <h3 class="mt-3">¡Compra Exitosa!</h3>
+      <p class="text-muted">Gracias por tu compra. Pronto recibirás tu pedido.</p>
+      <a href="../index.php" class="btn btn-primary mt-3">Volver al inicio</a>
+    </div>
+  </div>
+</main>
 
   <!--FOOTER-->
-  <footer class="bg-dark text-white text-center py-4 mt-auto">
+<footer class="bg-dark text-white text-center py-4 mt-auto">
     <div class="container">
       <div class="mb-3">
         <a href="#" class="text-white me-3">Términos y condiciones</a>

@@ -8,12 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar"])) {
   $precio = $_POST["precio"];
   $stock = $_POST["stock"];
   $id_proveedor = $_POST["id_proveedor"];
-  $imagen = $_FILES['imagen']['name'];
-  $imagen_tmp = $_FILES['imagen']['tmp_name'];
 
-  // Guardar la imagen en la carpeta /imagenes_productos/
-  $ruta_imagen = "../imagenes_productos/" . $imagen;
-  move_uploaded_file($imagen_tmp, $ruta_imagen);
+  $imagen = null;
+  if (isset($_FILES['imagen']) && is_uploaded_file($_FILES['imagen']['tmp_name'])) {
+    $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+  }
 
   $sql = "INSERT INTO producto (Nombre, Descripcion, Precio, Stock, ID_Proveedor, Imagen)
           VALUES ('$nombre', '$descripcion', '$precio', '$stock', '$id_proveedor', '$imagen')";
@@ -45,44 +44,23 @@ $resultado = $conexion->query("SELECT * FROM producto");
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>K-SHOP - admin-productos</title>
+  <title>K-SHOP - Admin Productos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #fff;
-      color: #000;
-    }
-    header {
-      background-color: #fff;
-      border-bottom: 1px solid #dee2e6;
-    }
-    .nav-link {
-      color: #000;
-      margin-left: 1rem;
-    }
-    .nav-link:hover {
-      color: #0d6efd;
-    }
-    .btn-outline-dark:hover {
-      background-color: #0d6efd;
-      color: white;
-    }
-    .btn-outline-danger:hover {
-      background-color: #dc3545;
-      color: white;
-    }
-    .form-control, .btn {
-      border-radius: 0.5rem;
-    }
-    table {
-      background-color: #f8f9fa;
-    }
+    body { background-color: #fff; color: #000; }
+    header { background-color: #fff; border-bottom: 1px solid #dee2e6; }
+    .nav-link { color: #000; margin-left: 1rem; }
+    .nav-link:hover { color: #0d6efd; }
+    .btn-outline-dark:hover { background-color: #0d6efd; color: white; }
+    .btn-outline-danger:hover { background-color: #dc3545; color: white; }
+    .form-control, .btn { border-radius: 0.5rem; }
+    table { background-color: #f8f9fa; }
+    img.thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
   </style>
 </head>
 <body>
 
-<!-- ENCABEZADO -->
 <header class="bg-white sticky-top py-3 border-bottom shadow-sm">
   <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
     <div class="d-flex align-items-center">
@@ -95,19 +73,16 @@ $resultado = $conexion->query("SELECT * FROM producto");
     <nav class="d-flex align-items-center gap-3">
       <a href="./Productos.php" class="nav-link text-dark">Productos</a>
       <a href="./servicios.php" class="nav-link text-dark">Servicios</a>
-      <a href="./carrito.php" class="btn btn-outline-dark border-0">
-        <i class="bi bi-cart-fill"></i>
-      </a>
-      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
-        <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
-      </a>
+      <a href="./carrito.php" class="btn btn-outline-dark border-0"><i class="bi bi-cart-fill"></i></a>
+      <a href="./Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark"><i class="bi bi-person-circle me-1"></i>Iniciar Sesión</a>
     </nav>
   </div>
 </header>
 
 <div class="container py-5">
-  <h1 class="mb-4">🛠️ Panel de administrador - Productos</h1>
+  <h1 class="mb-4">Panel de administrador - Productos</h1>
 
+  <!-- Formulario agregar -->
   <form method="POST" class="mb-5" enctype="multipart/form-data">
     <h4 class="mb-3">Agregar nuevo producto</h4>
     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" required>
@@ -119,25 +94,30 @@ $resultado = $conexion->query("SELECT * FROM producto");
     <button name="agregar" class="btn btn-success">Agregar Producto</button>
   </form>
 
+  <!-- Tabla de productos -->
   <h4>Productos actuales</h4>
   <div class="table-responsive">
     <table class="table table-bordered table-hover">
       <thead class="table-light">
         <tr>
-          <th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Proveedor</th><th>Acción</th>
+          <th>ID</th>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Proveedor</th>
         </tr>
       </thead>
       <tbody>
         <?php while ($row = $resultado->fetch_assoc()): ?>
           <tr>
             <td><?= $row["ID_Producto"] ?></td>
+            <td><img src="ver_imagen.php?id=<?= $row['ID_Producto'] ?>" alt="Imagen" class="thumb"></td>
             <td><?= $row["Nombre"] ?></td>
             <td>$<?= number_format($row["Precio"], 0, ',', '.') ?></td>
             <td><?= $row["Stock"] ?></td>
             <td><?= $row["ID_Proveedor"] ?></td>
-            <td>
-              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit<?= $row["ID_Producto"] ?>">Editar</button>
-            </td>
+          
           </tr>
 
           <!-- Modal para editar -->
@@ -166,6 +146,7 @@ $resultado = $conexion->query("SELECT * FROM producto");
       </tbody>
     </table>
   </div>
+
   <div class="text-start mt-3">
     <a href="../Paneles/paneladmin.php" class="btn btn-outline-secondary">Volver al panel</a>
   </div>

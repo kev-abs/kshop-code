@@ -152,7 +152,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <img src="./Imagenes/equipo.jpg" class="img-fluid rounded shadow" alt="Nuestro equipo">
+          <img src="./Imagenes/tienda_cajera.jpg" class="img-fluid rounded shadow" alt="Nuestro equipo">
         </div>
         <div class="col-md-6">
           <h3 class="fw-bold">Sobre K-Shop</h3>
@@ -200,17 +200,17 @@
       <div class="col-md-3 mb-3">
         <h5>Enlaces rápidos</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white">Inicio</a></li>
-          <li><a href="#" class="text-white">Productos</a></li>
-          <li><a href="#" class="text-white">Servicios</a></li>
-          <li><a href="#" class="text-white">Contáctanos</a></li>
+          <li><a href="index.php" class="text-white">Inicio</a></li>
+          <li><a href="./Barra de navegacion/productos.php" class="text-white">Productos</a></li>
+          <li><a href="./Barra de navegacion/Productos.php" class="text-white">Servicios</a></li>
+          <li><a href="./Barra de navegacion/Productos.php" class="text-white">Contáctanos</a></li>
         </ul>
       </div>
       <div class="col-md-3 mb-3">
         <h5>Legal</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white">Términos y condiciones</a></li>
-          <li><a href="#" class="text-white">Política de privacidad</a></li>
+          <li><a href="./legales/Terminos_de_uso.php" class="text-white">Términos y condiciones</a></li>
+          <li><a href="./legales/politicas_de_privacidad.php" class="text-white">Política de privacidad</a></li>
           <li><a href="#" class="text-white">Cookies</a></li>
         </ul>
       </div>

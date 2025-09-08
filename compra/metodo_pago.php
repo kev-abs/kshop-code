@@ -1,161 +1,224 @@
+<?php
+session_start();
+
+// Obtener productos del carrito
+$carrito = $_SESSION['carrito'] ?? [];
+
+// Calcular subtotal
+$subtotal = 0;
+foreach ($carrito as $producto) {
+    $cantidad = $producto['cantidad'] ?? 1;
+    $subtotal += $producto['precio'] * $cantidad;
+}
+
+// Obtener envío desde sesión
+$envio = $_SESSION['envio_valor'] ?? 0;
+
+// Calcular total
+$total = $subtotal + $envio;
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K-SHOP - Método de Pago</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../Estilos/stilos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    .nav-link {
+      color: #000000 !important;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffffff !important;
+      background-color: #0d6efd;
+      border-radius: 0.375rem;
+    }
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .resumen-fijo img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+  </style>
 </head>
 
 <body>
-  <!-- Encabezado -->
-  <header class="header">
-    <div class="logo">K-SHOP</div>
-    <form action="/buscar" method="GET" class="form-busqueda">
-      <input type="text" name="q" placeholder="Buscar..." />
+<header class="bg-white sticky-top py-3 border-bottom shadow-sm">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <img src="../Imagenes/logo_kshopsinfondo.png" alt="Logo K-Shop" width="83" class="me-2">
+      <a href="../index.php" class="text-decoration-none fs-7 fw-bold text-dark">K-SHOP</a>
+    </div>
+    <form class="mx-auto d-none d-md-block w-50" action="/buscar" method="GET">
+      <input type="text" class="form-control" name="q" placeholder="Buscar productos...">
     </form>
-    <nav class="navbar">
-      <ul>
-        <li><a href="../index.php">Inicio</a></li>
-        <li><a href="../Barra de navegacion/Productos.php">Productos</a></li>
-        <li><a href="../Barra de navegacion/servicios.php">Servicios</a></li>
-        <li><a href="../Barra de navegacion/contactos.php">Contáctanos</a></li>
-      </ul>
+    <nav class="d-flex align-items-center gap-3">
+      <a href="../Barra de navegacion/Productos.php" class="nav-link text-dark">Productos</a>
+      <a href="../Barra de navegacion/servicios.php" class="nav-link text-dark">Servicios</a>
+      <a href="../Barra de navegacion/carrito.php" class="btn btn-outline-dark border-0">
+        <i class="bi bi-cart-fill"></i>
+      </a>
+      <a href="./Barra de navegacion/Iniciarsesion.php" class="btn btn-outline-dark border-0 text-dark">
+        <i class="bi bi-person-circle me-1"></i>Iniciar Sesión
+      </a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main class="container my-5">
-    <div class="row">
-      <!-- Columna izquierda: Método de envío -->
-      <div class="col-md-8">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">Método de envío</li>
-            <li class="breadcrumb-item">Método de pago</li>
-            <li class="breadcrumb-item">Resumen</li>
-          </ol>
-        </nav>
+<main class="container my-5">
+  <div class="row">
+    <div class="col-md-8">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Método de envío</li>
+          <li class="breadcrumb-item">Método de pago</li>
+          <li class="breadcrumb-item">Resumen</li>
+        </ol>
+      </nav>
 
-        <h2 class="fw-bold mb-4">Elige un método de pago</h2>
+      <h2 class="fw-bold mb-4">Elige un método de pago</h2>
 
-        <div class="list-group mb-4">
-          <label class="list-group-item d-flex justify-content-between align-items-center">
-            <div>
-              <input type="radio" name="envio" value="tarjeta" class="form-check-input me-2 envio-opcion" />
-              <strong>Tarjeta</strong><br />
-              <small class="text-muted">Credito/Debito</small>
-            </div>
-
-          </label>
-
-          <label class="list-group-item d-flex justify-content-between align-items-center">
-            <div>
-              <input type="radio" name="envio" value="efectivo" class="form-check-input me-2 envio-opcion" />
-              <strong>Efectivo</strong><br />
-              <small class="text-muted">Contraentrega</small>
-            </div>
-          </label>
-        </div>
-
-
-
-        <div id="formularioTarjeta" class="mt-4 d-none">
-          <h5 class="fw-bold">Datos de la tarjeta</h5>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="nombreTarjeta">Nombre del titular</label>
-              <input type="text" id="nombreTarjeta" class="form-control" placeholder="Como aparece en la tarjeta"
-                required />
-            </div>
-            <div class="col-md-6">
-              <label for="numeroTarjeta">Número de tarjeta</label>
-              <input type="text" id="numeroTarjeta" class="form-control" maxlength="16"
-                placeholder="1234 5678 9012 3456" required />
-            </div>
-            <div class="col-md-6">
-              <label for="expiracionTarjeta">Fecha de expiración</label>
-              <input type="month" id="expiracionTarjeta" class="form-control" required />
-            </div>
-            <div class="col-md-6">
-              <label for="cvvTarjeta">CVV</label>
-              <input type="text" id="cvvTarjeta" class="form-control" maxlength="4" placeholder="123" required />
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="d-flex justify-content-between align-items-center mt-4">
-          <a href="metodo de envio.php" class="btn btn-link">&lt; Volver a método de envío</a>
-          <a href="compra_exitosa.php" id="continuarBtn" class="btn btn-dark btn-lg w-50 disabled" tabindex="-1"
-            aria-disabled="true">CONTINUAR</a>
-        </div>
-      </div>
-
-      <!-- Columna derecha: Resumen de compra -->
-      <div class="col-md-4 resumen-fijo">
-        <h5 class="fw-bold">Resumen de la compra (0)</h5>
-        <div class="d-flex mb-3">
-          <img src="../Imagenes/camiseta boxy.jpeg" alt="Producto" class="img-thumbnail me-3" style="width: 100px" />
+      <div class="list-group mb-4">
+        <label class="list-group-item d-flex justify-content-between align-items-center">
           <div>
-            <p class="mb-0 fw-bold">
-              0 COP
-            </p>
-            <p class="mb-1 small">Descripcion</p>
-            <p class="small text-muted mb-0">Talla: M</p>
+            <input type="radio" name="metodo_pago" value="tarjeta" class="form-check-input me-2 envio-opcion" />
+            <strong>Tarjeta</strong><br />
+            <small class="text-muted">Crédito/Débito</small>
+          </div>
+        </label>
+        <label class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <input type="radio" name="metodo_pago" value="efectivo" class="form-check-input me-2 envio-opcion" />
+            <strong>Efectivo</strong><br />
+            <small class="text-muted">Contraentrega</small>
+          </div>
+        </label>
+      </div>
+
+      <div id="formularioTarjeta" class="mt-4 d-none">
+        <h5 class="fw-bold">Datos de la tarjeta</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="nombreTarjeta">Nombre del titular</label>
+            <input type="text" id="nombreTarjeta" class="form-control" placeholder="Como aparece en la tarjeta" />
+          </div>
+          <div class="col-md-6">
+            <label for="numeroTarjeta">Número de tarjeta</label>
+            <input type="text" id="numeroTarjeta" class="form-control" maxlength="16" placeholder="1234 5678 9012 3456" />
+          </div>
+          <div class="col-md-6">
+            <label for="expiracionTarjeta">Fecha de expiración</label>
+            <input type="month" id="expiracionTarjeta" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label for="cvvTarjeta">CVV</label>
+            <input type="text" id="cvvTarjeta" class="form-control" maxlength="4" placeholder="123" />
           </div>
         </div>
-        <hr />
-        <div class="d-flex justify-content-between fw-bold">
-          <span>Subtotal</span>
-          <span>0 COP</span>
-        </div>
-        <div class="d-flex justify-content-between fw-bold mt-2">
-          <span>Total <small class="text-muted">(IVA Incluido)</small></span>
-          <span>0 COP</span>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <a href="envio_formulario.php" class="btn btn-link">&lt; Volver</a>
+        <a href="compra_exitosa.php" id="continuarBtn" class="btn btn-dark btn-lg w-50 disabled" tabindex="-1" aria-disabled="true">CONTINUAR</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 resumen-fijo">
+      <h5 class="fw-bold">Resumen de la compra (<?= count($carrito) ?>)</h5>
+      <?php if (!empty($carrito)): ?>
+        <?php foreach ($carrito as $producto): ?>
+  <?php
+    $cantidad = $producto['cantidad'] ?? 1;
+    $subtotal_producto = $producto['precio'] * $cantidad;
+  ?>
+  <div class="card mb-3 shadow-sm">
+    <div class="row g-0">
+      <div class="col-4 d-flex align-items-center justify-content-center bg-light">
+        <img src="data:image/jpeg;base64,<?= $producto['imagen'] ?>"
+             class="img-fluid p-2"
+             alt="<?= $producto['titulo'] ?>"
+             style="max-height: 100px; object-fit: contain;">
+      </div>
+      <div class="col-8">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1"><?= htmlspecialchars($producto['titulo']) ?></h6>
+          <p class="card-text mb-0">Precio: $<?= number_format($producto['precio'], 0, ',', '.') ?></p>
+          <p class="card-text mb-0">Cantidad: <?= $cantidad ?></p>
+          <p class="card-text mb-0">Talla: <?= $producto['talla'] ?? 'Única' ?></p>
+          <p class="card-text"><small class="text-muted">Subtotal: $<?= number_format($subtotal_producto, 0, ',', '.') ?></small></p>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+<?php endforeach; ?>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-4 mt-auto">
-    <div class="container">
-      <div class="mb-3">
-        <a href="#" class="text-white me-3">Términos y condiciones</a>
-        <a href="#" class="text-white me-3">Política de privacidad</a>
-        <a href="#" class="text-white me-3">¿Necesitas ayuda?</a>
+      <?php else: ?>
+        <div class="alert alert-warning">Tu carrito está vacío.</div>
+      <?php endif; ?>
+      <hr />
+      <div class="d-flex justify-content-between fw-bold">
+        <span>Subtotal</span>
+        <span>$<?= number_format($subtotal, 0, ',', '.') ?></span>
       </div>
-      <p class="mb-0">
-        &copy; 2025 Tienda K-Shop - Todos los derechos reservados
-      </p>
+      <div class="d-flex justify-content-between fw-bold">
+        <span>Envío</span>
+        <span>$<?= number_format($envio, 0, ',', '.') ?></span>
+      </div>
+      <div class="d-flex justify-content-between fw-bold mt-2">
+        <span>Total</span>
+        <span>$<?= number_format($total, 0, ',', '.') ?></span>
+      </div>
     </div>
-  </footer>
+  </div>
+</main>
 
-  <script>
-    document.querySelectorAll(".envio-opcion").forEach((radio) => {
-      radio.addEventListener("change", function () {
-        const continuarBtn = document.getElementById("continuarBtn");
-        const formularioTarjeta = document.getElementById("formularioTarjeta");
+<footer class="bg-dark text-white text-center py-3 mt-auto">
+  <div class="container">
+    <div class="mb-3">
+      <a href="#" class="text-white me-3">Términos y condiciones</a>
+      <a href="#" class="text-white me-3">Política de privacidad</a>
+      <a href="#" class="text-white me-3">¿Necesitas ayuda?</a>
+    </div>
+    <p class="mb-0">&copy; 2025 Tienda K-Shop - Todos los derechos reservados</p>
+  </div>
+</footer>
 
-        continuarBtn.classList.remove("disabled");
-        continuarBtn.removeAttribute("aria-disabled");
-        continuarBtn.setAttribute("tabindex", "0");
+<script>
+  document.querySelectorAll(".envio-opcion").forEach((radio) => {
+    radio.addEventListener("change", function () {
+      const continuarBtn = document.getElementById("continuarBtn");
+      const formularioTarjeta = document.getElementById("formularioTarjeta");
 
-        if (this.value === "tarjeta") {
-          formularioTarjeta.classList.remove("d-none");
-        } else {
-          formularioTarjeta.classList.add("d-none");
-        }
-      });
+      continuarBtn.classList.remove("disabled");
+      continuarBtn.removeAttribute("aria-disabled");
+      continuarBtn.setAttribute("tabindex", "0");
+
+      if (this.value === "tarjeta") {
+        formularioTarjeta.classList.remove("d-none");
+      } else {
+        formularioTarjeta.classList.add("d-none");
+      }
     });
-  </script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../Funciones/funciones.js" defer></script>
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
