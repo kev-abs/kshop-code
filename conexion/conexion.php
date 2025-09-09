@@ -2,7 +2,7 @@
 $host = "localhost";       // O IP del servidor, ej: 127.0.0.1
 $usuario = "root";         // Usuario de MySQL
 $contrasena = "";          // Contraseña del usuario
-$base_datos = "TiendaKshop2";  // Nombre de la base de datos
+$base_datos = "TiendaKshop";  // Nombre de la base de datos
 
 $conexion = new mysqli($host, $usuario, $contrasena, $base_datos);
 
